@@ -21,6 +21,7 @@ mysql57-community/x86_64          MySQL 5.7 Community Server                 187
 ```
 ## 安装最新版
 $sudo yum install mysql-community-server
+$ sudo yum install mysql   ## 安装客户端
 ## 安装老版本
 ## 1. yum-config-manager
 $ sudo dnf config-manager --disable mysql57-community

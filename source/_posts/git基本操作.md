@@ -28,7 +28,7 @@ git的通用操作流程如下图（来源于网络）
 
 
 
-![git几个核心区域间的关系](<assets/162fcc0e7e711dc7.png>)
+![](http://wumu.sciento.cn/img/162fcc0e7e711dc7.png)
 
 
 
