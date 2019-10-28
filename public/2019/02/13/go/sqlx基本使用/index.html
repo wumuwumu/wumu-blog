@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>sqlx基本使用 | wumu&#39;s blog | wumu的博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="go">
+    <meta name="description" content="安装1go get github.com/jmoiron/sqlx 连接数据库12345678910var db *sqlx.DB // exactly the same as the built-indb = sqlx.Open(&quot;sqlite3&quot;, &quot;:memory:&quot;) // from a pre-existing sql.DB; note the required driverNamedb">
+<meta name="keywords" content="go">
+<meta property="og:type" content="article">
+<meta property="og:title" content="sqlx基本使用">
+<meta property="og:url" content="http://wumuwumu.github.io/2019/02/13/go/sqlx基本使用/index.html">
+<meta property="og:site_name" content="wumu&#39;s blog">
+<meta property="og:description" content="安装1go get github.com/jmoiron/sqlx 连接数据库12345678910var db *sqlx.DB // exactly the same as the built-indb = sqlx.Open(&quot;sqlite3&quot;, &quot;:memory:&quot;) // from a pre-existing sql.DB; note the required driverNamedb">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-04-12T02:21:01.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="sqlx基本使用">
+<meta name="twitter:description" content="安装1go get github.com/jmoiron/sqlx 连接数据库12345678910var db *sqlx.DB // exactly the same as the built-indb = sqlx.Open(&quot;sqlite3&quot;, &quot;:memory:&quot;) // from a pre-existing sql.DB; note the required driverNamedb">
+    
+        <link rel="alternate" type="application/atom+xml" title="wumu&#39;s blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/avatar.png">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">wumu</h5>
+          <a href="mailto:2232728687@qq.com" title="2232728687@qq.com" class="mail">2232728687@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags">
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/wumuwumu" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">sqlx基本使用</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">sqlx基本使用</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-02-13T08:15:58.000Z" itemprop="datePublished" class="page-time">
+  2019-02-13
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#安装"><span class="post-toc-number">1.</span> <span class="post-toc-text">安装</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#连接数据库"><span class="post-toc-number">2.</span> <span class="post-toc-text">连接数据库</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#查询"><span class="post-toc-number">3.</span> <span class="post-toc-text">查询</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Exec"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">Exec</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Query"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">Query</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Select"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">Select</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#事务"><span class="post-toc-number">4.</span> <span class="post-toc-text">事务</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#预编译"><span class="post-toc-number">5.</span> <span class="post-toc-text">预编译</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Named-Queries"><span class="post-toc-number">6.</span> <span class="post-toc-text">Named Queries</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#参考"><span class="post-toc-number">7.</span> <span class="post-toc-text">参考</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-go/sqlx基本使用" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">sqlx基本使用</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-02-13 16:15:58" datetime="2019-02-13T08:15:58.000Z" itemprop="datePublished">2019-02-13</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">go get github.com/jmoiron/sqlx</span><br></pre></td></tr></table></figure>
+<h1 id="连接数据库"><a href="#连接数据库" class="headerlink" title="连接数据库"></a>连接数据库</h1><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> db *sqlx.DB</span><br><span class="line"> </span><br><span class="line"><span class="comment">// exactly the same as the built-in</span></span><br><span class="line">db = sqlx.Open(<span class="string">"sqlite3"</span>, <span class="string">":memory:"</span>)</span><br><span class="line"> </span><br><span class="line"><span class="comment">// from a pre-existing sql.DB; note the required driverName</span></span><br><span class="line">db = sqlx.NewDb(sql.Open(<span class="string">"sqlite3"</span>, <span class="string">":memory:"</span>), <span class="string">"sqlite3"</span>)</span><br><span class="line"> </span><br><span class="line"><span class="comment">// force a connection and test that it worked</span></span><br><span class="line">err = db.Ping()</span><br></pre></td></tr></table></figure>
+<h1 id="查询"><a href="#查询" class="headerlink" title="查询"></a>查询</h1><h2 id="Exec"><a href="#Exec" class="headerlink" title="Exec"></a>Exec</h2><p>直接执行，适合add,update,delete</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">schema := <span class="string">`CREATE TABLE place (</span></span><br><span class="line"><span class="string">    country text,</span></span><br><span class="line"><span class="string">    city text NULL,</span></span><br><span class="line"><span class="string">    telcode integer);`</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">// execute a query on the server</span></span><br><span class="line">result, err := db.Exec(schema)</span><br><span class="line"> </span><br><span class="line"><span class="comment">// or, you can use MustExec, which panics on error</span></span><br><span class="line">cityState := <span class="string">`INSERT INTO place (country, telcode) VALUES (?, ?)`</span></span><br><span class="line">countryCity := <span class="string">`INSERT INTO place (country, city, telcode) VALUES (?, ?, ?)`</span></span><br><span class="line">db.MustExec(cityState, <span class="string">"Hong Kong"</span>, <span class="number">852</span>)</span><br><span class="line">db.MustExec(cityState, <span class="string">"Singapore"</span>, <span class="number">65</span>)</span><br><span class="line">db.MustExec(countryCity, <span class="string">"South Africa"</span>, <span class="string">"Johannesburg"</span>, <span class="number">27</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="Query"><a href="#Query" class="headerlink" title="Query"></a>Query</h2><p>查询数据库，适合select</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// fetch all places from the db</span></span><br><span class="line">rows, err := db.Query(<span class="string">"SELECT country, city, telcode FROM place"</span>)</span><br><span class="line"> </span><br><span class="line"><span class="comment">// iterate over each row</span></span><br><span class="line"><span class="keyword">for</span> rows.Next() &#123;</span><br><span class="line">    <span class="keyword">var</span> country <span class="keyword">string</span></span><br><span class="line">    <span class="comment">// note that city can be NULL, so we use the NullString type</span></span><br><span class="line">    <span class="keyword">var</span> city    sql.NullString</span><br><span class="line">    <span class="keyword">var</span> telcode <span class="keyword">int</span></span><br><span class="line">    err = rows.Scan(&amp;country, &amp;city, &amp;telcode)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// queryx 可以对结果转换成结构体</span></span><br><span class="line"><span class="keyword">var</span> person2 User</span><br><span class="line">	rowxs,err :=db.Queryx(<span class="string">"SELECT * FROM sys_user LIMIT 1"</span>)</span><br><span class="line">	<span class="keyword">if</span> err != <span class="literal">nil</span>&#123;</span><br><span class="line">		<span class="built_in">panic</span>(err)</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span> rowxs.Next()&#123;</span><br><span class="line">		rowxs.StructScan(&amp;person2)</span><br><span class="line">		fmt.Println(person2)</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Select"><a href="#Select" class="headerlink" title="Select"></a>Select</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">p := Place&#123;&#125;</span><br><span class="line">pp := []Place&#123;&#125;</span><br><span class="line"> </span><br><span class="line"><span class="comment">// this will pull the first place directly into p</span></span><br><span class="line">err = db.Get(&amp;p, <span class="string">"SELECT * FROM place LIMIT 1"</span>)</span><br><span class="line"> </span><br><span class="line"><span class="comment">// this will pull places with telcode &gt; 50 into the slice pp</span></span><br><span class="line">err = db.Select(&amp;pp, <span class="string">"SELECT * FROM place WHERE telcode &gt; ?"</span>, <span class="number">50</span>)</span><br><span class="line"> </span><br><span class="line"><span class="comment">// they work with regular types as well</span></span><br><span class="line"><span class="keyword">var</span> id <span class="keyword">int</span></span><br><span class="line">err = db.Get(&amp;id, <span class="string">"SELECT count(*) FROM place"</span>)</span><br><span class="line"> </span><br><span class="line"><span class="comment">// fetch at most 10 place names</span></span><br><span class="line"><span class="keyword">var</span> names []<span class="keyword">string</span></span><br><span class="line">err = db.Select(&amp;names, <span class="string">"SELECT name FROM place LIMIT 10"</span>)</span><br></pre></td></tr></table></figure>
+<h1 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h1><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// this will not work if connection pool &gt; 1</span></span><br><span class="line">db.MustExec(<span class="string">"BEGIN;"</span>)</span><br><span class="line">db.MustExec(...)</span><br><span class="line">db.MustExec(<span class="string">"COMMIT;"</span>)</span><br></pre></td></tr></table></figure>
+<h1 id="预编译"><a href="#预编译" class="headerlink" title="预编译"></a>预编译</h1><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">stmt, err := db.Prepare(<span class="string">`SELECT * FROM place WHERE telcode=?`</span>)</span><br><span class="line">row = stmt.QueryRow(<span class="number">65</span>)</span><br><span class="line"> </span><br><span class="line">tx, err := db.Begin()</span><br><span class="line">txStmt, err := tx.Prepare(<span class="string">`SELECT * FROM place WHERE telcode=?`</span>)</span><br><span class="line">row = txStmt.QueryRow(<span class="number">852</span>)</span><br></pre></td></tr></table></figure>
+<h1 id="Named-Queries"><a href="#Named-Queries" class="headerlink" title="Named Queries"></a>Named Queries</h1><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// named query with a struct</span></span><br><span class="line">p := Place&#123;Country: <span class="string">"South Africa"</span>&#125;</span><br><span class="line">rows, err := db.NamedQuery(<span class="string">`SELECT * FROM place WHERE country=:country`</span>, p)</span><br><span class="line"> </span><br><span class="line"><span class="comment">// named query with a map</span></span><br><span class="line">m := <span class="keyword">map</span>[<span class="keyword">string</span>]<span class="keyword">interface</span>&#123;&#125;&#123;<span class="string">"city"</span>: <span class="string">"Johannesburg"</span>&#125;</span><br><span class="line">result, err := db.NamedExec(<span class="string">`SELECT * FROM place WHERE city=:city`</span>, m)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">p := Place&#123;TelephoneCode: <span class="number">50</span>&#125;</span><br><span class="line">pp := []Place&#123;&#125;</span><br><span class="line"> </span><br><span class="line"><span class="comment">// select all telcodes &gt; 50</span></span><br><span class="line">nstmt, err := db.PrepareNamed(<span class="string">`SELECT * FROM place WHERE telcode &gt; :telcode`</span>)</span><br><span class="line">err = nstmt.Select(&amp;pp, p)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">arg := <span class="keyword">map</span>[<span class="keyword">string</span>]<span class="keyword">interface</span>&#123;&#125;&#123;</span><br><span class="line">    <span class="string">"published"</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="string">"authors"</span>: []&#123;<span class="number">8</span>, <span class="number">19</span>, <span class="number">32</span>, <span class="number">44</span>&#125;,</span><br><span class="line">&#125;</span><br><span class="line">query, args, err := sqlx.Named(<span class="string">"SELECT * FROM articles WHERE published=:published AND author_id IN (:authors)"</span>, arg)</span><br><span class="line">query, args, err := sqlx.In(query, args...)</span><br><span class="line">query = db.Rebind(query)</span><br><span class="line">db.Query(query, args...)</span><br></pre></td></tr></table></figure>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><blockquote>
+<p><a href="http://jmoiron.github.io/sqlx/" target="_blank" rel="noopener">http://jmoiron.github.io/sqlx/</a></p>
+</blockquote>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-04-12T02:21:01.000Z" itemprop="dateUpdated">2019-04-12 10:21:01</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2019/02/13/go/sqlx基本使用/" target="_blank" rel="external">http://wumuwumu.github.io/2019/02/13/go/sqlx基本使用/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://wumuwumu.github.io">
+            <img src="/img/avatar.png" alt="wumu">
+            wumu
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/go/">go</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://wumuwumu.github.io/2019/02/13/go/sqlx基本使用/&title=《sqlx基本使用》 — wumu's blog&pic=http://wumuwumu.github.io/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://wumuwumu.github.io/2019/02/13/go/sqlx基本使用/&title=《sqlx基本使用》 — wumu's blog&source=起风了，唯有努力生存" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://wumuwumu.github.io/2019/02/13/go/sqlx基本使用/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《sqlx基本使用》 — wumu's blog&url=http://wumuwumu.github.io/2019/02/13/go/sqlx基本使用/&via=http://wumuwumu.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://wumuwumu.github.io/2019/02/13/go/sqlx基本使用/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/02/15/java多线程/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">java多线程</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/01/12/jquery基本操作/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">jquery基本操作</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "V8NlRMg78hP7LSAg49QpIIMV-gzGzoHsz",
+            appKey: "I8XKrcOwUTeg1Sv7mVwEcnMF",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="bottom">
+        <p>
+            <span>wumu &copy; 2018 - 2019</span>
+            <span>
+                 Power by
+                <a href="http://hexo.io/" target="_blank">Hexo</a> Theme
+                <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://wumuwumu.github.io/2019/02/13/go/sqlx基本使用/&title=《sqlx基本使用》 — wumu's blog&pic=http://wumuwumu.github.io/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://wumuwumu.github.io/2019/02/13/go/sqlx基本使用/&title=《sqlx基本使用》 — wumu's blog&source=起风了，唯有努力生存" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://wumuwumu.github.io/2019/02/13/go/sqlx基本使用/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《sqlx基本使用》 — wumu's blog&url=http://wumuwumu.github.io/2019/02/13/go/sqlx基本使用/&via=http://wumuwumu.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://wumuwumu.github.io/2019/02/13/go/sqlx基本使用/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACMklEQVR42u3aUY7CMAxFUfa/aWYBkHCfDSMlvv0atbTNAcnj2H488PFcHK9XV2f2T07vKh4yZMg4lvHcHiljtQh+lbz3zXNkyJAxgEFCIXklD6a1Zy7Py5AhQwYOlGSh+0AsQ4YMGd9i8K0mWTohyZAhQwYPnfzeWuHs53txGTJkHMioPfp//v5Jf0OGDBlHMZ7hQRK72hJ5kH2zKhkyZFzN4AEuxaRjFrV7ZciQMYHBB7zIYARpFRAGL8wF37EMGTKOZXxt0KFROOukm8vfRIYMGdcxeGBNEz7OSBuly5XIkCFjDGO/XDJ4ypeSNilRP1aGDBkXMfYpGrlKSnJpeyDdVMuQIeNuBl9ErXzPA3qt0Bb8MjJkyDicwbedhFELl7zNgDqxMmTIGMCoFe47W9ZO+ihDhoy7GSTJI8lZv3DWaprKkCFjDKP2ytqIGAejYQsZMmQMYwQ9z1Lc649fyJAhYxojLfTXkj9ePqtthmXIkDGBUSu68SGMzlwEZ8uQIeNuBh90SJuLJOnkZz4EdBkyZAxgdMr96dV0zAKljzJkyBjASJM5VLIPW6G1hFKGDBl3MzrNxXQDnA5zxPtvGTJkXMrgR+fR+9Bc+3xa2pMhQ8bpDL5NJeGSvz4d8vjwlcmQIWMAgy+lU0Tr/wdAPVgZMmSMZ/BifRqmeXlOhgwZMtL0rva0tJ354e0yZMgYwOiPU6yWkjYYUowMGTImMNKtI2fsg2+6iC80NWXIkHEe4w/u02qYfeKD0AAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = 'wumu的博客';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

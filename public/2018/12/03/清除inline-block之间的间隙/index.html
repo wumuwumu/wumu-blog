@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>清除inline-block之间的间隙 | wumu&#39;s blog | wumu的博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="js">
+    <meta name="description" content="原因两个inline-block之间存在间隙，这是因为html元素换行导致的（换行和元素之间的空格、tabs、多个空格，结果一样，最后都是一个空格） 移除空格如果我们使用html minimize工具，会清除html之间的空格。如果没有使用就需要我们手动去除。该方法简单但是不推荐使用，阅读不方便。 123456789101112131415&amp;lt;!-- 方法一 --&amp;gt;&amp;lt;div&amp;gt;">
+<meta name="keywords" content="js">
+<meta property="og:type" content="article">
+<meta property="og:title" content="清除inline-block之间的间隙">
+<meta property="og:url" content="http://wumuwumu.github.io/2018/12/03/清除inline-block之间的间隙/index.html">
+<meta property="og:site_name" content="wumu&#39;s blog">
+<meta property="og:description" content="原因两个inline-block之间存在间隙，这是因为html元素换行导致的（换行和元素之间的空格、tabs、多个空格，结果一样，最后都是一个空格） 移除空格如果我们使用html minimize工具，会清除html之间的空格。如果没有使用就需要我们手动去除。该方法简单但是不推荐使用，阅读不方便。 123456789101112131415&amp;lt;!-- 方法一 --&amp;gt;&amp;lt;div&amp;gt;">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-12-03T13:07:22.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="清除inline-block之间的间隙">
+<meta name="twitter:description" content="原因两个inline-block之间存在间隙，这是因为html元素换行导致的（换行和元素之间的空格、tabs、多个空格，结果一样，最后都是一个空格） 移除空格如果我们使用html minimize工具，会清除html之间的空格。如果没有使用就需要我们手动去除。该方法简单但是不推荐使用，阅读不方便。 123456789101112131415&amp;lt;!-- 方法一 --&amp;gt;&amp;lt;div&amp;gt;">
+    
+        <link rel="alternate" type="application/atom+xml" title="wumu&#39;s blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/avatar.png">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">wumu</h5>
+          <a href="mailto:2232728687@qq.com" title="2232728687@qq.com" class="mail">2232728687@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags">
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/wumuwumu" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">清除inline-block之间的间隙</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">清除inline-block之间的间隙</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-12-03T11:54:08.000Z" itemprop="datePublished" class="page-time">
+  2018-12-03
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#原因"><span class="post-toc-number">1.</span> <span class="post-toc-text">原因</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#移除空格"><span class="post-toc-number">2.</span> <span class="post-toc-text">移除空格</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#负值margin"><span class="post-toc-number">3.</span> <span class="post-toc-text">负值margin</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#父元素font-size设置为0"><span class="post-toc-number">4.</span> <span class="post-toc-text">父元素font-size设置为0</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#使用letter-spacing"><span class="post-toc-number">5.</span> <span class="post-toc-text">使用letter-spacing</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#使用word-spacing"><span class="post-toc-number">6.</span> <span class="post-toc-text">使用word-spacing</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#使用浮动"><span class="post-toc-number">7.</span> <span class="post-toc-text">使用浮动</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#参考"><span class="post-toc-number">8.</span> <span class="post-toc-text">参考</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#代码"><span class="post-toc-number">9.</span> <span class="post-toc-text">代码</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-清除inline-block之间的间隙" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">清除inline-block之间的间隙</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-12-03 19:54:08" datetime="2018-12-03T11:54:08.000Z" itemprop="datePublished">2018-12-03</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h1><p>两个<code>inline-block</code>之间存在间隙，这是因为<code>html</code>元素换行导致的（换行和元素之间的空格、tabs、多个空格，结果一样，最后都是一个空格）</p>
+<h1 id="移除空格"><a href="#移除空格" class="headerlink" title="移除空格"></a>移除空格</h1><p>如果我们使用html minimize工具，会清除html之间的空格。如果没有使用就需要我们手动去除。该方法简单但是不推荐使用，阅读不方便。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 方法一 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">one<span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">two<span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">three<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 方法二 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span>one<span class="tag">&lt;/<span class="name">div</span></span></span><br><span class="line"><span class="tag">&gt;</span><span class="tag">&lt;<span class="name">div</span>&gt;</span>two<span class="tag">&lt;/<span class="name">div</span></span></span><br><span class="line"><span class="tag">&gt;</span><span class="tag">&lt;<span class="name">div</span>&gt;</span>three<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 方法三 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span>one<span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">--&gt;</span><span class="tag">&lt;<span class="name">div</span>&gt;</span>two<span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">--&gt;</span><span class="tag">&lt;<span class="name">div</span>&gt;</span>three<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h1 id="负值margin"><a href="#负值margin" class="headerlink" title="负值margin"></a>负值margin</h1><p>不推荐使用，每个浏览器之间的间隙不同。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">nav</span> <span class="selector-tag">a</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: inline-block;</span><br><span class="line">  <span class="attribute">margin-right</span>: -<span class="number">4px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="父元素font-size设置为0"><a href="#父元素font-size设置为0" class="headerlink" title="父元素font-size设置为0"></a>父元素font-size设置为0</h1><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.space</span> &#123;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.space</span> <span class="selector-tag">a</span> &#123;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">12px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这种方法是推荐使用的，但是在ie和Chrome浏览器(新的浏览器没有问题)上可能出现问题，因为在chrome上有最小字体限制。改进方法如下。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.space</span> &#123;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">-webkit-text-size-adjust</span>:none;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="使用letter-spacing"><a href="#使用letter-spacing" class="headerlink" title="使用letter-spacing"></a>使用letter-spacing</h1><p><code>letter-spacing</code>用于修改字符间的间隙。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.space</span> &#123;</span><br><span class="line">    <span class="attribute">letter-spacing</span>: -<span class="number">3px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.space</span> <span class="selector-tag">a</span> &#123;</span><br><span class="line">    <span class="attribute">letter-spacing</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="使用word-spacing"><a href="#使用word-spacing" class="headerlink" title="使用word-spacing"></a>使用word-spacing</h1><p><code>word-spacing</code>修改单词之间的间隙</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.space</span> &#123;</span><br><span class="line">    <span class="attribute">word-spacing</span>: -<span class="number">6px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.space</span> <span class="selector-tag">a</span> &#123;</span><br><span class="line">    <span class="attribute">word-spacing</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="使用浮动"><a href="#使用浮动" class="headerlink" title="使用浮动"></a>使用浮动</h1><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">a</span>&#123;</span><br><span class="line">    <span class="attribute">float</span>:left;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><blockquote>
+<p><a href="https://www.zhangxinxu.com/wordpress/2012/04/inline-block-space-remove-%E5%8E%BB%E9%99%A4%E9%97%B4%E8%B7%9D/" target="_blank" rel="noopener">https://www.zhangxinxu.com/wordpress/2012/04/inline-block-space-remove-%E5%8E%BB%E9%99%A4%E9%97%B4%E8%B7%9D/</a></p>
+</blockquote>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><blockquote>
+<p> <a href="https://codepen.io/wumuwumu/pen/WYmKYX" target="_blank" rel="noopener">https://codepen.io/wumuwumu/pen/WYmKYX</a></p>
+</blockquote>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-12-03T13:07:22.000Z" itemprop="dateUpdated">2018-12-03 21:07:22</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2018/12/03/清除inline-block之间的间隙/" target="_blank" rel="external">http://wumuwumu.github.io/2018/12/03/清除inline-block之间的间隙/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://wumuwumu.github.io">
+            <img src="/img/avatar.png" alt="wumu">
+            wumu
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://wumuwumu.github.io/2018/12/03/清除inline-block之间的间隙/&title=《清除inline-block之间的间隙》 — wumu's blog&pic=http://wumuwumu.github.io/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://wumuwumu.github.io/2018/12/03/清除inline-block之间的间隙/&title=《清除inline-block之间的间隙》 — wumu's blog&source=起风了，唯有努力生存" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://wumuwumu.github.io/2018/12/03/清除inline-block之间的间隙/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《清除inline-block之间的间隙》 — wumu's blog&url=http://wumuwumu.github.io/2018/12/03/清除inline-block之间的间隙/&via=http://wumuwumu.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://wumuwumu.github.io/2018/12/03/清除inline-block之间的间隙/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2018/12/04/css动画/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">css动画</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/11/30/hello-world/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Hello World</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "V8NlRMg78hP7LSAg49QpIIMV-gzGzoHsz",
+            appKey: "I8XKrcOwUTeg1Sv7mVwEcnMF",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="bottom">
+        <p>
+            <span>wumu &copy; 2018 - 2019</span>
+            <span>
+                 Power by
+                <a href="http://hexo.io/" target="_blank">Hexo</a> Theme
+                <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://wumuwumu.github.io/2018/12/03/清除inline-block之间的间隙/&title=《清除inline-block之间的间隙》 — wumu's blog&pic=http://wumuwumu.github.io/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://wumuwumu.github.io/2018/12/03/清除inline-block之间的间隙/&title=《清除inline-block之间的间隙》 — wumu's blog&source=起风了，唯有努力生存" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://wumuwumu.github.io/2018/12/03/清除inline-block之间的间隙/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《清除inline-block之间的间隙》 — wumu's blog&url=http://wumuwumu.github.io/2018/12/03/清除inline-block之间的间隙/&via=http://wumuwumu.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://wumuwumu.github.io/2018/12/03/清除inline-block之间的间隙/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACuElEQVR42u3awW7jMAwE0Pz/T3evBRbxzpBSmwWeTwXiqHwuYKlDvl7x9fXmev70+z3f7/z7W+2nhy88PDy8Q6U/A/ISk9Kfa3te4fmB4uHh4d3jtUvnhbb35I/7uWY8PDy8T+O9Oy7nr/t/vNCDDQkPDw/v/+XNisvDCDw8PLzP5M2Wy3PU50eziYCPZS14eHh4MW9W4u/+fKW/h4eHh7fuqiev6Tac3YwF1NXi4eHhXeDNlm5Hpp4ZswGFotmGh4eHd5SXxwSb2KINDpIVklYcHh4e3g1efghOPm0bV0lZRaNrFk/g4eHhlbzZQXkWPSSH4/xFX8QQeHh4eEd5SburbYm1g1zt8fpwNw8PDw9vcYBu44Y2mMhDhLZtFvX38PDw8A7xkrfobBAqGTWoj8KbeAIPDw/vEC8PF9q4oQ0R8nqKWBkPDw/vAi8PT9tQIDn4zo7d9bfw8PDwjvLaZtXZ+/OD8mqmDA8PD+8or/23vz3yzoYMNhvJqsuHh4eHF/NmTaZTYUEbSeQPCw8PD+8ebxMxzJpVSdyw33Lw8PDwfoaXhLlt7JuMEeQPMYlC8PDw8G7z8gGp9hg9o84ij/ovhoeHh3eI147X5xvGZvigbZXh4eHh3eO1o1H7YYJZ/DocCMPDw8O7wGujgef7Z5jNI45qwMPDw7vMywOI2UBAMsjVBhNRMo2Hh4d3gdeWNWuPtSOq+80GDw8P7x5v06ZKytoAXpsLDw8P7yjvq7xm8UGerM6i5Lcr4+Hh4V3gndo8NhtDHlVsHhweHh7eWV67GWwGpNrmWRt21AdrPDw8vAUviWjbrWI2mDXcu543Bjw8PLyP5LWw2chXfdTGw8PD+zBe3qbKC9qHuXh4eHg/w9ss2oat9bE4jm7fbgx4eHh4R3n5r0zig/wX7Ie9jl14eHh46fp/AHPn7gNxvzreAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = 'wumu的博客';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

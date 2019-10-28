@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>lorawan协议 | wumu&#39;s blog | wumu的博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="lorawan">
+    <meta name="description" content="Introduction The protocol between the gateway and the server is purposefully very basic and for demonstration purpose only, or for use on private and reliable networks. There is no authentication of t">
+<meta name="keywords" content="lorawan">
+<meta property="og:type" content="article">
+<meta property="og:title" content="lorawan协议">
+<meta property="og:url" content="http://wumuwumu.github.io/2018/12/05/lorawan协议/index.html">
+<meta property="og:site_name" content="wumu&#39;s blog">
+<meta property="og:description" content="Introduction The protocol between the gateway and the server is purposefully very basic and for demonstration purpose only, or for use on private and reliable networks. There is no authentication of t">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-12-05T13:33:58.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="lorawan协议">
+<meta name="twitter:description" content="Introduction The protocol between the gateway and the server is purposefully very basic and for demonstration purpose only, or for use on private and reliable networks. There is no authentication of t">
+    
+        <link rel="alternate" type="application/atom+xml" title="wumu&#39;s blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/avatar.png">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">wumu</h5>
+          <a href="mailto:2232728687@qq.com" title="2232728687@qq.com" class="mail">2232728687@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags">
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/wumuwumu" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">lorawan协议</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">lorawan协议</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-12-05T13:32:24.000Z" itemprop="datePublished" class="page-time">
+  2018-12-05
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Introduction"><span class="post-toc-number">1.</span> <span class="post-toc-text">Introduction</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#System-schematic-and-definitions"><span class="post-toc-number">2.</span> <span class="post-toc-text">System schematic and definitions</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Upstream-protocol"><span class="post-toc-number">3.</span> <span class="post-toc-text">Upstream protocol</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Sequence-diagram"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">Sequence diagram</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#PUSH-DATA-packet"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">PUSH_DATA packet</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#PUSH-ACK-packet"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">PUSH_ACK packet</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Upstream-JSON-data-structure"><span class="post-toc-number">4.</span> <span class="post-toc-text">Upstream JSON data structure</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Downstream-protocol"><span class="post-toc-number">5.</span> <span class="post-toc-text">Downstream protocol</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Sequence-diagram-1"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">Sequence diagram</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#PULL-DATA-packet"><span class="post-toc-number">5.2.</span> <span class="post-toc-text">PULL_DATA packet</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#PULL-ACK-packet"><span class="post-toc-number">5.3.</span> <span class="post-toc-text">PULL_ACK packet</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#PULL-RESP-packet"><span class="post-toc-number">5.4.</span> <span class="post-toc-text">PULL_RESP packet</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#TX-ACK-packet"><span class="post-toc-number">5.5.</span> <span class="post-toc-text">TX_ACK packet</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Downstream-JSON-data-structure"><span class="post-toc-number">6.</span> <span class="post-toc-text">Downstream JSON data structure</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Revisions"><span class="post-toc-number">7.</span> <span class="post-toc-text">Revisions</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#v1-3"><span class="post-toc-number">7.1.</span> <span class="post-toc-text">v1.3</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#v1-2"><span class="post-toc-number">7.2.</span> <span class="post-toc-text">v1.2</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#v1-1"><span class="post-toc-number">7.3.</span> <span class="post-toc-text">v1.1</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#v1-0"><span class="post-toc-number">7.4.</span> <span class="post-toc-text">v1.0</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-lorawan协议" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">lorawan协议</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-12-05 21:32:24" datetime="2018-12-05T13:32:24.000Z" itemprop="datePublished">2018-12-05</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><hr>
+<p>The protocol between the gateway and the server is purposefully very basic and for demonstration purpose only, or for use on private and reliable networks.</p>
+<p>There is no authentication of the gateway or the server, and the acknowledges are only used for network quality assessment, not to correct UDP datagrams losses (no retries).</p>
+<h2 id="System-schematic-and-definitions"><a href="#System-schematic-and-definitions" class="headerlink" title="System schematic and definitions"></a>System schematic and definitions</h2><hr>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"> ((( Y )))</span><br><span class="line">     |</span><br><span class="line">     |</span><br><span class="line">+ - -|- - - - - - - - - - - - - +        xxxxxxxxxxxx          +--------+</span><br><span class="line">| +--+-----------+     +------+ |       xx x  x     xxx        |        |</span><br><span class="line">| |              |     |      | |      xx  Internet  xx        |        |</span><br><span class="line">| | Concentrator |&lt;---&gt;| Host |&lt;-------xx     or    xx--------&gt;|        |</span><br><span class="line">| |              | SPI |      | |      xx  Intranet  xx        | Server |</span><br><span class="line">| +--------------+     +------+ |       xxxx   x   xxxx        |        |</span><br><span class="line">|    ^                     ^    |           xxxxxxxx           |        |</span><br><span class="line">|    | PPS +-------+ NMEA  |    |                              |        |</span><br><span class="line">|    +-----|  GPS  |-------+    |                              +--------+</span><br><span class="line">|          | (opt) |            |</span><br><span class="line">|          +-------+            |</span><br><span class="line">|                               |</span><br><span class="line">|             Gateway           |</span><br><span class="line">+- - - - - - - - - - - - - - - -+</span><br></pre></td></tr></table></figure>
+<p><strong>Concentrator</strong>: radio RX/TX board, based on Semtech multichannel modems (SX130x), transceivers (SX135x) and/or low-power stand-alone modems (SX127x).</p>
+<p><strong>Host</strong>: embedded computer on which the packet forwarder is run. Drives the concentrator through a SPI link.</p>
+<p><strong>GPS</strong>: GNSS (GPS, Galileo, GLONASS, etc) receiver with a “1 Pulse Per Second” output and a serial link to the host to send NMEA frames containing time and geographical coordinates data. Optional.</p>
+<p><strong>Gateway</strong>: a device composed of at least one radio concentrator, a host, some network connection to the internet or a private network (Ethernet, 3G, Wifi, microwave link), and optionally a GPS receiver for synchronization.</p>
+<p><strong>Server</strong>: an abstract computer that will process the RF packets received and forwarded by the gateway, and issue RF packets in response that the gateway will have to emit.</p>
+<p>It is assumed that the gateway can be behind a NAT or a firewall stopping any incoming connection. It is assumed that the server has an static IP address (or an address solvable through a DNS service) and is able to receive incoming connections on a specific port.</p>
+<h2 id="Upstream-protocol"><a href="#Upstream-protocol" class="headerlink" title="Upstream protocol"></a>Upstream protocol</h2><hr>
+<h3 id="Sequence-diagram"><a href="#Sequence-diagram" class="headerlink" title="Sequence diagram"></a>Sequence diagram</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">+---------+                                                    +---------+</span><br><span class="line">| Gateway |                                                    | Server  |</span><br><span class="line">+---------+                                                    +---------+</span><br><span class="line">     | -----------------------------------\                         |</span><br><span class="line">     |-| When 1-N RF packets are received |                         |</span><br><span class="line">     | ------------------------------------                         |</span><br><span class="line">     |                                                              |</span><br><span class="line">     | PUSH_DATA (token X, GW MAC, JSON payload)                    |</span><br><span class="line">     |-------------------------------------------------------------&gt;|</span><br><span class="line">     |                                                              |</span><br><span class="line">     |                                           PUSH_ACK (token X) |</span><br><span class="line">     |&lt;-------------------------------------------------------------|</span><br><span class="line">     |                              ------------------------------\ |</span><br><span class="line">     |                              | process packets *after* ack |-|</span><br><span class="line">     |                              ------------------------------- |</span><br><span class="line">     |                                                              |</span><br></pre></td></tr></table></figure>
+<h3 id="PUSH-DATA-packet"><a href="#PUSH-DATA-packet" class="headerlink" title="PUSH_DATA packet"></a>PUSH_DATA packet</h3><p>That packet type is used by the gateway mainly to forward the RF packets received, and associated metadata, to the server.</p>
+<table>
+<thead>
+<tr>
+<th>Bytes</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>protocol version = 2</td>
+</tr>
+<tr>
+<td>1-2</td>
+<td>random token</td>
+</tr>
+<tr>
+<td>3</td>
+<td>PUSH_DATA identifier 0x00</td>
+</tr>
+<tr>
+<td>4-11</td>
+<td>Gateway unique identifier (MAC address)</td>
+</tr>
+<tr>
+<td>12-end</td>
+<td>JSON object, starting with {, ending with }, see section 4</td>
+</tr>
+</tbody>
+</table>
+<h3 id="PUSH-ACK-packet"><a href="#PUSH-ACK-packet" class="headerlink" title="PUSH_ACK packet"></a>PUSH_ACK packet</h3><p>That packet type is used by the server to acknowledge immediately all the PUSH_DATA packets received.</p>
+<table>
+<thead>
+<tr>
+<th>Bytes</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>protocol version = 2</td>
+</tr>
+<tr>
+<td>1-2</td>
+<td>same token as the PUSH_DATA packet to acknowledge</td>
+</tr>
+<tr>
+<td>3</td>
+<td>PUSH_ACK identifier 0x01</td>
+</tr>
+</tbody>
+</table>
+<h2 id="Upstream-JSON-data-structure"><a href="#Upstream-JSON-data-structure" class="headerlink" title="Upstream JSON data structure"></a>Upstream JSON data structure</h2><hr>
+<p>The root object can contain an array named “rxpk”:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	&quot;rxpk&quot;:[ &#123;...&#125;, ...]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>That array contains at least one JSON object, each object contain a RF packet and associated metadata with the following fields:</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>time</td>
+<td>string</td>
+<td>UTC time of pkt RX, us precision, ISO 8601 ‘compact’ format</td>
+</tr>
+<tr>
+<td>tmst</td>
+<td>number</td>
+<td>Internal timestamp of “RX finished” event (32b unsigned)</td>
+</tr>
+<tr>
+<td>freq</td>
+<td>number</td>
+<td>RX central frequency in MHz (unsigned float, Hz precision)</td>
+</tr>
+<tr>
+<td>chan</td>
+<td>number</td>
+<td>Concentrator “IF” channel used for RX (unsigned integer)</td>
+</tr>
+<tr>
+<td>rfch</td>
+<td>number</td>
+<td>Concentrator “RF chain” used for RX (unsigned integer)</td>
+</tr>
+<tr>
+<td>stat</td>
+<td>number</td>
+<td>CRC status: 1 = OK, -1 = fail, 0 = no CRC</td>
+</tr>
+<tr>
+<td>modu</td>
+<td>string</td>
+<td>Modulation identifier “LORA” or “FSK”</td>
+</tr>
+<tr>
+<td>datr</td>
+<td>string</td>
+<td>LoRa datarate identifier (eg. SF12BW500)</td>
+</tr>
+<tr>
+<td>datr</td>
+<td>number</td>
+<td>FSK datarate (unsigned, in bits per second)</td>
+</tr>
+<tr>
+<td>codr</td>
+<td>string</td>
+<td>LoRa ECC coding rate identifier</td>
+</tr>
+<tr>
+<td>rssi</td>
+<td>number</td>
+<td>RSSI in dBm (signed integer, 1 dB precision)</td>
+</tr>
+<tr>
+<td>lsnr</td>
+<td>number</td>
+<td>Lora SNR ratio in dB (signed float, 0.1 dB precision)</td>
+</tr>
+<tr>
+<td>size</td>
+<td>number</td>
+<td>RF packet payload size in bytes (unsigned integer)</td>
+</tr>
+<tr>
+<td>data</td>
+<td>string</td>
+<td>Base64 encoded RF packet payload, padded</td>
+</tr>
+</tbody>
+</table>
+<p>Example (white-spaces, indentation and newlines added for readability):</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">&#123;&quot;rxpk&quot;:[</span><br><span class="line">	&#123;</span><br><span class="line">		&quot;time&quot;:&quot;2013-03-31T16:21:17.528002Z&quot;,</span><br><span class="line">		&quot;tmst&quot;:3512348611,</span><br><span class="line">		&quot;chan&quot;:2,</span><br><span class="line">		&quot;rfch&quot;:0,</span><br><span class="line">		&quot;freq&quot;:866.349812,</span><br><span class="line">		&quot;stat&quot;:1,</span><br><span class="line">		&quot;modu&quot;:&quot;LORA&quot;,</span><br><span class="line">		&quot;datr&quot;:&quot;SF7BW125&quot;,</span><br><span class="line">		&quot;codr&quot;:&quot;4/6&quot;,</span><br><span class="line">		&quot;rssi&quot;:-35,</span><br><span class="line">		&quot;lsnr&quot;:5.1,</span><br><span class="line">		&quot;size&quot;:32,</span><br><span class="line">		&quot;data&quot;:&quot;-DS4CGaDCdG+48eJNM3Vai-zDpsR71Pn9CPA9uCON84&quot;</span><br><span class="line">	&#125;,&#123;</span><br><span class="line">		&quot;time&quot;:&quot;2013-03-31T16:21:17.530974Z&quot;,</span><br><span class="line">		&quot;tmst&quot;:3512348514,</span><br><span class="line">		&quot;chan&quot;:9,</span><br><span class="line">		&quot;rfch&quot;:1,</span><br><span class="line">		&quot;freq&quot;:869.1,</span><br><span class="line">		&quot;stat&quot;:1,</span><br><span class="line">		&quot;modu&quot;:&quot;FSK&quot;,</span><br><span class="line">		&quot;datr&quot;:50000,</span><br><span class="line">		&quot;rssi&quot;:-75,</span><br><span class="line">		&quot;size&quot;:16,</span><br><span class="line">		&quot;data&quot;:&quot;VEVTVF9QQUNLRVRfMTIzNA==&quot;</span><br><span class="line">	&#125;,&#123;</span><br><span class="line">		&quot;time&quot;:&quot;2013-03-31T16:21:17.532038Z&quot;,</span><br><span class="line">		&quot;tmst&quot;:3316387610,</span><br><span class="line">		&quot;chan&quot;:0,</span><br><span class="line">		&quot;rfch&quot;:0,</span><br><span class="line">		&quot;freq&quot;:863.00981,</span><br><span class="line">		&quot;stat&quot;:1,</span><br><span class="line">		&quot;modu&quot;:&quot;LORA&quot;,</span><br><span class="line">		&quot;datr&quot;:&quot;SF10BW125&quot;,</span><br><span class="line">		&quot;codr&quot;:&quot;4/7&quot;,</span><br><span class="line">		&quot;rssi&quot;:-38,</span><br><span class="line">		&quot;lsnr&quot;:5.5,</span><br><span class="line">		&quot;size&quot;:32,</span><br><span class="line">		&quot;data&quot;:&quot;ysgRl452xNLep9S1NTIg2lomKDxUgn3DJ7DE+b00Ass&quot;</span><br><span class="line">	&#125;</span><br><span class="line">]&#125;</span><br></pre></td></tr></table></figure>
+<p>The root object can also contain an object named “stat” :</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	&quot;rxpk&quot;:[ &#123;...&#125;, ...],</span><br><span class="line">	&quot;stat&quot;:&#123;...&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>It is possible for a packet to contain no “rxpk” array but a “stat” object.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	&quot;stat&quot;:&#123;...&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>That object contains the status of the gateway, with the following fields:</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>time</td>
+<td>string</td>
+<td>UTC ‘system’ time of the gateway, ISO 8601 ‘expanded’ format</td>
+</tr>
+<tr>
+<td>lati</td>
+<td>number</td>
+<td>GPS latitude of the gateway in degree (float, N is +)</td>
+</tr>
+<tr>
+<td>long</td>
+<td>number</td>
+<td>GPS latitude of the gateway in degree (float, E is +)</td>
+</tr>
+<tr>
+<td>alti</td>
+<td>number</td>
+<td>GPS altitude of the gateway in meter RX (integer)</td>
+</tr>
+<tr>
+<td>rxnb</td>
+<td>number</td>
+<td>Number of radio packets received (unsigned integer)</td>
+</tr>
+<tr>
+<td>rxok</td>
+<td>number</td>
+<td>Number of radio packets received with a valid PHY CRC</td>
+</tr>
+<tr>
+<td>rxfw</td>
+<td>number</td>
+<td>Number of radio packets forwarded (unsigned integer)</td>
+</tr>
+<tr>
+<td>ackr</td>
+<td>number</td>
+<td>Percentage of upstream datagrams that were acknowledged</td>
+</tr>
+<tr>
+<td>dwnb</td>
+<td>number</td>
+<td>Number of downlink datagrams received (unsigned integer)</td>
+</tr>
+<tr>
+<td>txnb</td>
+<td>number</td>
+<td>Number of packets emitted (unsigned integer)</td>
+</tr>
+</tbody>
+</table>
+<p>Example (white-spaces, indentation and newlines added for readability):</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#123;&quot;stat&quot;:&#123;</span><br><span class="line">	&quot;time&quot;:&quot;2014-01-12 08:59:28 GMT&quot;,</span><br><span class="line">	&quot;lati&quot;:46.24000,</span><br><span class="line">	&quot;long&quot;:3.25230,</span><br><span class="line">	&quot;alti&quot;:145,</span><br><span class="line">	&quot;rxnb&quot;:2,</span><br><span class="line">	&quot;rxok&quot;:2,</span><br><span class="line">	&quot;rxfw&quot;:2,</span><br><span class="line">	&quot;ackr&quot;:100.0,</span><br><span class="line">	&quot;dwnb&quot;:2,</span><br><span class="line">	&quot;txnb&quot;:2</span><br><span class="line">&#125;&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Downstream-protocol"><a href="#Downstream-protocol" class="headerlink" title="Downstream protocol"></a>Downstream protocol</h2><hr>
+<h3 id="Sequence-diagram-1"><a href="#Sequence-diagram-1" class="headerlink" title="Sequence diagram"></a>Sequence diagram</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">+---------+                                                    +---------+</span><br><span class="line">| Gateway |                                                    | Server  |</span><br><span class="line">+---------+                                                    +---------+</span><br><span class="line">     | -----------------------------------\                         |</span><br><span class="line">     |-| Every N seconds (keepalive time) |                         |</span><br><span class="line">     | ------------------------------------                         |</span><br><span class="line">     |                                                              |</span><br><span class="line">     | PULL_DATA (token Y, MAC@)                                    |</span><br><span class="line">     |-------------------------------------------------------------&gt;|</span><br><span class="line">     |                                                              |</span><br><span class="line">     |                                           PULL_ACK (token Y) |</span><br><span class="line">     |&lt;-------------------------------------------------------------|</span><br><span class="line">     |                                                              |</span><br><span class="line"></span><br><span class="line">+---------+                                                    +---------+</span><br><span class="line">| Gateway |                                                    | Server  |</span><br><span class="line">+---------+                                                    +---------+</span><br><span class="line">     |      ------------------------------------------------------\ |</span><br><span class="line">     |      | Anytime after first PULL_DATA for each packet to TX |-|</span><br><span class="line">     |      ------------------------------------------------------- |</span><br><span class="line">     |                                                              |</span><br><span class="line">     |                            PULL_RESP (token Z, JSON payload) |</span><br><span class="line">     |&lt;-------------------------------------------------------------|</span><br><span class="line">     |                                                              |</span><br><span class="line">     | TX_ACK (token Z, JSON payload)                               |</span><br><span class="line">     |-------------------------------------------------------------&gt;|</span><br></pre></td></tr></table></figure>
+<h3 id="PULL-DATA-packet"><a href="#PULL-DATA-packet" class="headerlink" title="PULL_DATA packet"></a>PULL_DATA packet</h3><p>That packet type is used by the gateway to poll data from the server.</p>
+<p>This data exchange is initialized by the gateway because it might be impossible for the server to send packets to the gateway if the gateway is behind a NAT.</p>
+<p>When the gateway initialize the exchange, the network route towards the server will open and will allow for packets to flow both directions. The gateway must periodically send PULL_DATA packets to be sure the network route stays open for the server to be used at any time.</p>
+<table>
+<thead>
+<tr>
+<th>Bytes</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>protocol version = 2</td>
+</tr>
+<tr>
+<td>1-2</td>
+<td>random token</td>
+</tr>
+<tr>
+<td>3</td>
+<td>PULL_DATA identifier 0x02</td>
+</tr>
+<tr>
+<td>4-11</td>
+<td>Gateway unique identifier (MAC address)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="PULL-ACK-packet"><a href="#PULL-ACK-packet" class="headerlink" title="PULL_ACK packet"></a>PULL_ACK packet</h3><p>That packet type is used by the server to confirm that the network route is open and that the server can send PULL_RESP packets at any time.</p>
+<table>
+<thead>
+<tr>
+<th>Bytes</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>protocol version = 2</td>
+</tr>
+<tr>
+<td>1-2</td>
+<td>same token as the PULL_DATA packet to acknowledge</td>
+</tr>
+<tr>
+<td>3</td>
+<td>PULL_ACK identifier 0x04</td>
+</tr>
+</tbody>
+</table>
+<h3 id="PULL-RESP-packet"><a href="#PULL-RESP-packet" class="headerlink" title="PULL_RESP packet"></a>PULL_RESP packet</h3><p>That packet type is used by the server to send RF packets and associated metadata that will have to be emitted by the gateway.</p>
+<table>
+<thead>
+<tr>
+<th>Bytes</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>protocol version = 2</td>
+</tr>
+<tr>
+<td>1-2</td>
+<td>random token</td>
+</tr>
+<tr>
+<td>3</td>
+<td>PULL_RESP identifier 0x03</td>
+</tr>
+<tr>
+<td>4-end</td>
+<td>JSON object, starting with {, ending with }, see section 6</td>
+</tr>
+</tbody>
+</table>
+<h3 id="TX-ACK-packet"><a href="#TX-ACK-packet" class="headerlink" title="TX_ACK packet"></a>TX_ACK packet</h3><p>That packet type is used by the gateway to send a feedback to the server to inform if a downlink request has been accepted or rejected by the gateway. The datagram may optionnaly contain a JSON string to give more details on acknoledge. If no JSON is present (empty string), this means than no error occured.</p>
+<table>
+<thead>
+<tr>
+<th>Bytes</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>protocol version = 2</td>
+</tr>
+<tr>
+<td>1-2</td>
+<td>same token as the PULL_RESP packet to acknowledge</td>
+</tr>
+<tr>
+<td>3</td>
+<td>TX_ACK identifier 0x05</td>
+</tr>
+<tr>
+<td>4-11</td>
+<td>Gateway unique identifier (MAC address)</td>
+</tr>
+<tr>
+<td>12-end</td>
+<td>[optional] JSON object, starting with {, ending with }, see section 6</td>
+</tr>
+</tbody>
+</table>
+<h2 id="Downstream-JSON-data-structure"><a href="#Downstream-JSON-data-structure" class="headerlink" title="Downstream JSON data structure"></a>Downstream JSON data structure</h2><hr>
+<p>The root object of PULL_RESP packet must contain an object named “txpk”:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	&quot;txpk&quot;: &#123;...&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>That object contain a RF packet to be emitted and associated metadata with the following fields:</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>imme</td>
+<td>bool</td>
+<td>Send packet immediately (will ignore tmst &amp; time)</td>
+</tr>
+<tr>
+<td>tmst</td>
+<td>number</td>
+<td>Send packet on a certain timestamp value (will ignore time)</td>
+</tr>
+<tr>
+<td>time</td>
+<td>string</td>
+<td>Send packet at a certain time (GPS synchronization required)</td>
+</tr>
+<tr>
+<td>freq</td>
+<td>number</td>
+<td>TX central frequency in MHz (unsigned float, Hz precision)</td>
+</tr>
+<tr>
+<td>rfch</td>
+<td>number</td>
+<td>Concentrator “RF chain” used for TX (unsigned integer)</td>
+</tr>
+<tr>
+<td>powe</td>
+<td>number</td>
+<td>TX output power in dBm (unsigned integer, dBm precision)</td>
+</tr>
+<tr>
+<td>modu</td>
+<td>string</td>
+<td>Modulation identifier “LORA” or “FSK”</td>
+</tr>
+<tr>
+<td>datr</td>
+<td>string</td>
+<td>LoRa datarate identifier (eg. SF12BW500)</td>
+</tr>
+<tr>
+<td>datr</td>
+<td>number</td>
+<td>FSK datarate (unsigned, in bits per second)</td>
+</tr>
+<tr>
+<td>codr</td>
+<td>string</td>
+<td>LoRa ECC coding rate identifier</td>
+</tr>
+<tr>
+<td>fdev</td>
+<td>number</td>
+<td>FSK frequency deviation (unsigned integer, in Hz)</td>
+</tr>
+<tr>
+<td>ipol</td>
+<td>bool</td>
+<td>Lora modulation polarization inversion</td>
+</tr>
+<tr>
+<td>prea</td>
+<td>number</td>
+<td>RF preamble size (unsigned integer)</td>
+</tr>
+<tr>
+<td>size</td>
+<td>number</td>
+<td>RF packet payload size in bytes (unsigned integer)</td>
+</tr>
+<tr>
+<td>data</td>
+<td>string</td>
+<td>Base64 encoded RF packet payload, padding optional</td>
+</tr>
+<tr>
+<td>ncrc</td>
+<td>bool</td>
+<td>If true, disable the CRC of the physical layer (optional)</td>
+</tr>
+</tbody>
+</table>
+<p>Most fields are optional. If a field is omitted, default parameters will be used.</p>
+<p>Examples (white-spaces, indentation and newlines added for readability):</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&#123;&quot;txpk&quot;:&#123;</span><br><span class="line">	&quot;imme&quot;:true,</span><br><span class="line">	&quot;freq&quot;:864.123456,</span><br><span class="line">	&quot;rfch&quot;:0,</span><br><span class="line">	&quot;powe&quot;:14,</span><br><span class="line">	&quot;modu&quot;:&quot;LORA&quot;,</span><br><span class="line">	&quot;datr&quot;:&quot;SF11BW125&quot;,</span><br><span class="line">	&quot;codr&quot;:&quot;4/6&quot;,</span><br><span class="line">	&quot;ipol&quot;:false,</span><br><span class="line">	&quot;size&quot;:32,</span><br><span class="line">	&quot;data&quot;:&quot;H3P3N2i9qc4yt7rK7ldqoeCVJGBybzPY5h1Dd7P7p8v&quot;</span><br><span class="line">&#125;&#125;</span><br><span class="line">&#123;&quot;txpk&quot;:&#123;</span><br><span class="line">	&quot;imme&quot;:true,</span><br><span class="line">	&quot;freq&quot;:861.3,</span><br><span class="line">	&quot;rfch&quot;:0,</span><br><span class="line">	&quot;powe&quot;:12,</span><br><span class="line">	&quot;modu&quot;:&quot;FSK&quot;,</span><br><span class="line">	&quot;datr&quot;:50000,</span><br><span class="line">	&quot;fdev&quot;:3000,</span><br><span class="line">	&quot;size&quot;:32,</span><br><span class="line">	&quot;data&quot;:&quot;H3P3N2i9qc4yt7rK7ldqoeCVJGBybzPY5h1Dd7P7p8v&quot;</span><br><span class="line">&#125;&#125;</span><br></pre></td></tr></table></figure>
+<p>The root object of TX_ACK packet must contain an object named “txpk_ack”:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	&quot;txpk_ack&quot;: &#123;...&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>That object contain status information concerning the associated PULL_RESP packet.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>error</td>
+<td>string</td>
+<td>Indication about success or type of failure that occured for downlink request.</td>
+</tr>
+</tbody>
+</table>
+<p>The possible values of “error” field are:</p>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NONE</td>
+<td>Packet has been programmed for downlink</td>
+</tr>
+<tr>
+<td>TOO_LATE</td>
+<td>Rejected because it was already too late to program this packet for downlink</td>
+</tr>
+<tr>
+<td>TOO_EARLY</td>
+<td>Rejected because downlink packet timestamp is too much in advance</td>
+</tr>
+<tr>
+<td>COLLISION_PACKET</td>
+<td>Rejected because there was already a packet programmed in requested timeframe</td>
+</tr>
+<tr>
+<td>COLLISION_BEACON</td>
+<td>Rejected because there was already a beacon planned in requested timeframe</td>
+</tr>
+<tr>
+<td>TX_FREQ</td>
+<td>Rejected because requested frequency is not supported by TX RF chain</td>
+</tr>
+<tr>
+<td>TX_POWER</td>
+<td>Rejected because requested power is not supported by gateway</td>
+</tr>
+<tr>
+<td>GPS_UNLOCKED</td>
+<td>Rejected because GPS is unlocked, so GPS timestamp cannot be used</td>
+</tr>
+</tbody>
+</table>
+<p>Examples (white-spaces, indentation and newlines added for readability):</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;&quot;txpk_ack&quot;:&#123;</span><br><span class="line">	&quot;error&quot;:&quot;COLLISION_PACKET&quot;</span><br><span class="line">&#125;&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Revisions"><a href="#Revisions" class="headerlink" title="Revisions"></a>Revisions</h2><hr>
+<h3 id="v1-3"><a href="#v1-3" class="headerlink" title="v1.3"></a>v1.3</h3><ul>
+<li>Added downlink feedback from gateway to server (PULL_RESP -&gt; TX_ACK)</li>
+</ul>
+<h3 id="v1-2"><a href="#v1-2" class="headerlink" title="v1.2"></a>v1.2</h3><ul>
+<li>Added value of FSK bitrate for upstream.</li>
+<li>Added parameters for FSK bitrate and frequency deviation for downstream.</li>
+</ul>
+<h3 id="v1-1"><a href="#v1-1" class="headerlink" title="v1.1"></a>v1.1</h3><ul>
+<li>Added syntax for status report JSON object on upstream.</li>
+</ul>
+<h3 id="v1-0"><a href="#v1-0" class="headerlink" title="v1.0"></a>v1.0</h3><ul>
+<li>Initial version.</li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-12-05T13:33:58.000Z" itemprop="dateUpdated">2018-12-05 21:33:58</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2018/12/05/lorawan协议/" target="_blank" rel="external">http://wumuwumu.github.io/2018/12/05/lorawan协议/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://wumuwumu.github.io">
+            <img src="/img/avatar.png" alt="wumu">
+            wumu
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/lorawan/">lorawan</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://wumuwumu.github.io/2018/12/05/lorawan协议/&title=《lorawan协议》 — wumu's blog&pic=http://wumuwumu.github.io/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://wumuwumu.github.io/2018/12/05/lorawan协议/&title=《lorawan协议》 — wumu's blog&source=起风了，唯有努力生存" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://wumuwumu.github.io/2018/12/05/lorawan协议/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《lorawan协议》 — wumu's blog&url=http://wumuwumu.github.io/2018/12/05/lorawan协议/&via=http://wumuwumu.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://wumuwumu.github.io/2018/12/05/lorawan协议/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2018/12/05/lorawan协议（中文版）/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">lorawan协议（中文版）</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/12/05/let-us-encrypt证书/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">let-us-encrypt证书</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "V8NlRMg78hP7LSAg49QpIIMV-gzGzoHsz",
+            appKey: "I8XKrcOwUTeg1Sv7mVwEcnMF",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="bottom">
+        <p>
+            <span>wumu &copy; 2018 - 2019</span>
+            <span>
+                 Power by
+                <a href="http://hexo.io/" target="_blank">Hexo</a> Theme
+                <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://wumuwumu.github.io/2018/12/05/lorawan协议/&title=《lorawan协议》 — wumu's blog&pic=http://wumuwumu.github.io/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://wumuwumu.github.io/2018/12/05/lorawan协议/&title=《lorawan协议》 — wumu's blog&source=起风了，唯有努力生存" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://wumuwumu.github.io/2018/12/05/lorawan协议/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《lorawan协议》 — wumu's blog&url=http://wumuwumu.github.io/2018/12/05/lorawan协议/&via=http://wumuwumu.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://wumuwumu.github.io/2018/12/05/lorawan协议/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACM0lEQVR42u3a226DQAxFUf7/p4nUp0biso8NVTF7nqKGTFhUcsaXZcFr/Vm/X++tvWvSnZc7lgwZMh7L4LdFPlW7vvPIZMiQ8R5Gul0aoEmc5J+VIUOGjOPt+EGw8xcZMmTI6Afc40/xd2XIkCGDM2rlM5K+1r7lxlxchgwZD2TUGgN/8/r2/oYMGTL+PWMNFy+Tpa1KHmQ37kqGDBmjGcftRpI68kbm8eOogRe+kQwZMh7O4LfYaRLUHh/Hy5AhYzaDlL1I0b8Wgjny5B5kyJAxmnHVwBZJevk+tSEzGTJkzGMEowwhOH0caSK9UTWUIUPGUEb/MHfVaEVadNv4dhkyZAxl1A5wvLWZprt8h5PfDRkyZAxi1IYk+NGQl8bIIfUkBMuQIWMogx/7+NjWVQ0AGTJkyOiMiHVGXdPgWwziMmTIGMQgiWLnC3iCWgviX78bMmTIGM3g4bXWvEyjfpwSy5AhYzSDtDBr4ZWEXX7QRI9JhgwZr2F0Usq0cNY/ShZjvwwZMh7F4CWwNOzGpXy84v+DDBkyRjBIMsmPjDVkeuiMp0VkyJDxWAY/tJFCGL8mHchAh1EZMmQMZazh4lSegvb3lyFDxmxGJ3UkpTdegCM3imqHMmTIGMpIR7LSZLWWGMfPXoYMGS9g9JuOtdJ/vy0hQ4YMGfw1KbeloZYMZMiQIUNGWiAj4bLTeNi9UoYMGS9gFMMc75SWhjA4VYYMGbMZV6Wa/SJarY0qQ4aM0YwPyFKyUJswgfsAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = 'wumu的博客';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

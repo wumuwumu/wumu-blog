@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>管理Odoo服务器实例 | wumu&#39;s blog | wumu的博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="python,odoo">
+    <meta name="description" content="全书完整目录请见：Odoo 12开发者指南（Cookbook）第三版 本章中，我们将讲解如下内容：  配置插件路径 更新插件模块列表 标准化你的实例目录布局 安装并升级本地插件模块 对插件应用修改 应用及尝试建议的拉取请求  引言在第一章 安装Odoo开发环境中，我们看了如何使用与编辑器一同发布的标准核心插件来设置 Odoo 实例。本章集中讲解为 Odoo 实例添加非核心插件。Odoo中，你可以从">
+<meta name="keywords" content="python,odoo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="管理Odoo服务器实例">
+<meta property="og:url" content="http://wumuwumu.github.io/2019/06/18/Odoo 12开发者指南第二章 管理Odoo服务器实例/index.html">
+<meta property="og:site_name" content="wumu&#39;s blog">
+<meta property="og:description" content="全书完整目录请见：Odoo 12开发者指南（Cookbook）第三版 本章中，我们将讲解如下内容：  配置插件路径 更新插件模块列表 标准化你的实例目录布局 安装并升级本地插件模块 对插件应用修改 应用及尝试建议的拉取请求  引言在第一章 安装Odoo开发环境中，我们看了如何使用与编辑器一同发布的标准核心插件来设置 Odoo 实例。本章集中讲解为 Odoo 实例添加非核心插件。Odoo中，你可以从">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://alanhou.org/homepage/wp-content/uploads/2019/05/2019050902052063.jpg">
+<meta property="og:image" content="https://alanhou.org/homepage/wp-content/uploads/2019/05/2019050902070776.jpg">
+<meta property="og:image" content="https://alanhou.org/homepage/wp-content/uploads/2019/05/2019050906002399.jpg">
+<meta property="og:image" content="https://alanhou.org/homepage/wp-content/uploads/2019/05/2019050906125210.jpg">
+<meta property="og:image" content="https://alanhou.org/homepage/wp-content/uploads/2019/05/2019050906203077.jpg">
+<meta property="og:image" content="https://alanhou.org/homepage/wp-content/uploads/2019/05/2019050906265357.jpg">
+<meta property="og:image" content="https://alanhou.org/homepage/wp-content/uploads/2019/05/2019050906302261.jpg">
+<meta property="og:updated_time" content="2019-06-18T10:41:34.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="管理Odoo服务器实例">
+<meta name="twitter:description" content="全书完整目录请见：Odoo 12开发者指南（Cookbook）第三版 本章中，我们将讲解如下内容：  配置插件路径 更新插件模块列表 标准化你的实例目录布局 安装并升级本地插件模块 对插件应用修改 应用及尝试建议的拉取请求  引言在第一章 安装Odoo开发环境中，我们看了如何使用与编辑器一同发布的标准核心插件来设置 Odoo 实例。本章集中讲解为 Odoo 实例添加非核心插件。Odoo中，你可以从">
+<meta name="twitter:image" content="https://alanhou.org/homepage/wp-content/uploads/2019/05/2019050902052063.jpg">
+    
+        <link rel="alternate" type="application/atom+xml" title="wumu&#39;s blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/avatar.png">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">wumu</h5>
+          <a href="mailto:2232728687@qq.com" title="2232728687@qq.com" class="mail">2232728687@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags">
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/wumuwumu" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">管理Odoo服务器实例</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">管理Odoo服务器实例</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-06-18T06:02:38.000Z" itemprop="datePublished" class="page-time">
+  2019-06-18
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#引言"><span class="post-toc-number">1.</span> <span class="post-toc-text">引言</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#配置插件路径"><span class="post-toc-number">2.</span> <span class="post-toc-text">配置插件路径</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#准备工作"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">准备工作</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#如何配置…"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">如何配置…</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#运行原理…"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">运行原理…</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#扩展知识…"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">扩展知识…</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#更新插件模块列表"><span class="post-toc-number">3.</span> <span class="post-toc-text">更新插件模块列表</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#准备工作-1"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">准备工作</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#如何更新…"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">如何更新…</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#运行原理…-1"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">运行原理…</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#标准化你的实例目录布局"><span class="post-toc-number">4.</span> <span class="post-toc-text">标准化你的实例目录布局</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#如何标准化…"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">如何标准化…</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#运行原理…-2"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">运行原理…</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#参见内容"><span class="post-toc-number">4.3.</span> <span class="post-toc-text">参见内容</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#扩展知识…-1"><span class="post-toc-number">4.4.</span> <span class="post-toc-text">扩展知识…</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#安装并升级本地插件模块"><span class="post-toc-number">5.</span> <span class="post-toc-text">安装并升级本地插件模块</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#准备工作-2"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">准备工作</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#如何安装升级…"><span class="post-toc-number">5.2.</span> <span class="post-toc-text">如何安装升级…</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#通过网页界面"><span class="post-toc-number">5.2.1.</span> <span class="post-toc-text">通过网页界面</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#通过命令行"><span class="post-toc-number">5.2.2.</span> <span class="post-toc-text">通过命令行</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#运行原理…-3"><span class="post-toc-number">5.3.</span> <span class="post-toc-text">运行原理…</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#插件安装"><span class="post-toc-number">5.3.1.</span> <span class="post-toc-text">插件安装</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#插件升级"><span class="post-toc-number">5.3.2.</span> <span class="post-toc-text">插件升级</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#扩展知识…-2"><span class="post-toc-number">5.4.</span> <span class="post-toc-text">扩展知识…</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#从GitHub安装插件模块"><span class="post-toc-number">6.</span> <span class="post-toc-text">从GitHub安装插件模块</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#准备工作-3"><span class="post-toc-number">6.1.</span> <span class="post-toc-text">准备工作</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#如何安装…"><span class="post-toc-number">6.2.</span> <span class="post-toc-text">如何安装…</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#运行原理…-4"><span class="post-toc-number">6.3.</span> <span class="post-toc-text">运行原理…</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#扩展知识…-3"><span class="post-toc-number">6.4.</span> <span class="post-toc-text">扩展知识…</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#对插件应用修改"><span class="post-toc-number">7.</span> <span class="post-toc-text">对插件应用修改</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#准备工作-4"><span class="post-toc-number">7.1.</span> <span class="post-toc-text">准备工作</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#如何修改…"><span class="post-toc-number">7.2.</span> <span class="post-toc-text">如何修改…</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#运行原理…-5"><span class="post-toc-number">7.3.</span> <span class="post-toc-text">运行原理…</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#扩展知识…-4"><span class="post-toc-number">7.4.</span> <span class="post-toc-text">扩展知识…</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#应用及尝试建议的拉取请求"><span class="post-toc-number">8.</span> <span class="post-toc-text">应用及尝试建议的拉取请求</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#准备工作-5"><span class="post-toc-number">8.1.</span> <span class="post-toc-text">准备工作</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#如何操作…"><span class="post-toc-number">8.2.</span> <span class="post-toc-text">如何操作…</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#运行原理…-6"><span class="post-toc-number">8.3.</span> <span class="post-toc-text">运行原理…</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#扩展知识…-5"><span class="post-toc-number">8.4.</span> <span class="post-toc-text">扩展知识…</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="odoo-Odoo 12开发者指南第二章 管理Odoo服务器实例" class="post-article article-type-odoo fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">管理Odoo服务器实例</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-06-18 14:02:38" datetime="2019-06-18T06:02:38.000Z" itemprop="datePublished">2019-06-18</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>全书完整目录请见：<a href="https://alanhou.org/odoo12-cookbook/" target="_blank" rel="noopener">Odoo 12开发者指南（Cookbook）第三版</a></p>
+<p>本章中，我们将讲解如下内容：</p>
+<ul>
+<li>配置插件路径</li>
+<li>更新插件模块列表</li>
+<li>标准化你的实例目录布局</li>
+<li>安装并升级本地插件模块</li>
+<li>对插件应用修改</li>
+<li>应用及尝试建议的拉取请求</li>
+</ul>
+<h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>在<a href="https://alanhou.org/installing-odoo-development-environment/" target="_blank" rel="noopener">第一章 安装Odoo开发环境</a>中，我们看了如何使用与编辑器一同发布的标准核心插件来设置 Odoo 实例。本章集中讲解为 Odoo 实例添加非核心插件。Odoo中，你可以从多个目录中加载插件。此外，推荐你将第三方插件（如OCA模块）或你自定义的插件放在一个单独的文件夹中，这样可以避免与 Odoo 核心模块产生冲突。甚至Odoo 企业版也是一种类型的插件目录，你需要像普通插件目录一样加载它。</p>
+<blockquote>
+<p>ℹ️<strong>有关用词 – 插件(add-on) vs. 模块(module)</strong></p>
+<p>本书中，我们使用插件或插件模块来指代 Odoo 所预期安装的 Python 包。用户界面常使用应用（app）或模块的表达 ，但我们更愿意保留模块一词来表示Python模块或包，它们不一定是 Odoo 插件，而应用（app）来表示适当定义为应用的插件模块，表示它不是Odoo主菜单中的入口。</p>
+</blockquote>
+<h2 id="配置插件路径"><a href="#配置插件路径" class="headerlink" title="配置插件路径"></a>配置插件路径</h2><p>通过addons_path参数的配置，你可以在 Odoo 中加载自己的插件模块。在Odoo初始化一个新数据库时，它会搜索在addons_path配置参数中给定的这些目录。addons_path会在这些目录中搜索潜在的插件模块。addons_path中所列出的目录预期应包含子目录，每个子目录是一个插件模块。在数据库初始化完成后，你将能够安装这些目录中所给出的模块。</p>
+<h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><p>这一部分假定你已经准备好了实例并生成了配置文件，如在<a href="https://alanhou.org/installing-odoo-development-environment/" target="_blank" rel="noopener">第一章 安装Odoo开发环境</a>中<em>在一个文件中存储实例配置</em>一节所描述。Odoo的源码存放在~/odoo-dev/odoo中，而配置文件存放在~/odoo-dev/myinstance.cfg中。</p>
+<h3 id="如何配置…"><a href="#如何配置…" class="headerlink" title="如何配置…"></a>如何配置…</h3><p>按如下步骤在实例的addons_path中添加~/odoo-dev/local-addons目录：</p>
+<ol>
+<li><p>编辑你的实例的配置文件，即 ~/odoo-dev/my-instance.cfg。</p>
+</li>
+<li><p>定位到以addons_path =开头一行，默认，你会看到如下内容：</p>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">addons_path = ~/odoo-dev/odoo/odoo/addons,~/odoo-dev/odoo/add-ons</span><br></pre></td></tr></table></figure>
+<p>   译者注：</p>
+<p>   当前默认生成的配置文件中为绝对路径，且仅包含xxx/odoo/addons</p>
+<ol start="3">
+<li>修改该行，添加一个逗号（英文半角），并接你想想要添加为addons_的目录名称，如以下代码所示：</li>
+</ol>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">addons_path = ~/odoo-dev/odoo/odoo/addons,~/odoo-dev/odoo/addons,~/odoo-dev/local-addons</span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li><p>重启你的实例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ~/odoo-dev/odoo/odoo-bin -c my-instance.cfg</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="运行原理…"><a href="#运行原理…" class="headerlink" title="运行原理…"></a>运行原理…</h3><p>在重启 Odoo 时，会读取配置文件。addons_path变量的值应为一个逗号分隔的目录列表。可接受相对路径，但它们是相对于当前工作目录的，因此应在配置文件中尽量避免。</p>
+<p>至此，~/odoo-dev/local-addons中包含的新插件尚不在该实例的可用模块列表中。为此，你需要执行一个额外的操作，在下一部分<em>更新插件模块列表</em>中会进行讲解。</p>
+<h3 id="扩展知识…"><a href="#扩展知识…" class="headerlink" title="扩展知识…"></a>扩展知识…</h3><p>在第一次调用 odoo-bin脚本来初始化新数据库时，你可以传递一个带逗号分隔目录列表的–addons-path命令行参数。这会以所提供插件路径中所找到的所有插件来初始化可用插件模块列表。这么做时，你要显式地包含基础插件目录（odoo/odoo/addons）以及核心插件目录（odoo/addons）。</p>
+<p>与前面稍有不同的是本地插件目录不能为空（<strong>译者注：</strong>请先阅读下面的小贴士），它必须要至少包含一个子目录，并包含插件模块的最小化结构。在<a href="https://alanhou.org/creating-odoo-add-on-modules/" target="_blank" rel="noopener">第四章 创建Odoo插件模块</a>中，我们会来看如何编写你自己的模块。同时，这里有一个生成内容来满足Odoo要求的快捷版黑科技：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir -p ~/odoo-dev/local-addons/dummy$ touch ~/odoo-dev/local-addons/dummy/__init__.py$ echo &apos;&#123;&quot;name&quot;: &quot;dummy&quot;, &quot;installable&quot;: False&#125;&apos; &gt; \~/odoo-dev/local-addons/dummy/__manifest__.py</span><br></pre></td></tr></table></figure>
+<p>你可以使用–save选项来保存配置文件的路径：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ odoo/odoo-bin -d mydatabase \--add-ons-path=&quot;odoo/odoo/addons,odoo/addons,~/odoo-dev/local-addons&quot; \--save -c ~/odoo-dev/my-instance.cfg --stop-after-init</span><br></pre></td></tr></table></figure>
+<p>本例中，使用相对路径不会有问题，因为它们会在配置文件中转化为绝对路径。</p>
+<blockquote>
+<p><strong>小贴士：</strong>因为Odoo仅当从命令行中设置路径时在插件路径的目录中查看插件，而不是在从配置文件中加载路径的时候，dummy已不再必要。因此，你可以删除它（或保留到你确定不需要新建一个配置文件时）。</p>
+</blockquote>
+<h2 id="更新插件模块列表"><a href="#更新插件模块列表" class="headerlink" title="更新插件模块列表"></a>更新插件模块列表</h2><p>我们在前面的部分已经说到，在向插件路径添加目录时，仅仅重启Odoo服务是不足以安装其中一个新插件模块的。Odoo还需要有一个指定动作来扫描路径并更新可用插件模块的列表。</p>
+<h3 id="准备工作-1"><a href="#准备工作-1" class="headerlink" title="准备工作"></a>准备工作</h3><p>启动你的实例并使用管理员账号连接它。然后，激活开发者模式（如果你不知道如何激活开发者模式，请参见<a href="https://alanhou.org/installing-odoo-development-environment/" target="_blank" rel="noopener">第一章 安装Odoo开发环境</a>）。</p>
+<h3 id="如何更新…"><a href="#如何更新…" class="headerlink" title="如何更新…"></a>如何更新…</h3><p>要更新你实例中的可用插件模块列表，你需要执行如下步骤：</p>
+<ol>
+<li>打开Apps菜单</li>
+<li>点击Update Apps List：<br>[<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://alanhou.org/homepage/wp-content/uploads/2019/05/2019050902052063.jpg" alt="Odoo 12开发者指南第二章 管理Odoo服务器实例](https://alanhou.org/homepage/wp-content/uploads/2019/05/2019050902052063.jpg)" title="">
+                </div>
+                <div class="image-caption">Odoo 12开发者指南第二章 管理Odoo服务器实例](https://alanhou.org/homepage/wp-content/uploads/2019/05/2019050902052063.jpg)</div>
+            </figure></li>
+<li>在弹出对话框中，点击Update按钮：<br>[<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://alanhou.org/homepage/wp-content/uploads/2019/05/2019050902070776.jpg" alt="Odoo 12开发者指南第二章 管理Odoo服务器实例](https://alanhou.org/homepage/wp-content/uploads/2019/05/2019050902070776.jpg)" title="">
+                </div>
+                <div class="image-caption">Odoo 12开发者指南第二章 管理Odoo服务器实例](https://alanhou.org/homepage/wp-content/uploads/2019/05/2019050902070776.jpg)</div>
+            </figure></li>
+<li>在更新的最后，你可以点击Apps入口来查看已更新的可用插件模块列表。你将需要删除Apps搜索框中的默认过滤器来查看所有模块。</li>
+</ol>
+<h3 id="运行原理…-1"><a href="#运行原理…-1" class="headerlink" title="运行原理…"></a>运行原理…</h3><p>在点击了Update按钮之后，Odoo会读取插件路径配置变量。对于列表中的每一个目录，它会查看包含保存在插件模块目录中名为<strong>manifest</strong>.py的插件声明文件的直接子目录。Odoo读取声明内容，并预期查找其中的Python字典。除非声明内容中包含一个键installable的值为False，插件模块的元数据就会存储在数据库中。如果模块已存在，则更新相关信息。否则，会创建一条新记录。如果此前可用的插件模块未找到，则从列表中删除该记录。</p>
+<blockquote>
+<p>ℹ️仅在初始化数据库后添加了新的插件路径时才需要更新应用列表。如果你在初始化数据库之前在配置文件中添加了新插件路径，那么就无需手动更新模块列表。</p>
+</blockquote>
+<h2 id="标准化你的实例目录布局"><a href="#标准化你的实例目录布局" class="headerlink" title="标准化你的实例目录布局"></a>标准化你的实例目录布局</h2><p>我们推荐你在开发和生产环境都使用相似的目录布局。这一标准化会在你要执行运维时体现出用处，它也会缓解你日常工作的压力。</p>
+<p>这一部分创建将相似生命周期或相似用途的文件分组放在标准化子目录中的目录结构。请自由按照自己的需求来调整这一结构，但请确保你将这一结构在某处进行记录存档。</p>
+<h3 id="如何标准化…"><a href="#如何标准化…" class="headerlink" title="如何标准化…"></a>如何标准化…</h3><p>创建所推荐实例布局，你需要执行如下步骤：</p>
+<p><strong>译者注：</strong>读者也可直接使用 Alan 在 GitHub 上准备的<a href="https://github.com/alanhou/odoo12-cookbook/tree/master/Chapter02" target="_blank" rel="noopener">安装脚本</a>进行操作</p>
+<ol>
+<li><p>为实例创建一个目录：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir ~/odoo-dev/projectname$ cd ~/odoo-dev/projectname</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在名为env/的子目录中创建一个Python虚拟环境：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ virtualenv -p python3 env</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建一些子目录，如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir src local bin filestore logs</span><br></pre></td></tr></table></figure>
+<p>这些子目录的功能如下：</p>
+<ul>
+<li>src/：这包含Odoo本身的一个拷贝，以及一些第三方插件项目（我们在下一步中添加了Odoo源码）</li>
+<li>local/：这用于保存你针对具体实例的插件</li>
+<li>bin/：这包含各类帮助可执行shell脚本</li>
+<li>filestore/：这用于文件存储</li>
+<li>logs/（可选）：这用于存储服务日志文件</li>
+</ul>
+</li>
+<li><p>克隆Odoo并安装所需依赖包（参见</p>
+<p>第一章 安装Odoo开发环境</p>
+<p>获取更多内容）：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> https://github.com/odoo/odoo.git src/odoo</span><br><span class="line">$ env/bin/pip3 install -r src/odoo/requirements.txt</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>以bin/odoo保存如下shell脚本：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ROOT=$(dirname <span class="variable">$0</span>)/..</span><br><span class="line">PYTHON=<span class="variable">$ROOT</span>/env/bin/python3</span><br><span class="line">ODOO=<span class="variable">$ROOT</span>/src/odoo/odoo-bin</span><br><span class="line"><span class="variable">$PYTHON</span> <span class="variable">$ODOO</span> -c <span class="variable">$ROOT</span>/projectname.cfg <span class="string">"<span class="variable">$@</span>"</span></span><br><span class="line"><span class="built_in">exit</span> $?</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>让该脚本可执行：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ chmod +x bin/odoo</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建一个空的本地模块dummy：</p>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir -p local/dummy</span><br><span class="line">$ touch local/dummy/__init__.py</span><br><span class="line">$ echo &apos;&#123;&quot;name&quot;: &quot;dummy&quot;, &quot;installable&quot;: False&#125;&apos; &gt;\local/dummy/__manifest__.py</span><br></pre></td></tr></table></figure>
+<ol start="8">
+<li>为你的实例生成配置文件：</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ bin/odoo --stop-after-init --save \ --addons-path src/odoo/odoo/addons,src/odoo/addons,local \ --data-dir filestore</span><br></pre></td></tr></table></figure>
+<ol start="9">
+<li>添加一个.gitignore文件，用于告诉GitHub排除这些给定目录，这样Git在提交代码时就会忽略掉这些目录，例如 filestore/, env/, logs/和src/：</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># dotfiles, with exceptions:</span></span><br><span class="line">.*</span><br><span class="line">!.gitignore</span><br><span class="line"><span class="comment"># python compiled files</span></span><br><span class="line">*.py[co]</span><br><span class="line"><span class="comment"># emacs backup files</span></span><br><span class="line">*~</span><br><span class="line"><span class="comment"># not tracked subdirectories</span></span><br><span class="line">/env/</span><br><span class="line">/src/</span><br><span class="line">/filestore/</span><br><span class="line">/logs/</span><br></pre></td></tr></table></figure>
+<ol start="10">
+<li>为这个实例创建一个Git仓库并将已添加的文件添加到Git中：</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git init</span><br><span class="line">$ git add .</span><br><span class="line">$ git commit -m <span class="string">"initial version of projectname"</span></span><br></pre></td></tr></table></figure>
+<h3 id="运行原理…-2"><a href="#运行原理…-2" class="headerlink" title="运行原理…"></a>运行原理…</h3><p>我们生成了一个有明确标签目录和独立角色的干净的目录结构。我使用了不同的目录来存储如下内容：</p>
+<ul>
+<li>由其它人所维护的代码（src/中）</li>
+<li>本地相关的具体代码</li>
+<li>实例的文件存储</li>
+</ul>
+<p>通过为每个项目建一个virtualenv环境，我们可以确保该项目的依赖文件不会与其它项目的依赖产生冲突，这些项目你可能运行着不同的Odoo版本或使用了不同的第三方插件模块，这将需要不同版本的Python依赖。这当然也会带来一部分磁盘空间的开销。</p>
+<p>以类似的方式，通过为我们不同的项目使用不同的Odoo拷贝以及第三方插件模块，我们可以让每个项目单独的进行推进并仅在需要时在这些实例上安装更新，因此也减少了引入回退的风险。</p>
+<p>bin/odoo允许我们不用记住各个路径或激活虚拟环境就可以运行服务。这还为我们设置了配置文件。你可以在其中添加其它脚本来协助你的日常工作。例如，你可以添加一个脚本来检查运行实例所需的第三方项目。</p>
+<p>有关配置文件，我们仅展示了这里需要设置的最小化选项，但很明显你可以设置更多，例如数据库名、数据库过滤器或项目所监听的端口。有关这一话题的更多信息，请参见<a href="https://alanhou.org/installing-odoo-development-environment/" target="_blank" rel="noopener">第一章 安装Odoo开发环境</a>。</p>
+<p>最后，通过在Git仓库中管理所有这些，在不同的电脑上复制这一设置及在团队中分享开发内容变得相当容易。</p>
+<blockquote>
+<p><strong>小贴士：</strong>加速贴士</p>
+<p>要加速项目的创建，你可以创建一个包含空结构的模板仓库，并为每个项目复制（fork）该仓库。这会省却你重新输入bin/odoo脚本、.gitignore及其它所需模板文件（持续集成配置、README.md、ChangeLog等等）所花费的时间。</p>
+</blockquote>
+<h3 id="参见内容"><a href="#参见内容" class="headerlink" title="参见内容"></a>参见内容</h3><p>如果你喜欢这种方法，我们建议你尝试<a href="https://alanhou.org/server-deployment/" target="_blank" rel="noopener">第三章 服务器部署</a>中的使用 Docker 运行 Odoo 一部分的内容。</p>
+<h3 id="扩展知识…-1"><a href="#扩展知识…-1" class="headerlink" title="扩展知识…"></a>扩展知识…</h3><p>复杂模块的开发要求有各类配置选项，在想要尝试任何配置选项时都会要更新配置文件。更新配置常常是一件头痛的事，避免它的一种方式是通过命令行传递所有配置选项，如下：</p>
+<ol>
+<li>手动激活虚拟环境：</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">source</span> env/bin/activate</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>进行Odoo源代码目录：</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> src/odoo</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>运行服务：</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./odoo-bin --addons-path=addons,../../<span class="built_in">local</span> -d <span class="built_in">test</span>-12 -i account,sale,purchase --<span class="built_in">log</span>-level=debug</span><br></pre></td></tr></table></figure>
+<p>第三步中，我们直接通过命令行传递了一些参数。第一个是–addons-path，它加载Odoo的核心插件目录addons，以及你自己的插件目录local，在其中你可以放自己的插件模块。选项-d会使用test-12数据库或者在该数据库不存在时新建一个数据库。选项-i 会安装会计、销售和采购模块。接着，我们传递了log-level选项来将日志级别提升为debug，这样日志中会显示更多的信息。</p>
+<blockquote>
+<p>ℹ️通过使用命令行，你可以快速地修改配置选项。你也可以在Terminal中查看实时日志。所有可用选项可参见<a href="https://alanhou.org/installing-odoo-development-environment/" target="_blank" rel="noopener">第一章 安装Odoo开发环境</a>，或使用-help命令来查看所有的选项列表及各个选项的描述。</p>
+</blockquote>
+<h2 id="安装并升级本地插件模块"><a href="#安装并升级本地插件模块" class="headerlink" title="安装并升级本地插件模块"></a>安装并升级本地插件模块</h2><p>Odoo 功能的核心来自于它的插件模块。Odoo自带的插件是你所拥有的财富，同时你也可以在应用商店下载一些插件模块或者自己写。</p>
+<p>这一部分中，我们将展示如何通过网页界面及命令行来安装并升级插件模块。</p>
+<p>对这些操作使用命令行的主要好处包含可以同时作用于一个以上的插件以及在安装或升级的过程中可以清晰地浏览到服务端日志，对于开发模式或编写脚本安装实例时都非常有用。</p>
+<h3 id="准备工作-2"><a href="#准备工作-2" class="headerlink" title="准备工作"></a>准备工作</h3><p>确保你有一个运行中的 Odoo 实例，且数据库已初始化、插件路径已进行恰当地设置。在这一部分中，我们将安装/升级一些插件模块。</p>
+<h3 id="如何安装升级…"><a href="#如何安装升级…" class="headerlink" title="如何安装升级…"></a>如何安装升级…</h3><p>安装或升级插件有两种方法-可以使用网页界面或命令行。</p>
+<h4 id="通过网页界面"><a href="#通过网页界面" class="headerlink" title="通过网页界面"></a>通过网页界面</h4><p>可按照如下步骤来使用网页界面安装新的插件模块到数据库中：</p>
+<ol>
+<li>使用管理员账户连接实例并打开Apps菜单<br>[<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://alanhou.org/homepage/wp-content/uploads/2019/05/2019050906002399.jpg" alt="Odoo 12开发者指南第二章 管理Odoo服务器实例](https://alanhou.org/homepage/wp-content/uploads/2019/05/2019050906002399.jpg)" title="">
+                </div>
+                <div class="image-caption">Odoo 12开发者指南第二章 管理Odoo服务器实例](https://alanhou.org/homepage/wp-content/uploads/2019/05/2019050906002399.jpg)</div>
+            </figure></li>
+<li>使用搜索框来定位你想要安装的插件。这里有一些帮助你完成该任务的操作指南：<ul>
+<li>激活Not Installed过滤器</li>
+<li>如果你要查找一个具体的功能插件而不是广泛的功能插件，删除Apps过滤器</li>
+<li>在搜索框中输入模块名的一部分并使用它来作为模块过滤器</li>
+<li>你会发现使用列表视图可以阅读到更多的信息</li>
+</ul>
+</li>
+<li>点击卡片中模块名下的Install按钮。</li>
+</ol>
+<p>注意有些Odoo插件模块需要有外部Python依赖，如果你的系统中未安装该Python依赖，那么 Odoo 会中止安装并显示如下的对话框：</p>
+<p>[<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://alanhou.org/homepage/wp-content/uploads/2019/05/2019050906125210.jpg" alt="Odoo 12开发者指南第二章 管理Odoo服务器实例](https://alanhou.org/homepage/wp-content/uploads/2019/05/2019050906125210.jpg)" title="">
+                </div>
+                <div class="image-caption">Odoo 12开发者指南第二章 管理Odoo服务器实例](https://alanhou.org/homepage/wp-content/uploads/2019/05/2019050906125210.jpg)</div>
+            </figure><br><strong>译者注：</strong>按正常安装不会出现一错误，需通过 pip uninstall pyldap 才能复现这一错误</p>
+<p>修复这一问题，仅需在你的系统中安装相关的Python依赖即可。</p>
+<p>要升级已安装到数据库的模块，使用如下步骤：</p>
+<ol>
+<li>使用管理员账户连接到实例</li>
+<li>打开Apps菜单</li>
+<li>点击Apps:<br>[<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://alanhou.org/homepage/wp-content/uploads/2019/05/2019050906203077.jpg" alt="Odoo 12开发者指南第二章 管理Odoo服务器实例](https://alanhou.org/homepage/wp-content/uploads/2019/05/2019050906203077.jpg)" title="">
+                </div>
+                <div class="image-caption">Odoo 12开发者指南第二章 管理Odoo服务器实例](https://alanhou.org/homepage/wp-content/uploads/2019/05/2019050906203077.jpg)</div>
+            </figure></li>
+<li>使用搜索框来定位你所安装的插件。有如下的小贴士：<ul>
+<li>激活Installed过滤器</li>
+<li>如果你要查找一个具体的功能插件而不是广泛的功能插件，删除Apps过滤器</li>
+<li>在搜索框中输入部分插件模块的名称并按下 Enter 来使用它作为模块过滤器。例如，输入CRM并按下 Enter 来搜索CRM应用</li>
+<li>你会发现使用列表视图可以阅读到更多的信息</li>
+</ul>
+</li>
+<li>点击卡片右上角的的三个点，然后点击Upgrade选项：</li>
+</ol>
+<p>[<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://alanhou.org/homepage/wp-content/uploads/2019/05/2019050906265357.jpg" alt="Odoo 12开发者指南第二章 管理Odoo服务器实例](https://alanhou.org/homepage/wp-content/uploads/2019/05/2019050906265357.jpg)" title="">
+                </div>
+                <div class="image-caption">Odoo 12开发者指南第二章 管理Odoo服务器实例](https://alanhou.org/homepage/wp-content/uploads/2019/05/2019050906265357.jpg)</div>
+            </figure></p>
+<p>激活开发者模式来查看模块的技术名称。如果你不知道如何激活开发者模式，请参见<a href="https://alanhou.org/installing-odoo-development-environment/" target="_blank" rel="noopener">第一章 安装Odoo开发环境</a>：</p>
+<p>[<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://alanhou.org/homepage/wp-content/uploads/2019/05/2019050906302261.jpg" alt="Odoo 12开发者指南第二章 管理Odoo服务器实例](https://alanhou.org/homepage/wp-content/uploads/2019/05/2019050906302261.jpg)" title="">
+                </div>
+                <div class="image-caption">Odoo 12开发者指南第二章 管理Odoo服务器实例](https://alanhou.org/homepage/wp-content/uploads/2019/05/2019050906302261.jpg)</div>
+            </figure></p>
+<p>在激活开发者模式之后，它会以红色显示模块的技术名称。如果你使用的是Odoo社区版，会看到一些带有Upgrade的附加应用。这些是Odoo企业版的应用，要想安装/使用它们，需要购买一个证书。</p>
+<h4 id="通过命令行"><a href="#通过命令行" class="headerlink" title="通过命令行"></a>通过命令行</h4><p>要在你的数据库中安装新插件，可按照如下步骤：</p>
+<ol>
+<li><p>查找插件的名称。这是包含<strong>manifest</strong>.py文件的目录名，不带前面的路径。</p>
+</li>
+<li><p>停止实例。如果你在操作生产数据库，请进行备份。</p>
+</li>
+<li><p>运行如下命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">odoo/odoo-bin -c instance.cfg -d dbname -i addon1,addon2 --stop-after-init</span><br></pre></td></tr></table></figure>
+<p>译者注：</p>
+<p>请将addon1,addon2替换为你所要安装的插件名</p>
+</li>
+</ol>
+<blockquote>
+<p><strong>小贴士：</strong>你可以省略掉-d dbname，因为这在配置文件中进行了设置。</p>
+</blockquote>
+<ol start="4">
+<li>重新启动实例</li>
+</ol>
+<h3 id="运行原理…-3"><a href="#运行原理…-3" class="headerlink" title="运行原理…"></a>运行原理…</h3><p>插件模块的安装和升级是两个紧密关联的操作，但有一些重要的区别，在下面两部分中进行了强调：</p>
+<h4 id="插件安装"><a href="#插件安装" class="headerlink" title="插件安装"></a>插件安装</h4><p>在你安装插件时，Odoo以提供的名称检查它的可用插件列表中未安装插件。它还会检查该插件的依赖，并且如果有依赖的话，它会在安装插件前递归安装这些依赖。</p>
+<p>单个模块的安装包含如下步骤：</p>
+<ol>
+<li>如果存在，运行插件preinit钩子</li>
+<li>从Python源代码中加载模型定义并在必要时更新数据库结构（参见<a href="https://alanhou.org/application-models/" target="_blank" rel="noopener">第五章 应用模型</a>了解更多信息）</li>
+<li>加载插件的数据文件并在必要时更新数据库内容（参见<a href="https://alanhou.org/odoo12-module-data/" target="_blank" rel="noopener">第七章 模块数据</a>了解更多信息）</li>
+<li>如果实例中启用了演示数据则安装插件演示数据</li>
+<li>如果存在，运行插件postinit钩子</li>
+<li>运行对插件视图定义的验证</li>
+<li>如果启用了演示数据并启用了测试，运行该插件的测试（参见<a href="https://alanhou.org/automated-test-cases/" target="_blank" rel="noopener">第十八章 自动化测试用例</a>了解更多信息）</li>
+<li>在数据库中更新模块状态</li>
+<li>从插件的翻译文件中更新数据库中的翻译（参见<a href="https://alanhou.org/internationalization/" target="_blank" rel="noopener">第十二章 国际化</a>了解更多信息）</li>
+</ol>
+<blockquote>
+<p>ℹ️preinit和postinit钩子分别使用pre_init_hook和post_init_hook键名在<strong>manifest</strong>.py文件中定义。这些钩子用于在插件模块的安装之前及之后触发Python函数。参见<a href="https://alanhou.org/creating-odoo-add-on-modules/" target="_blank" rel="noopener">第四章 创建Odoo插件模块</a>了解更多有关 init 钩子的知识。</p>
+</blockquote>
+<h4 id="插件升级"><a href="#插件升级" class="headerlink" title="插件升级"></a>插件升级</h4><p>升级插件时，Odoo以给定的名称在可用的插件模块列表中检查已安装插件。它还会检查该插件的反向依赖（即依赖于所升级插件的那些插件）。如果存在，则也会对它们进行递归升级。</p>
+<p>单个插件模块的升级过程包含如下步骤：</p>
+<ol>
+<li>如果有的话，先运行插件模块的预迁移步骤（参见<a href="https://alanhou.org/odoo12-module-data/" target="_blank" rel="noopener">第七章 模块数据</a>了解更多信息）</li>
+<li>从Python源码中加载模型定义并在必要时更新数据库结构（参见<a href="https://alanhou.org/application-models/" target="_blank" rel="noopener">第五章 应用模型</a>了解更多信息）</li>
+<li>加载插件的数据文件并在必要时更新数据库内容（参见<a href="https://alanhou.org/odoo12-module-data/" target="_blank" rel="noopener">第七章 模块数据</a>了解更多信息）</li>
+<li>如果实例中启用了演示数据更新插件演示数据</li>
+<li>如果模块有任何迁移方法的话，先运行插件模块的后置迁移步骤（参见<a href="https://alanhou.org/odoo12-module-data/" target="_blank" rel="noopener">第七章 模块数据</a>了解更多信息）</li>
+<li>运行对插件视图定义的验证</li>
+<li>如果启用了演示数据并启用了测试，运行该插件的测试（参见<a href="https://alanhou.org/automated-test-cases/" target="_blank" rel="noopener">第十八章 自动化测试用例</a>了解更多信息）</li>
+<li>在数据库中更新模块状态</li>
+<li>从插件的翻译文件中更新数据库中的翻译（参见<a href="https://alanhou.org/internationalization/" target="_blank" rel="noopener">第十二章 国际化</a>了解更多信息）</li>
+</ol>
+<blockquote>
+<p>ℹ️注意更新未安装的插件模块什么也不会做。但是安装已安装的插件模块会重新安装该插件，这会通过一些包含数据的数据文件产生一些预期外的问题，这些文件可能应由用户进行更新而非在常规的模块升级处理时进行更新（参见<a href="https://alanhou.org/odoo12-module-data/" target="_blank" rel="noopener">第七章 模块数据</a>中使用noupdate和forcecreate标记部分的内容）。通过用户界面不存在错误的风险，但通过命令行时则有可能发生。</p>
+</blockquote>
+<h3 id="扩展知识…-2"><a href="#扩展知识…-2" class="headerlink" title="扩展知识…"></a>扩展知识…</h3><p>要当心依赖的处理。假定有一个实例你想要安装sale、sale_stock和sale_specific插件，sale_specific依赖于sale_stock，而sale_stock依赖于sale。要安装这三者，你只需要安装sale_specific，因为它会递归安装sale_stock和sale这两个依赖。要升级这两者，你需要升级sale，因为这样会递归升级其反向依赖，sale_stock和sale_specific。</p>
+<p>管理依赖另一个比较搞的地方是在你向已经有一个版本安装了的插件添加依赖的时候。我们继续通过前例来理解这一问题。想像一下你在sale_specific中添加了一个对stock_dropshipping的依赖。更新sale_specific插件不会自动安装新的依赖，也会要求安装sale_specific。在这种情况下，你会收到非常糟糕的错误消息，因为插件的Python代码没有成功的加载，而插件的数据和模型表则存在于数据库中。要解决这一问题，你需要停止该实例并手动安装新的依赖。</p>
+<h2 id="从GitHub安装插件模块"><a href="#从GitHub安装插件模块" class="headerlink" title="从GitHub安装插件模块"></a>从GitHub安装插件模块</h2><p>GitHub是第三方插件的一个很好的来源。很多Odoo合作伙伴使用GitHub来分享他们内部维护的插件，而Odoo社区联盟（OCA）在GitHub上共同维护着几百个插件。在你开始编写自己的插件之前，确保查看是否已有可用的插件或者作为初始以继续扩展插件。</p>
+<p>这一部分向你展示如何从GitHub上克隆OCA的partner-contact项目并让其中所包含的插件模块在我们实例中可用。</p>
+<h3 id="准备工作-3"><a href="#准备工作-3" class="headerlink" title="准备工作"></a>准备工作</h3><p>假设你想要改变你的实例中地址的处理方式，你的客户需要在Odoo两个字段（街道和街道2）之外的第三个字段来存储地址。你肯定是可以编写自己的插件来为res.partne添加一个字段的，但如果想要让地址在发票上以合适的格式显示，问题就要比看上去麻烦一些了。所幸，你邮件列表上的某个人告诉了你partner_address_street3插件，由OCA作为partner-contact项目的一部分进行维护。</p>
+<p>本部分中所使用的路径反映了我们在<em>标准化你的实例目录布局</em>一节中所推荐的布局。</p>
+<h3 id="如何安装…"><a href="#如何安装…" class="headerlink" title="如何安装…"></a>如何安装…</h3><p>按照如下步骤来安装partner_address_street3：</p>
+<ol>
+<li>进入你的项目目录：</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> ~/odoo-dev/my-odoo/src</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>在src/目录中克隆partner-contact项目的12.0分支：</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> --branch 12.0 \https://github.com/OCA/partner-contact.git src/partner-contact</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li><p>修改插件路径来包含该目录并更新你的实例中的插件列表（参见本章中的配置插件路径和更新插件模块列表一节）。instance.cfg中的addons_path一行应该是这样的：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">addons_path = ~/odoo-dev/my-odoo/src/odoo/odoo/addons, \~/odoo-dev/my-odoo/src/odoo/addons, \~/odoo-dev/my-odoo/src/, \~/odoo-dev/local-addons</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装partner_address_street3插件（如果你不知道如何安装该模块，参见前面一节，安装并升级本地插件模块）</p>
+</li>
+</ol>
+<h3 id="运行原理…-4"><a href="#运行原理…-4" class="headerlink" title="运行原理…"></a>运行原理…</h3><p>所有 Odoo社区联盟的代码仓库都将他们自己的插件放在单独的目录中，这与Odoo对插件路径中目录的预期是相一致的。因此，只需复制某处的仓库并将其添加到插件路径中就够了。</p>
+<h3 id="扩展知识…-3"><a href="#扩展知识…-3" class="headerlink" title="扩展知识…"></a>扩展知识…</h3><p>有些维护者遵循不同的方法，每个插件模块一个仓库，放在仓库的根目录下。这种情况下，你需要创建一个新的目录，在这个目录中添加插件路径并克隆你所需的维护者的插件到该目录中。记住在每次添加一个新仓库拷贝时要更新插件模块列表。</p>
+<h2 id="对插件应用修改"><a href="#对插件应用修改" class="headerlink" title="对插件应用修改"></a>对插件应用修改</h2><p>GitHub上可用的大部分插件需要进行修改并且不遵循Odoo对其稳定发行版所强制的规则。它们可能收到漏洞修复或改善，包含你提交的问题或功能请求，这些修改可能会引入数据库模式的修改或数据文件和视图中的更新。这一部分讲解如何安装升级后的版本。</p>
+<h3 id="准备工作-4"><a href="#准备工作-4" class="headerlink" title="准备工作"></a>准备工作</h3><p>假定你对partner_address_street3报告了一个问题并收到通知说该问题已在partner-contact项目12.0分支的最近一次修订中得以解决。这种情况下，你可以使用最新版本来更新你的实例。</p>
+<h3 id="如何修改…"><a href="#如何修改…" class="headerlink" title="如何修改…"></a>如何修改…</h3><p>要对GitHub的插件进行源的变更，需执行如下步骤：</p>
+<ol>
+<li><p>停止使用该插件的实例。</p>
+</li>
+<li><p>如果是生产实例请做一个备份（参见<a href="https://alanhou.org/installing-odoo-development-environment/" target="_blank" rel="noopener">第一章 安装Odoo开发环境</a>中<em>管理Odoo服务端数据库</em>一节）。</p>
+</li>
+<li><p>进入克隆了partner-contact的目录：</p>
+</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> ~/odoo-dev/my-odoo/src/partner-contact</span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li>为该项目创建一个本地标签，这样万一出现了崩溃你可以进行回退：</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout 12.0$ git tag 12.0-before-update-$(date --iso)</span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li>获取源码的最新版本：</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git pull --ff-only</span><br></pre></td></tr></table></figure>
+<ol start="6">
+<li><p>在你的数据库中更新partner_address_street3插件（参见<em>安装并升级本地插件模块</em>一节）</p>
+</li>
+<li><p>重启实例</p>
+</li>
+</ol>
+<h3 id="运行原理…-5"><a href="#运行原理…-5" class="headerlink" title="运行原理…"></a>运行原理…</h3><p>通常，插件模块的开发者有时会发布插件的最新版本。这一更新一般包含漏洞修复及新功能。这里，我们将获取一个插件的新版本并在我们的实例中更新它。</p>
+<p>如果git pull –ff-only失败的话，你可以使用如下命令回退到前一个版本：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$  git reset --hard 12.0-before-update-$(date --iso)</span><br></pre></td></tr></table></figure>
+<p>然后，你可以尝试git pull（不添加–ff-only），它会产生一个合并，但这表示你对插件做了本地修改。</p>
+<h3 id="扩展知识…-4"><a href="#扩展知识…-4" class="headerlink" title="扩展知识…"></a>扩展知识…</h3><p>如果更新这一步崩溃了，参见<a href="https://alanhou.org/installing-odoo-development-environment/" target="_blank" rel="noopener">第一章 安装Odoo开发环境</a><em>从源码更新Odoo</em>一节获取恢复的操作指南。记住要总是在一个生产数据库的拷贝上先进行测试。</p>
+<h2 id="应用及尝试建议的拉取请求"><a href="#应用及尝试建议的拉取请求" class="headerlink" title="应用及尝试建议的拉取请求"></a>应用及尝试建议的拉取请求</h2><p>在GitHub的世界中，拉取请求（PR）是由开发者所提交的请求，这样项目维护人员可以添加一些新的开发。比如一个 PR 可能包含漏洞修复或新功能。这里请求在拉取到主分支之前会进行审核和测试。</p>
+<p>这一部分讲解如何对你的 Odoo 项目应用一个PR来测试漏洞修复的改进。</p>
+<h3 id="准备工作-5"><a href="#准备工作-5" class="headerlink" title="准备工作"></a>准备工作</h3><p>在前一节中，假定你对partner_address_street3 报告了一个问题并收到一条通知在拉取请求中问题已修复，尚未合并到项目的12.0分支中。开发人员要求你验证PR #123中的修复状况。你需要使用这一分支更新一个测试实例。</p>
+<p>你不应在生产数据库直接使用该分支，因此先创建一个带有生产数据库拷贝的测试环境（参见<a href="https://alanhou.org/installing-odoo-development-environment/" target="_blank" rel="noopener">第一章 安装Odoo开发环境</a>和<a href="https://alanhou.org/server-deployment/" target="_blank" rel="noopener">第三章 服务器部署</a>）。</p>
+<h3 id="如何操作…"><a href="#如何操作…" class="headerlink" title="如何操作…"></a>如何操作…</h3><p>应用并测试一个插件的GitHub拉取请求，你需要执行如下步骤：</p>
+<ol>
+<li><p>停止实例</p>
+</li>
+<li><p>进入partner-contact所被克隆的目录：</p>
+</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> ~/odoo-dev/my-odoo/src/partner-contact</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>为该项目创建一个本地标签，这样万一出现崩溃时你可以回退：</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$  git checkout 12.0$ git tag 12.0-before-update-$(date --iso</span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li>拉取pull请求的分支。这么做最容易的方式是使用PR编号，在开发者与你沟通时你应该可以看到。在本例中，这个拉取请求编号是123：</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git pull origin pull/123/head</span><br></pre></td></tr></table></figure>
+<ol start="5">
+<li><p>在你的数据库中更新partner_address_street3插件模块并重启该实例（如果你不知道如何更新该模块的话请参见<em>安装并升级本地插件模块</em>一节）</p>
+</li>
+<li><p>测试该更新 – 尝试重现问题，或测试你想要的功能。</p>
+</li>
+</ol>
+<p>如果这不能运行，在GitHub的PR页面进行评论，说明你做了什么以及什么不能运行，这样开发者可以更新这个拉取请求。</p>
+<p>如果它没有问题，也在PR页面说下；这是PR验证流程中非常重要的一部分；这会加速主分支中的合并。</p>
+<h3 id="运行原理…-6"><a href="#运行原理…-6" class="headerlink" title="运行原理…"></a>运行原理…</h3><p>我们在使用一个GitHub功能，使用pull/nnnn/head分支名称来通过编号进行拉取请求的拉取，其中nnnn是PR的编号。Git pull命令合并远程分支到我们的分支，在我们基础代码中应用修改。在这之后，我们更新插件模块、对其测试并向作者报回修改是成功或是失败。</p>
+<h3 id="扩展知识…-5"><a href="#扩展知识…-5" class="headerlink" title="扩展知识…"></a>扩展知识…</h3><p>如果你想要同步测试它们，你可以针对相同仓库的不同拉取请求重复本节中的第4步。如果你对结果很满意，你可以创建一个分支来保留对应用了改变的结果的引用：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout -b 12.0-custom</span><br></pre></td></tr></table></figure>
+<p>使用一个不同的分支会帮助你记住你没有从GitHub使用该版本，而是一个自定义的版本。</p>
+<blockquote>
+<p>ℹ️git branch命令可用于列出你仓库中的所有本地分支。</p>
+</blockquote>
+<p>从这开始，如果你需要应用来自GitHub中12.0分支的最近一个审核版本，你需要不使用–ff-only来拉取它：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git pull origin 12.0</span><br></pre></td></tr></table></figure>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-06-18T10:41:34.000Z" itemprop="dateUpdated">2019-06-18 18:41:34</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2019/06/18/Odoo 12开发者指南第二章 管理Odoo服务器实例/" target="_blank" rel="external">http://wumuwumu.github.io/2019/06/18/Odoo 12开发者指南第二章 管理Odoo服务器实例/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://wumuwumu.github.io">
+            <img src="/img/avatar.png" alt="wumu">
+            wumu
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/odoo/">odoo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://wumuwumu.github.io/2019/06/18/Odoo 12开发者指南第二章 管理Odoo服务器实例/&title=《管理Odoo服务器实例》 — wumu's blog&pic=http://wumuwumu.github.io/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://wumuwumu.github.io/2019/06/18/Odoo 12开发者指南第二章 管理Odoo服务器实例/&title=《管理Odoo服务器实例》 — wumu's blog&source=起风了，唯有努力生存" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://wumuwumu.github.io/2019/06/18/Odoo 12开发者指南第二章 管理Odoo服务器实例/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《管理Odoo服务器实例》 — wumu's blog&url=http://wumuwumu.github.io/2019/06/18/Odoo 12开发者指南第二章 管理Odoo服务器实例/&via=http://wumuwumu.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://wumuwumu.github.io/2019/06/18/Odoo 12开发者指南第二章 管理Odoo服务器实例/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/07/27/mysql/mysql修改字符集/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">mysql修改字符集</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/06/01/import-在python中的区别/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">__import__在python中的区别</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "V8NlRMg78hP7LSAg49QpIIMV-gzGzoHsz",
+            appKey: "I8XKrcOwUTeg1Sv7mVwEcnMF",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="bottom">
+        <p>
+            <span>wumu &copy; 2018 - 2019</span>
+            <span>
+                 Power by
+                <a href="http://hexo.io/" target="_blank">Hexo</a> Theme
+                <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://wumuwumu.github.io/2019/06/18/Odoo 12开发者指南第二章 管理Odoo服务器实例/&title=《管理Odoo服务器实例》 — wumu's blog&pic=http://wumuwumu.github.io/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://wumuwumu.github.io/2019/06/18/Odoo 12开发者指南第二章 管理Odoo服务器实例/&title=《管理Odoo服务器实例》 — wumu's blog&source=起风了，唯有努力生存" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://wumuwumu.github.io/2019/06/18/Odoo 12开发者指南第二章 管理Odoo服务器实例/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《管理Odoo服务器实例》 — wumu's blog&url=http://wumuwumu.github.io/2019/06/18/Odoo 12开发者指南第二章 管理Odoo服务器实例/&via=http://wumuwumu.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://wumuwumu.github.io/2019/06/18/Odoo 12开发者指南第二章 管理Odoo服务器实例/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAADIElEQVR42u3aQXLCQAwEQP7/aXLNIXZGkqnCcvtEQVi7l4Mizb5e8fWOr99/n6989Ppo/aMVLr6wsbGxb8LOGck7R4+SbFDvjslm/bE12NjY2OvYeWnJK0JebOb4fH1sbGxs7M/9t5+833tObGxsbOze68mUKxlU5cMsbGxs7Cew83F/lVeNCs4fPXm2i2dp2NjY2F/Pnsex3/P6I/k2NjY29hez38UrLzbJXfJPe097uDI2Njb2InYvxM3bgyovHxtNQmhsbGzsrexri8q1AcA8Tv5jNWxsbOwV7PPbFELTYhDba2yqG/RPHoKNjY29gj2flvcO0OTBbb7d5SABGxsbex271wBUw+BeOcyHWQURNjY29jp273DMPB5OvlsNlaOCio2Njb2CXR3xVEtdL6DNtzJfoZxaY2NjY9+EPQlNq1Futbyd3zf/FBsbG/sJ7Gocmxek85ZjXoR6LRM2Njb2Jvb51yYPmpeZSQyct0aHES82Njb2anY1mp2HDfM4uRAPYGNjYy9iV8tM78bV0LdQkIrfxcbGxt7ETjDV9qNa8OYtTfXoDzY2NvY+9uQoZDVamKzcaz8KpQsbGxv7tux83NNrEnpNRX6Up/opNjY29j52r4Alcex8aJW0PdXDRtjY2Nib2NVRfh7lTsLgScGLQmVsbGzsRew8GMhD2Tkp/wGq0cI/vzk2Njb2bdnzozmT8X3S/PRi4CgqwMbGxr45O2858gFTr1BdFSFHsQQ2Njb2Ova1acM8TuitXNgabGxs7EXsq+LV/JpsU3UI1ezAsLGxsW/Izh9lMhLKS1o+YOoFBtjY2NhPYPfaj94780C3uonY2NjYT2DnZSNvSHrNRu9e0QrY2NjYK9jv4jVvAHphcLKJhWAAGxsbexF7VPfiAX3SPMzD3fzHwMbGxt7HTopWsvSkVZgAkiAhOoKJjY2NfXN2dQyUR8L5wZreoczmJmJjY2M/mJ23K81zoC1wtQXCxsbGfjI7Hx7N44TJRmBjY2M/jV1tCaox7Ty47b1/QTyAjY2N/fXs+YCmd4CmFzkkYUAyrsLGxsZewf4BOkilgXF0IZcAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = 'wumu的博客';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

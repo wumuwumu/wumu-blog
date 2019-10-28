@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>git基本操作 | wumu&#39;s blog | wumu的博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="git">
+    <meta name="description" content="简介在实际开发中，会使用git作为版本控制工具来完成团队协作。因此，对基本的git操作指令进行总结是十分有必要的，本文对一些术语或者理论基础，不重新码字，可以参考廖雪峰老师的博文，本文只对命令做归纳总结。 git的通用操作流程如下图（来源于网络）  主要涉及到四个关键点：  工作区：本地电脑存放项目文件的地方，比如learnGitProject文件夹； 暂存区（Index/Stage）：在使用gi">
+<meta name="keywords" content="git">
+<meta property="og:type" content="article">
+<meta property="og:title" content="git基本操作">
+<meta property="og:url" content="http://wumuwumu.github.io/2019/04/09/git基本操作/index.html">
+<meta property="og:site_name" content="wumu&#39;s blog">
+<meta property="og:description" content="简介在实际开发中，会使用git作为版本控制工具来完成团队协作。因此，对基本的git操作指令进行总结是十分有必要的，本文对一些术语或者理论基础，不重新码字，可以参考廖雪峰老师的博文，本文只对命令做归纳总结。 git的通用操作流程如下图（来源于网络）  主要涉及到四个关键点：  工作区：本地电脑存放项目文件的地方，比如learnGitProject文件夹； 暂存区（Index/Stage）：在使用gi">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/4/25/162fcc0987bf1c0a">
+<meta property="og:image" content="http://wumu.sciento.cn/img/162fcc0e7e711dc7.png">
+<meta property="og:updated_time" content="2019-04-28T01:39:50.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="git基本操作">
+<meta name="twitter:description" content="简介在实际开发中，会使用git作为版本控制工具来完成团队协作。因此，对基本的git操作指令进行总结是十分有必要的，本文对一些术语或者理论基础，不重新码字，可以参考廖雪峰老师的博文，本文只对命令做归纳总结。 git的通用操作流程如下图（来源于网络）  主要涉及到四个关键点：  工作区：本地电脑存放项目文件的地方，比如learnGitProject文件夹； 暂存区（Index/Stage）：在使用gi">
+<meta name="twitter:image" content="https://user-gold-cdn.xitu.io/2018/4/25/162fcc0987bf1c0a">
+    
+        <link rel="alternate" type="application/atom+xml" title="wumu&#39;s blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/avatar.png">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">wumu</h5>
+          <a href="mailto:2232728687@qq.com" title="2232728687@qq.com" class="mail">2232728687@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags">
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/wumuwumu" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">git基本操作</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">git基本操作</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-04-09T05:59:25.000Z" itemprop="datePublished" class="page-time">
+  2019-04-09
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#简介"><span class="post-toc-number">1.</span> <span class="post-toc-text">简介</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#安装"><span class="post-toc-number">2.</span> <span class="post-toc-text">安装</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#配置"><span class="post-toc-number">3.</span> <span class="post-toc-text">配置</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#快速开始"><span class="post-toc-number">4.</span> <span class="post-toc-text">快速开始</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#常用命令"><span class="post-toc-number">5.</span> <span class="post-toc-text">常用命令</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#add"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">add</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#commit"><span class="post-toc-number">5.2.</span> <span class="post-toc-text">commit</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#checkout"><span class="post-toc-number">5.3.</span> <span class="post-toc-text">checkout</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#rm"><span class="post-toc-number">5.4.</span> <span class="post-toc-text">rm</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#reset"><span class="post-toc-number">6.</span> <span class="post-toc-text">reset</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#revert"><span class="post-toc-number">6.1.</span> <span class="post-toc-text">revert</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-git基本操作" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">git基本操作</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-04-09 13:59:25" datetime="2019-04-09T05:59:25.000Z" itemprop="datePublished">2019-04-09</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>在实际开发中，会使用git作为版本控制工具来完成团队协作。因此，对基本的git操作指令进行总结是十分有必要的，本文对一些术语或者理论基础，不重新码字，可以<a href="https://link.juejin.im?target=https%3A%2F%2Fwww.liaoxuefeng.com%2Fwiki%2F0013739516305929606dd18361248578c67b8067c8c017b000" target="_blank" rel="noopener">参考廖雪峰老师的博文</a>，本文只对命令做归纳总结。</p>
+<p>git的通用操作流程如下图（来源于网络）</p>
+<p><img src="https://user-gold-cdn.xitu.io/2018/4/25/162fcc0987bf1c0a" alt="git操作通用流程"></p>
+<p>主要涉及到四个关键点：</p>
+<ol>
+<li>工作区：本地电脑存放项目文件的地方，比如learnGitProject文件夹；</li>
+<li>暂存区（Index/Stage）：在使用git管理项目文件的时候，其本地的项目文件会多出一个.git的文件夹，将这个.git文件夹称之为版本库。其中.git文件夹中包含了两个部分，一个是暂存区（Index或者Stage）,顾名思义就是暂时存放文件的地方，通常使用add命令将工作区的文件添加到暂存区里；</li>
+<li>本地仓库：.git文件夹里还包括git自动创建的master分支，并且将HEAD指针指向master分支。使用commit命令可以将暂存区中的文件添加到本地仓库中；</li>
+<li>远程仓库：不是在本地仓库中，项目代码在远程git服务器上，比如项目放在github上，就是一个远程仓库，通常使用clone命令将远程仓库拷贝到本地仓库中，开发后推送到远程仓库中即可；</li>
+</ol>
+<p>更细节的来看：</p>
+<p><img src="http://wumu.sciento.cn/img/162fcc0e7e711dc7.png" alt=""></p>
+<p>日常开发时代码实际上放置在工作区中，也就是本地的XXX.java这些文件，通过add等这些命令将代码文教提交给暂存区（Index/Stage），也就意味着代码全权交给了git进行管理，之后通过commit等命令将暂存区提交给master分支上，也就是意味打了一个版本，也可以说代码提交到了本地仓库中。另外，团队协作过程中自然而然还涉及到与远程仓库的交互。</p>
+<p>因此，经过这样的分析，git命令可以分为这样的逻辑进行理解和记忆：</p>
+<ol>
+<li><p>git管理配置的命令；</p>
+<p><strong>几个核心存储区的交互命令：</strong></p>
+</li>
+<li><p>工作区与暂存区的交互；</p>
+</li>
+<li><p>暂存区与本地仓库（分支）上的交互；</p>
+</li>
+<li><p>本地仓库与远程仓库的交互。</p>
+</li>
+</ol>
+<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p><a href="https://git-scm.com/book/zh/v1/%E8%B5%B7%E6%AD%A5-%E5%AE%89%E8%A3%85-Git" target="_blank" rel="noopener">git安装</a></p>
+<p><a href="https://git-scm.com/" target="_blank" rel="noopener">https://git-scm.com/</a></p>
+<h1 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user.name <span class="string">"Your Name"</span></span><br><span class="line">$ git config --global user.email <span class="string">"email@example.com"</span></span><br><span class="line"></span><br><span class="line">$ git config --global core.editor emacs</span><br><span class="line">$ git config --list</span><br><span class="line">$ git config user.name</span><br></pre></td></tr></table></figure>
+<h1 id="快速开始"><a href="#快速开始" class="headerlink" title="快速开始"></a>快速开始</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ git init  <span class="comment"># 初始化工程</span></span><br><span class="line">$ git add * <span class="comment"># 将文件添加到暂存区</span></span><br><span class="line">$ git commit -m  <span class="comment"># 提交</span></span><br><span class="line">$ git <span class="built_in">clone</span> https://github.com/libgit2/libgit2</span><br></pre></td></tr></table></figure>
+<h1 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h1><h2 id="add"><a href="#add" class="headerlink" title="add"></a>add</h2><ol>
+<li><p>git add -A   保存所有的修改</p>
+</li>
+<li><p>git add .     保存新的添加和修改，但是不包括删除</p>
+</li>
+<li><p>git add -u   保存修改和删除，但是不包括新建文件。</p>
+</li>
+</ol>
+<h2 id="commit"><a href="#commit" class="headerlink" title="commit"></a>commit</h2><ol>
+<li>git commit -m</li>
+<li>git commit -ma   // -a是添加全部修改</li>
+<li>git commit –amend</li>
+</ol>
+<h2 id="checkout"><a href="#checkout" class="headerlink" title="checkout"></a>checkout</h2><ol>
+<li>git checkout — //使用暂缓区替换工作区</li>
+<li>git checkout  切换分支</li>
+<li>git checkout head — //直接使用本地参考的文件覆盖工作区文件</li>
+</ol>
+<h2 id="rm"><a href="#rm" class="headerlink" title="rm"></a>rm</h2><ol>
+<li>git rm  // 删除工作区，并且提交</li>
+<li>git rm —cached  // 只删除暂存区</li>
+<li>git rm -f   // 暂存区和工作区都删除</li>
+</ol>
+<h1 id="reset"><a href="#reset" class="headerlink" title="reset"></a>reset</h1><p><strong>谨慎使用！！！！！</strong></p>
+<ul>
+<li>–soft – 缓存区和工作目录都不会被改变</li>
+<li>–mixed – 默认选项。缓存区和你指定的提交同步，但工作目录不受影响</li>
+<li>–hard – 缓存区和工作目录都同步到你指定的提交</li>
+</ul>
+<h2 id="revert"><a href="#revert" class="headerlink" title="revert"></a>revert</h2><p>前提是已经提交，缺点：一次回滚过个记录会出现冲突。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-04-28T01:39:50.000Z" itemprop="dateUpdated">2019-04-28 09:39:50</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2019/04/09/git基本操作/" target="_blank" rel="external">http://wumuwumu.github.io/2019/04/09/git基本操作/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://wumuwumu.github.io">
+            <img src="/img/avatar.png" alt="wumu">
+            wumu
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://wumuwumu.github.io/2019/04/09/git基本操作/&title=《git基本操作》 — wumu's blog&pic=http://wumuwumu.github.io/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://wumuwumu.github.io/2019/04/09/git基本操作/&title=《git基本操作》 — wumu's blog&source=起风了，唯有努力生存" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://wumuwumu.github.io/2019/04/09/git基本操作/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《git基本操作》 — wumu's blog&url=http://wumuwumu.github.io/2019/04/09/git基本操作/&via=http://wumuwumu.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://wumuwumu.github.io/2019/04/09/git基本操作/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/04/10/mybatis-sessions/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">mybatis-sessions</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/04/09/go/go工程搭建/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">go工程搭建</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "V8NlRMg78hP7LSAg49QpIIMV-gzGzoHsz",
+            appKey: "I8XKrcOwUTeg1Sv7mVwEcnMF",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="bottom">
+        <p>
+            <span>wumu &copy; 2018 - 2019</span>
+            <span>
+                 Power by
+                <a href="http://hexo.io/" target="_blank">Hexo</a> Theme
+                <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://wumuwumu.github.io/2019/04/09/git基本操作/&title=《git基本操作》 — wumu's blog&pic=http://wumuwumu.github.io/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://wumuwumu.github.io/2019/04/09/git基本操作/&title=《git基本操作》 — wumu's blog&source=起风了，唯有努力生存" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://wumuwumu.github.io/2019/04/09/git基本操作/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《git基本操作》 — wumu's blog&url=http://wumuwumu.github.io/2019/04/09/git基本操作/&via=http://wumuwumu.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://wumuwumu.github.io/2019/04/09/git基本操作/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACLUlEQVR42u3ay26kMBAF0Pz/T3c2WUSKoO910ZEwh9WoYwOHRY3r8fUVX69f1+9f/q45Wp/f83zX6MLAwLgt43V6Ha1JXmvtr+fPPbwPBgbGAxhHt56saT9NEtYPf8fAwMAIgm/7CwYGBsanGW122QZiDAwMjLUkNt91lGrmZbgP5uIYGBg3ZLRB8z///ZH+BgYGxq0Yr/K6ljp/n5+7YWBgbM3IA1x+1Juw270YGBjPYSRpatISaF/ofLAs+Xx1bQ8DA+PmjLVWQTLslaxvmwRRaMbAwNiCkY9t5YFyPiiWfG8MDIznMJJbrw1ktMe7C56IgYGxKSMJsu0oRh5w5+uLmh8GBsZtGXn62rYQ1vbOwzQGBsbejHxbEo5H4TIuw2FgYGBMGgZrTYJJSoyBgfEERlu+z5uR+ae56liJgYGxE6MdekhKb3k5Lz90RsMWGBgYmzLa2NUeFtvAPflAGBgYuzLywtmkndkOitUFOAwMjK0Z8wevhea1lVHzEgMDY2tG8pgkHLclufkHxcDAeA5j0iRYK7GdNwYwMDAwjgJuvi1/uatGxN60PDEwMDZlvMprrdmZv1aduLYdBgwMjBsyJoNi7Uu3qXJ7cMTAwNibsdaYzPe2DcvFgIuBgfEARp71zgPr5H+AN+dcDAwMjHLYYi2JbYc8MDAwMOaNxqgBGae1b5JYDAyMrRlJEjsJzfMj4GXlNgwMjBsy1kYc2rL+JNG9bFwDAwPjfoxvDjdqmIgUfUgAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = 'wumu的博客';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

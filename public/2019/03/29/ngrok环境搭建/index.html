@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>ngrok环境搭建 | wumu&#39;s blog | wumu的博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="linux">
+    <meta name="description" content="下载安装 配置golang环境  安装go 1yum install golang  配置GOPATH    安装git2 1234sudo yum remove gitsudo yum install epel-releasesudo yum install https://centos7.iuscommunity.org/ius-release.rpmsudo yum install git2">
+<meta name="keywords" content="linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ngrok环境搭建">
+<meta property="og:url" content="http://wumuwumu.github.io/2019/03/29/ngrok环境搭建/index.html">
+<meta property="og:site_name" content="wumu&#39;s blog">
+<meta property="og:description" content="下载安装 配置golang环境  安装go 1yum install golang  配置GOPATH    安装git2 1234sudo yum remove gitsudo yum install epel-releasesudo yum install https://centos7.iuscommunity.org/ius-release.rpmsudo yum install git2">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-03-29T07:45:53.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ngrok环境搭建">
+<meta name="twitter:description" content="下载安装 配置golang环境  安装go 1yum install golang  配置GOPATH    安装git2 1234sudo yum remove gitsudo yum install epel-releasesudo yum install https://centos7.iuscommunity.org/ius-release.rpmsudo yum install git2">
+    
+        <link rel="alternate" type="application/atom+xml" title="wumu&#39;s blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/avatar.png">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">wumu</h5>
+          <a href="mailto:2232728687@qq.com" title="2232728687@qq.com" class="mail">2232728687@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags">
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/wumuwumu" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">ngrok环境搭建</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">ngrok环境搭建</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-03-29T01:28:43.000Z" itemprop="datePublished" class="page-time">
+  2019-03-29
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#下载安装"><span class="post-toc-number">1.</span> <span class="post-toc-text">下载安装</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#生成证书"><span class="post-toc-number">2.</span> <span class="post-toc-text">生成证书</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#编译"><span class="post-toc-number">3.</span> <span class="post-toc-text">编译</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#启动服务器"><span class="post-toc-number">4.</span> <span class="post-toc-text">启动服务器</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#启动客户端"><span class="post-toc-number">5.</span> <span class="post-toc-text">启动客户端</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#nginx配置"><span class="post-toc-number">6.</span> <span class="post-toc-text">nginx配置</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#参考"><span class="post-toc-number">7.</span> <span class="post-toc-text">参考</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-ngrok环境搭建" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">ngrok环境搭建</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-03-29 09:28:43" datetime="2019-03-29T01:28:43.000Z" itemprop="datePublished">2019-03-29</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="下载安装"><a href="#下载安装" class="headerlink" title="下载安装"></a>下载安装</h1><ol>
+<li><p>配置golang环境</p>
+<ol>
+<li><p>安装go</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install golang</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>配置<code>GOPATH</code></p>
+</li>
+</ol>
+</li>
+<li><p>安装git2</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo yum remove git</span><br><span class="line">sudo yum install epel-release</span><br><span class="line">sudo yum install https://centos7.iuscommunity.org/ius-release.rpm</span><br><span class="line">sudo yum install git2u</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>下载ngrok</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">go get github.com/inconshreveable/ngrok</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h1 id="生成证书"><a href="#生成证书" class="headerlink" title="生成证书"></a>生成证书</h1><ol>
+<li><p>使用let’s encrypt证书</p>
+<ol>
+<li><p>申请证书（具体看申请证书，主要通配符证书和三级域名）</p>
+</li>
+<li><p>修改证书</p>
+<p>客户端证书</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ngrok</span><br><span class="line">cp /etc/letsencrypt/live/xncoding.com/chain.pem assets/client/tls/ngrokroot.crt</span><br></pre></td></tr></table></figure>
+<p>服务端证书</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cp /etc/letsencrypt/live/xncoding.com/cert.pem assets/server/tls/snakeoil.crt</span><br><span class="line">cp /etc/letsencrypt/live/xncoding.com/privkey.pem assets/server/tls/snakeoil.key</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+</ol>
+<h1 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h1><ol>
+<li><p>编译服务端</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make release-server</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>编译客户端</p>
+<p>不同平台的客户端需要分开编译。不同平台使用不同的 GOOS 和 GOARCH，GOOS为go编译出来的操作系统 (windows,linux,darwin)，GOARCH, 对应的构架 (386,amd64,arm)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">GOOS=linux GOARCH=amd64 make release-client</span><br><span class="line">GOOS=windows GOARCH=amd64 make release-client</span><br><span class="line">GOOS=linux GOARCH=arm make release-client</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h1 id="启动服务器"><a href="#启动服务器" class="headerlink" title="启动服务器"></a>启动服务器</h1><p>在开启之前，请主要端口是否开放</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./ngrokd -domain=ngrok.sciento.top -httpAddr=:9580 -httpsAddr=:9443 -tunnelAddr=<span class="string">":9444"</span></span><br></pre></td></tr></table></figure>
+<h1 id="启动客户端"><a href="#启动客户端" class="headerlink" title="启动客户端"></a>启动客户端</h1><ol>
+<li><p>配置文件,具体看官方文档</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">server_addr: &quot;ngrok.sciento.top:9444&quot;</span><br><span class="line">trust_host_root_certs: false</span><br><span class="line">tunnels:</span><br><span class="line">  http:</span><br><span class="line">    subdomain: &quot;demo&quot;</span><br><span class="line">    proto:</span><br><span class="line">      http: &quot;9000&quot;</span><br><span class="line">      </span><br><span class="line">  https:</span><br><span class="line">    subdomain: &quot;demo&quot;</span><br><span class="line">    proto:</span><br><span class="line">      https: &quot;9000&quot;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>启动</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./ngrok -config=ngrok.cfg start http https</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h1 id="nginx配置"><a href="#nginx配置" class="headerlink" title="nginx配置"></a>nginx配置</h1><ol>
+<li><p>安装nginx</p>
+</li>
+<li><p>配置</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">server</span> &#123;</span><br><span class="line">    <span class="attribute">listen</span>       <span class="number">80</span>;</span><br><span class="line">    <span class="attribute">server_name</span>  demo.ngrok.xncoding.com;</span><br><span class="line">    <span class="attribute">return</span>       <span class="number">301</span> https://demo.ngrok.xncoding.com<span class="variable">$request_uri</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="section">server</span> &#123;</span><br><span class="line">    <span class="attribute">listen</span>       <span class="number">443</span> ssl http2;</span><br><span class="line">    <span class="attribute">server_name</span>  demo.ngrok.xncoding.com;</span><br><span class="line"></span><br><span class="line">    <span class="attribute">charset</span> utf-<span class="number">8</span>;</span><br><span class="line"></span><br><span class="line">    <span class="attribute">ssl_certificate</span> /etc/letsencrypt/live/demo.ngrok.xncoding.com/fullchain.pem;</span><br><span class="line">    <span class="attribute">ssl_certificate_key</span> /etc/letsencrypt/live/demo.ngrok.xncoding.com/privkey.pem;</span><br><span class="line">    <span class="attribute">ssl_trusted_certificate</span> /etc/letsencrypt/live/demo.ngrok.xncoding.com/chain.pem;</span><br><span class="line"></span><br><span class="line">    <span class="attribute">access_log</span> /var/log/nginx/ngrok.log main;</span><br><span class="line">    <span class="attribute">error_log</span> /var/log/nginx/ngrok_error.log <span class="literal">error</span>;</span><br><span class="line"></span><br><span class="line">    <span class="attribute">location</span> / &#123;</span><br><span class="line">        <span class="attribute">proxy_pass</span> http://127.0.0.1:5442;</span><br><span class="line">        <span class="attribute">proxy_redirect</span> <span class="literal">off</span>;</span><br><span class="line">        <span class="attribute">proxy_set_header</span> Host       <span class="variable">$http_host</span>:<span class="number">5442</span>;</span><br><span class="line">        <span class="attribute">proxy_set_header</span> X-Real-IP  <span class="variable">$remote_addr</span>;</span><br><span class="line">        <span class="attribute">proxy_set_header</span> X-Forwarded-For <span class="variable">$proxy_add_x_forwarded_for</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://www.xncoding.com/2017/12/29/web/ngrok.html" target="_blank" rel="noopener">https://www.xncoding.com/2017/12/29/web/ngrok.html</a></p>
+<p><a href="https://www.coldawn.com/how-to-issue-acmev2-wildcard-certificates-with-certbot-on-centos-7/" target="_blank" rel="noopener">https://www.coldawn.com/how-to-issue-acmev2-wildcard-certificates-with-certbot-on-centos-7/</a></p>
+<p><a href="https://www.jianshu.com/p/c5c9d071e395" target="_blank" rel="noopener">https://www.jianshu.com/p/c5c9d071e395</a></p>
+<p><a href="http://ngrok.cn/docs.html#tcp" target="_blank" rel="noopener">http://ngrok.cn/docs.html#tcp</a></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-03-29T07:45:53.000Z" itemprop="dateUpdated">2019-03-29 15:45:53</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2019/03/29/ngrok环境搭建/" target="_blank" rel="external">http://wumuwumu.github.io/2019/03/29/ngrok环境搭建/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://wumuwumu.github.io">
+            <img src="/img/avatar.png" alt="wumu">
+            wumu
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://wumuwumu.github.io/2019/03/29/ngrok环境搭建/&title=《ngrok环境搭建》 — wumu's blog&pic=http://wumuwumu.github.io/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://wumuwumu.github.io/2019/03/29/ngrok环境搭建/&title=《ngrok环境搭建》 — wumu's blog&source=起风了，唯有努力生存" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://wumuwumu.github.io/2019/03/29/ngrok环境搭建/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《ngrok环境搭建》 — wumu's blog&url=http://wumuwumu.github.io/2019/03/29/ngrok环境搭建/&via=http://wumuwumu.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://wumuwumu.github.io/2019/03/29/ngrok环境搭建/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/03/29/mysql/mysql安装/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">centos安装mysql</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/03/25/Druid初始化/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Druid初始化</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "V8NlRMg78hP7LSAg49QpIIMV-gzGzoHsz",
+            appKey: "I8XKrcOwUTeg1Sv7mVwEcnMF",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="bottom">
+        <p>
+            <span>wumu &copy; 2018 - 2019</span>
+            <span>
+                 Power by
+                <a href="http://hexo.io/" target="_blank">Hexo</a> Theme
+                <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://wumuwumu.github.io/2019/03/29/ngrok环境搭建/&title=《ngrok环境搭建》 — wumu's blog&pic=http://wumuwumu.github.io/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://wumuwumu.github.io/2019/03/29/ngrok环境搭建/&title=《ngrok环境搭建》 — wumu's blog&source=起风了，唯有努力生存" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://wumuwumu.github.io/2019/03/29/ngrok环境搭建/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《ngrok环境搭建》 — wumu's blog&url=http://wumuwumu.github.io/2019/03/29/ngrok环境搭建/&via=http://wumuwumu.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://wumuwumu.github.io/2019/03/29/ngrok环境搭建/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACHElEQVR42u3ay07EMAwFUP7/p0FihYRo73U6CJLTVTXqI6cLj2P77S0+3j+Pr+c/Hd+vuX5me9fSgYGB8W8Z+bKSu3L2U58MAwPjHEb+uOugef3MPOzma8PAwMBoz5MwPTvHwMDAaFO0JGVc2XtiYGBgzDaxs+1uXlxr34uBgXEOY9YY+J3zl/c3MDAw/jzjvTxmpbenGgk/PgEDA2NrRlIUu17KK0r8bQkPAwPjBEYbRvNhrzbJe6BFioGBsSkjT/7aEDkrzLXDGRgYGGcyoggdh9o2ZWyTRQwMjL0Zs9StzjrL0lu9kcbAwNiasV6ybxPEJDTn/xUYGBjnMNqyWgtuc9U8HGNgYJzAaG+YLbptKlyzMTAwTmbkDciVQNyW8zAwMDDaRedtzqT12L7xpjGAgYGxKSMvqM0anO0Qxqzwh4GBcQLj2W1nsimdhdTk7wEDA+NMxko57HrpbTguPiIGBsYBjHZgYn0sLOdF78LAwNiIkY9b5UleEoLbFLOu5GFgYGzHmF0zG7aYbVNvkkUMDIytGc+GzraINguyRYKIgYGxBWOllZgEwVkATZ6JgYFxDmM9Wj81NJa/CwMD40xGO5K1MqKRNyaHPQ0MDIytGW1BLfnl2TbATbsCAwMDoxyASDafyaa3CL4YGBgY8bJe1/K8uRIDA+MARjuuuk5qN8Y392JgYGzNmBXrn2o95hvjBxoPGBgY/4/xATlLIuCuxbp8AAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = 'wumu的博客';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

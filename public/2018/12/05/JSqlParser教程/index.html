@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>JSqlParser教程 | wumu&#39;s blog | wumu的博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="java">
+    <meta name="description" content="解析获取表名12345//获取所有使用过的表Statement statement = CCJSqlParserUtil.parse(&quot;SELECT * FROM MY_TABLE1&quot;);        Select selectStatement = (Select) statement;        TablesNamesFinder tablesNamesFinder = new Tabl">
+<meta name="keywords" content="java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JSqlParser教程">
+<meta property="og:url" content="http://wumuwumu.github.io/2018/12/05/JSqlParser教程/index.html">
+<meta property="og:site_name" content="wumu&#39;s blog">
+<meta property="og:description" content="解析获取表名12345//获取所有使用过的表Statement statement = CCJSqlParserUtil.parse(&quot;SELECT * FROM MY_TABLE1&quot;);        Select selectStatement = (Select) statement;        TablesNamesFinder tablesNamesFinder = new Tabl">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-12-16T13:26:01.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JSqlParser教程">
+<meta name="twitter:description" content="解析获取表名12345//获取所有使用过的表Statement statement = CCJSqlParserUtil.parse(&quot;SELECT * FROM MY_TABLE1&quot;);        Select selectStatement = (Select) statement;        TablesNamesFinder tablesNamesFinder = new Tabl">
+    
+        <link rel="alternate" type="application/atom+xml" title="wumu&#39;s blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/avatar.png">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">wumu</h5>
+          <a href="mailto:2232728687@qq.com" title="2232728687@qq.com" class="mail">2232728687@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags">
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/wumuwumu" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">JSqlParser教程</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">JSqlParser教程</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-12-05T13:58:31.000Z" itemprop="datePublished" class="page-time">
+  2018-12-05
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#解析"><span class="post-toc-number">1.</span> <span class="post-toc-text">解析</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#获取表名"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">获取表名</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#应用别名"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">应用别名</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#添加一列或者表达式"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">添加一列或者表达式</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#添加where语句"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">添加where语句</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#新建where"><span class="post-toc-number">1.4.1.</span> <span class="post-toc-text">新建where</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#添加where"><span class="post-toc-number">1.4.2.</span> <span class="post-toc-text">添加where</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#添加null"><span class="post-toc-number">1.4.3.</span> <span class="post-toc-text">添加null</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#生成"><span class="post-toc-number">2.</span> <span class="post-toc-text">生成</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#扩展插入"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">扩展插入</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#建立select"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">建立select</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#代替字符串的值"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">代替字符串的值</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#参考"><span class="post-toc-number">3.</span> <span class="post-toc-text">参考</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-JSqlParser教程" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">JSqlParser教程</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-12-05 21:58:31" datetime="2018-12-05T13:58:31.000Z" itemprop="datePublished">2018-12-05</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h1><h2 id="获取表名"><a href="#获取表名" class="headerlink" title="获取表名"></a>获取表名</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//获取所有使用过的表</span></span><br><span class="line">Statement statement = CCJSqlParserUtil.parse(<span class="string">"SELECT * FROM MY_TABLE1"</span>);</span><br><span class="line">        Select selectStatement = (Select) statement;</span><br><span class="line">        TablesNamesFinder tablesNamesFinder = <span class="keyword">new</span> TablesNamesFinder();</span><br><span class="line">        List&lt;String&gt; tableList = tablesNamesFinder.getTableList(selectStatement);</span><br></pre></td></tr></table></figure>
+<h2 id="应用别名"><a href="#应用别名" class="headerlink" title="应用别名"></a>应用别名</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// SELECT a AS A1, b AS A2, c AS A3 FROM test</span></span><br><span class="line">Select select = (Select) CCJSqlParserUtil.parse(<span class="string">"select a,b,c from test"</span>);</span><br><span class="line">        <span class="keyword">final</span> AddAliasesVisitor instance = <span class="keyword">new</span> AddAliasesVisitor();</span><br><span class="line">        select.getSelectBody().accept(instance);</span><br></pre></td></tr></table></figure>
+<h2 id="添加一列或者表达式"><a href="#添加一列或者表达式" class="headerlink" title="添加一列或者表达式"></a>添加一列或者表达式</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// SELECT a, b FROM mytable</span></span><br><span class="line">Select select = (Select) CCJSqlParserUtil.parse(<span class="string">"select a from mytable"</span>);</span><br><span class="line">SelectUtils.addExpression(select, <span class="keyword">new</span> Column(<span class="string">"b"</span>));</span><br></pre></td></tr></table></figure>
+<h2 id="添加where语句"><a href="#添加where语句" class="headerlink" title="添加where语句"></a>添加where语句</h2><h3 id="新建where"><a href="#新建where" class="headerlink" title="新建where"></a>新建where</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Select select = (Select) CCJSqlParserUtil.parse(<span class="string">"select name from user"</span>);</span><br><span class="line">        PlainSelect plainSelect = (PlainSelect) select.getSelectBody();</span><br><span class="line">        <span class="keyword">if</span> (plainSelect.getWhere() == <span class="keyword">null</span>) &#123;</span><br><span class="line">            EqualsTo equalsTo = <span class="keyword">new</span> EqualsTo();</span><br><span class="line">            equalsTo.setLeftExpression(<span class="keyword">new</span> Column(<span class="string">"id"</span>));</span><br><span class="line">            equalsTo.setRightExpression(<span class="keyword">new</span> LongValue(<span class="number">1000L</span>));</span><br><span class="line">            plainSelect.setWhere(equalsTo);</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="添加where"><a href="#添加where" class="headerlink" title="添加where"></a>添加where</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">Select select = (Select) CCJSqlParserUtil.parse(<span class="string">"select name from user where id = 1000"</span>);</span><br><span class="line">    PlainSelect plainSelect = (PlainSelect) select.getSelectBody();</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 原where表达式</span></span><br><span class="line">    Expression where = plainSelect.getWhere();</span><br><span class="line">    <span class="comment">// 新增的查询条件表达式</span></span><br><span class="line">    EqualsTo equalsTo = <span class="keyword">new</span> EqualsTo();</span><br><span class="line">    equalsTo.setLeftExpression(<span class="keyword">new</span> Column(<span class="string">"name"</span>));</span><br><span class="line">    equalsTo.setRightExpression(<span class="keyword">new</span> StringValue(<span class="string">"'张三'"</span>));</span><br><span class="line">    <span class="comment">// 用and链接条件</span></span><br><span class="line">    AndExpression and = <span class="keyword">new</span> AndExpression(where, equalsTo);</span><br><span class="line">    <span class="comment">// 设置新的where条件</span></span><br><span class="line">    plainSelect.setWhere(and);</span><br></pre></td></tr></table></figure>
+<h3 id="添加null"><a href="#添加null" class="headerlink" title="添加null"></a>添加null</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">Select select = (Select) CCJSqlParserUtil.parse(<span class="string">"select name from user where id = 1000"</span>);</span><br><span class="line">   PlainSelect plainSelect = (PlainSelect) select.getSelectBody();</span><br><span class="line"></span><br><span class="line">   <span class="comment">// 原where表达式</span></span><br><span class="line">   Expression where = plainSelect.getWhere();</span><br><span class="line">   <span class="comment">// 新增的null判断条件</span></span><br><span class="line">   IsNullExpression isNullExpression = <span class="keyword">new</span> IsNullExpression();</span><br><span class="line">   isNullExpression.setLeftExpression(<span class="keyword">new</span> Column(<span class="string">"name"</span>));</span><br><span class="line">   isNullExpression.setNot(<span class="keyword">true</span>);</span><br><span class="line">   <span class="comment">// 用and链接条件</span></span><br><span class="line">   AndExpression and = <span class="keyword">new</span> AndExpression(where, isNullExpression);</span><br><span class="line">   <span class="comment">// 设置新的where条件</span></span><br><span class="line">   plainSelect.setWhere(and);</span><br></pre></td></tr></table></figure>
+<h1 id="生成"><a href="#生成" class="headerlink" title="生成"></a>生成</h1><h2 id="扩展插入"><a href="#扩展插入" class="headerlink" title="扩展插入"></a>扩展插入</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// INSERT INTO mytable (col1) VALUES (1)</span></span><br><span class="line"><span class="comment">// INSERT INTO mytable (col1, col2) VALUES (1, 5)</span></span><br><span class="line"><span class="comment">// INSERT INTO mytable (col1, col2, col3) VALUES (1, 5, 10)</span></span><br><span class="line"></span><br><span class="line">Insert insert = (Insert) CCJSqlParserUtil.parse(<span class="string">"insert into mytable (col1) values (1)"</span>);</span><br><span class="line">        System.out.println(insert.toString());</span><br><span class="line">        insert.getColumns().add(<span class="keyword">new</span> Column(<span class="string">"col2"</span>));</span><br><span class="line">        insert.getItemsList().accept(<span class="keyword">new</span> ItemsListVisitor() &#123;</span><br><span class="line"></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">visit</span><span class="params">(SubSelect subSelect)</span> </span>&#123;</span><br><span class="line">                <span class="keyword">throw</span> <span class="keyword">new</span> UnsupportedOperationException(<span class="string">"Not supported yet."</span>);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">visit</span><span class="params">(ExpressionList expressionList)</span> </span>&#123;</span><br><span class="line">                expressionList.getExpressions().add(<span class="keyword">new</span> LongValue(<span class="number">5</span>));</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">visit</span><span class="params">(MultiExpressionList multiExprList)</span> </span>&#123;</span><br><span class="line">                <span class="keyword">throw</span> <span class="keyword">new</span> UnsupportedOperationException(<span class="string">"Not supported yet."</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">        System.out.println(insert.toString());</span><br><span class="line">        insert.getColumns().add(<span class="keyword">new</span> Column(<span class="string">"col3"</span>));</span><br><span class="line">        ((ExpressionList) insert.getItemsList()).getExpressions().add(<span class="keyword">new</span> LongValue(<span class="number">10</span>));</span><br></pre></td></tr></table></figure>
+<h2 id="建立select"><a href="#建立select" class="headerlink" title="建立select"></a>建立select</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Select select = SelectUtils.buildSelectFromTable(<span class="keyword">new</span> Table(<span class="string">"mytable"</span>));</span><br><span class="line"></span><br><span class="line">Select select = SelectUtils.buildSelectFromTableAndExpressions(<span class="keyword">new</span> Table(<span class="string">"mytable"</span>), <span class="keyword">new</span> Column(<span class="string">"a"</span>), <span class="keyword">new</span> Column(<span class="string">"b"</span>));</span><br><span class="line"></span><br><span class="line">Select select = SelectUtils.buildSelectFromTableAndExpressions(<span class="keyword">new</span> Table(<span class="string">"mytable"</span>), <span class="string">"a+b"</span>, <span class="string">"test"</span>);</span><br></pre></td></tr></table></figure>
+<h2 id="代替字符串的值"><a href="#代替字符串的值" class="headerlink" title="代替字符串的值"></a>代替字符串的值</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br></pre></td><td class="code"><pre><span class="line">String sql =<span class="string">"SELECT NAME, ADDRESS, COL1 FROM USER WHERE SSN IN ('11111111111111', '22222222222222');"</span>;</span><br><span class="line">Select select = (Select) CCJSqlParserUtil.parse(sql);</span><br><span class="line"></span><br><span class="line"><span class="comment">//Start of value modification</span></span><br><span class="line">StringBuilder buffer = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">ExpressionDeParser expressionDeParser = <span class="keyword">new</span> ExpressionDeParser() &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">visit</span><span class="params">(StringValue stringValue)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.getBuffer().append(<span class="string">"XXXX"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;;</span><br><span class="line">SelectDeParser deparser = <span class="keyword">new</span> SelectDeParser(expressionDeParser,buffer );</span><br><span class="line">expressionDeParser.setSelectVisitor(deparser);</span><br><span class="line">expressionDeParser.setBuffer(buffer);</span><br><span class="line">select.getSelectBody().accept(deparser);</span><br><span class="line"><span class="comment">//End of value modification</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">System.out.println(buffer.toString());</span><br><span class="line"><span class="comment">//Result is: SELECT NAME, ADDRESS, COL1 FROM USER WHERE SSN IN (XXXX, XXXX)</span></span><br><span class="line"><span class="keyword">import</span> net.sf.jsqlparser.JSQLParserException;</span><br><span class="line"><span class="keyword">import</span> net.sf.jsqlparser.expression.LongValue;</span><br><span class="line"><span class="keyword">import</span> net.sf.jsqlparser.expression.StringValue;</span><br><span class="line"><span class="keyword">import</span> net.sf.jsqlparser.parser.CCJSqlParserUtil;</span><br><span class="line"><span class="keyword">import</span> net.sf.jsqlparser.statement.Statement;</span><br><span class="line"><span class="keyword">import</span> net.sf.jsqlparser.util.deparser.ExpressionDeParser;</span><br><span class="line"><span class="keyword">import</span> net.sf.jsqlparser.util.deparser.SelectDeParser;</span><br><span class="line"><span class="keyword">import</span> net.sf.jsqlparser.util.deparser.StatementDeParser;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ReplaceColumnValues</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">ReplaceColumnAndLongValues</span> <span class="keyword">extends</span> <span class="title">ExpressionDeParser</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">visit</span><span class="params">(StringValue stringValue)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">this</span>.getBuffer().append(<span class="string">"?"</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">visit</span><span class="params">(LongValue longValue)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">this</span>.getBuffer().append(<span class="string">"?"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">cleanStatement</span><span class="params">(String sql)</span> <span class="keyword">throws</span> JSQLParserException </span>&#123;</span><br><span class="line">        StringBuilder buffer = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">        ExpressionDeParser expr = <span class="keyword">new</span> ReplaceColumnAndLongValues();</span><br><span class="line"></span><br><span class="line">        SelectDeParser selectDeparser = <span class="keyword">new</span> SelectDeParser(expr, buffer);</span><br><span class="line">        expr.setSelectVisitor(selectDeparser);</span><br><span class="line">        expr.setBuffer(buffer);</span><br><span class="line">        StatementDeParser stmtDeparser = <span class="keyword">new</span> StatementDeParser(expr, selectDeparser, buffer);</span><br><span class="line"></span><br><span class="line">        Statement stmt = CCJSqlParserUtil.parse(sql);</span><br><span class="line"></span><br><span class="line">        stmt.accept(stmtDeparser);</span><br><span class="line">        <span class="keyword">return</span> stmtDeparser.getBuffer().toString();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> JSQLParserException </span>&#123;</span><br><span class="line">        System.out.println(cleanStatement(<span class="string">"SELECT 'abc', 5 FROM mytable WHERE col='test'"</span>));</span><br><span class="line">        System.out.println(cleanStatement(<span class="string">"UPDATE table1 A SET A.columna = 'XXX' WHERE A.cod_table = 'YYY'"</span>));</span><br><span class="line">        System.out.println(cleanStatement(<span class="string">"INSERT INTO example (num, name, address, tel) VALUES (1, 'name', 'test ', '1234-1234')"</span>));</span><br><span class="line">        System.out.println(cleanStatement(<span class="string">"DELETE FROM table1 where col=5 and col2=4"</span>));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">SELECT ?, ? FROM mytable WHERE col = ?</span></span><br><span class="line"><span class="comment">UPDATE table1 A SET A.columna = ? WHERE A.cod_table = ?</span></span><br><span class="line"><span class="comment">INSERT INTO example (num, name, address, tel) VALUES (?, ?, ?, ?)</span></span><br><span class="line"><span class="comment">DELETE FROM table1 WHERE col = ? AND col2 = ?</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><blockquote>
+<p><a href="https://github.com/JSQLParser/JSqlParser/wiki" target="_blank" rel="noopener">https://github.com/JSQLParser/JSqlParser/wiki</a></p>
+</blockquote>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-12-16T13:26:01.000Z" itemprop="dateUpdated">2018-12-16 21:26:01</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2018/12/05/JSqlParser教程/" target="_blank" rel="external">http://wumuwumu.github.io/2018/12/05/JSqlParser教程/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://wumuwumu.github.io">
+            <img src="/img/avatar.png" alt="wumu">
+            wumu
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://wumuwumu.github.io/2018/12/05/JSqlParser教程/&title=《JSqlParser教程》 — wumu's blog&pic=http://wumuwumu.github.io/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://wumuwumu.github.io/2018/12/05/JSqlParser教程/&title=《JSqlParser教程》 — wumu's blog&source=起风了，唯有努力生存" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://wumuwumu.github.io/2018/12/05/JSqlParser教程/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《JSqlParser教程》 — wumu's blog&url=http://wumuwumu.github.io/2018/12/05/JSqlParser教程/&via=http://wumuwumu.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://wumuwumu.github.io/2018/12/05/JSqlParser教程/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2018/12/17/Vue插件开发/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Vue插件开发</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/12/05/react入门教程/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">react入门教程</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "V8NlRMg78hP7LSAg49QpIIMV-gzGzoHsz",
+            appKey: "I8XKrcOwUTeg1Sv7mVwEcnMF",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="bottom">
+        <p>
+            <span>wumu &copy; 2018 - 2019</span>
+            <span>
+                 Power by
+                <a href="http://hexo.io/" target="_blank">Hexo</a> Theme
+                <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://wumuwumu.github.io/2018/12/05/JSqlParser教程/&title=《JSqlParser教程》 — wumu's blog&pic=http://wumuwumu.github.io/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://wumuwumu.github.io/2018/12/05/JSqlParser教程/&title=《JSqlParser教程》 — wumu's blog&source=起风了，唯有努力生存" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://wumuwumu.github.io/2018/12/05/JSqlParser教程/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《JSqlParser教程》 — wumu's blog&url=http://wumuwumu.github.io/2018/12/05/JSqlParser教程/&via=http://wumuwumu.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://wumuwumu.github.io/2018/12/05/JSqlParser教程/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACK0lEQVR42u3aQW7DMAwEwP7/0+41Fzu7khIg0uhUoK7kSQGGIvn3F6/rZa19/vWZ9pR6YWBg/CzjelzPB7RH3u2ZnHv3DAYGxjmM5Mg7UvLkczB9Zjy/GwYGBkaewOWJYBJYMTAwMGYYz5fVJDTnCSgGBgZGe5lcVSx7DtYfv4tjYGD8IGOsTPadnz/S38DAwPgpxlWumatpHpTrt8LAwNiaMVMma5PItp1ZD3NgYGBsypgvliXUsQS0aEJgYGBszcjbAGubBPlH0LZRMTAwTmOMbd2+XN4wGAy4GBgYGzFmmo5tca0tzM1cdzEwMPZgtMNb7WhFHi5zcFRIxMDA2IjRplxJCaw9fmYQDQMD4wTGWAOgHblYFSHfdGIxMDC2Y8wUwmaSvJmhjTf/BwwMjO0Y32kDtGF0sA2AgYFxDKPIKMuk8JpYgxkuBgbGdow8HOfFtfyjyXe4DcQYGBibMlYFu/aDSHbIAzcGBsbejMFOQrz1WNtyfmcMDIz9GG05fqy12Rba2qCMgYFxDqMdtmjLcO11N29LYGBgnMCYL361g191xvr8VxgYGJsyZlqJY78dGyB7Q8XAwNia0YbLtnyWlPjzb4YFXwAYGBg/y1gwkhW3FvKyXR1wMTAwDmDMBL62hdCG8uRtMTAwMPL2ZN4kGHzdVQEXAwPjAEae3uXgfIzj9hKLgYGxNaNtYebDEG2obS/GGBgYJzDmRyXGAnGyQxvEMTAwtmP8A5/vvCrmGdUNAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = 'wumu的博客';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
