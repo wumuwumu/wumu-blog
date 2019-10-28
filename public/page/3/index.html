@@ -145,10 +145,10 @@
     <ul class="post-list">
     
         <li class="post-list-item fade">
-            <article id="post-Tiemline设计方案" class="article-card article-type-post" itemprop="blogPost">
+            <article id="post-python/python-装饰器" class="article-card article-type-post" itemprop="blogPost">
 
     <div class="post-meta">
-        <time class="post-time" title="2019-01-04 20:33:08" datetime="2019-01-04T12:33:08.000Z" itemprop="datePublished">2019-01-04</time>
+        <time class="post-time" title="2019-07-31 19:44:57" datetime="2019-07-31T11:44:57.000Z" itemprop="datePublished">2019-07-31</time>
 
         
 
@@ -160,7 +160,7 @@
 
   
     <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2019/01/04/Tiemline设计方案/">Tiemline设计方案</a>
+      <a class="post-title-link" href="/2019/07/31/python/python-装饰器/">python-装饰器</a>
     </h3>
   
 
@@ -170,15 +170,336 @@
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        参考
-朋友圈式的TIMELINE设计方案
-朋友圈的设计及实现
-几个大型网站的Feeds(Timeline)设计简单对比
+        简单的装饰器12345678910111213141516171819import loggingdef use_logging(func):    def wrapper():        logging.warning("%s is running" % func.__name__)        return func()   # 把 foo 当做参数传递进来时，执行func()就相...
+    
+
+        <a href="/2019/07/31/python/python-装饰器/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-python/python-字符串格式" class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2019-07-31 10:59:16" datetime="2019-07-31T02:59:16.000Z" itemprop="datePublished">2019-07-31</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2019/07/31/python/python-字符串格式/">python-字符串格式</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        格式化操作符（%）“%”是Python风格的字符串格式化操作符，非常类似C语言里的printf()函数的字符串格式化（C语言中也是使用%）。
+下面整理了一下Python中字符串格式化符合：
+
+
+
+格式化符号
+说明
+
+
+
+
+%c
+转换成字符（ASCII 码值，或者长度为一的字符串）
+
+
+%r
+优先用repr()函数进行字符串转换
+
+
+%s
+优先用str()函数进行字符串转换
+
+
+%d / %i...
+    
+
+        <a href="/2019/07/31/python/python-字符串格式/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-mysql/mysql自带的数据库" class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2019-07-27 18:06:05" datetime="2019-07-27T10:06:05.000Z" itemprop="datePublished">2019-07-27</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2019/07/27/mysql/mysql自带的数据库/">mysql自带的数据库</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        information_schema
+SCHEMATA表：提供了当前mysql实例中所有数据库的信息。是show databases的结果取之此表。
+
+TABLES表：提供了关于数据库中的表的信息（包括视图）。详细表述了某个表属于哪个schema，表类型，表引擎，创建时间等信息。是show tables from schemaname的　　结果取之此表。
+
+COLUMNS表：提供了表中的列信...
+    
+
+        <a href="/2019/07/27/mysql/mysql自带的数据库/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql/">mysql</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-mysql/mysql修改字符集" class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2019-07-27 16:55:17" datetime="2019-07-27T08:55:17.000Z" itemprop="datePublished">2019-07-27</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2019/07/27/mysql/mysql修改字符集/">mysql修改字符集</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        概念
+字符集（character set）：定义了字符以及字符的编码。
+字符序（collation）：定义了字符的比较规则。
+
+Mysql字符集
+一个字符集对应至少一种字符序（一般是1对多）。
+两个不同的字符集不能有相同的字符序。
+每个字符集都有默认的字符序。
+
+12345678910-- 第一种方式SHOW CHARACTER SET;-- 第二种方式use information_sch...
+    
+
+        <a href="/2019/07/27/mysql/mysql修改字符集/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql/">mysql</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="odoo-Odoo 12开发者指南第二章 管理Odoo服务器实例" class="article-card article-type-odoo" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2019-06-18 14:02:38" datetime="2019-06-18T06:02:38.000Z" itemprop="datePublished">2019-06-18</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2019/06/18/Odoo 12开发者指南第二章 管理Odoo服务器实例/">管理Odoo服务器实例</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        全书完整目录请见：Odoo 12开发者指南（Cookbook）第三版
+本章中，我们将讲解如下内容：
+
+配置插件路径
+更新插件模块列表
+标准化你的实例目录布局
+安装并升级本地插件模块
+对插件应用修改
+应用及尝试建议的拉取请求
+
+引言在第一章 安装Odoo开发环境中，我们看了如何使用与编辑器一同发布的标准核心插件来设置 Odoo 实例。本章集中讲解为 Odoo 实例添加非核心插件。Odoo中，你...
+    
+
+        <a href="/2019/06/18/Odoo 12开发者指南第二章 管理Odoo服务器实例/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/odoo/">odoo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="python-import、reload-import-在python中的区别" class="article-card article-type-python-import、reload" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2019-06-01 15:49:16" datetime="2019-06-01T07:49:16.000Z" itemprop="datePublished">2019-06-01</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2019/06/01/import-在python中的区别/">__import__在python中的区别</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        import作用：导入/引入一个python标准模块，其中包括.py文件、带有init.py文件的目录(自定义模块)。
+import module_name[,module1,…]  
+from module import *|child[,child1,…]  
+注意：多次重复使用import语句时，不会重新加载被指定的模块，只是把对该模块的内存地址给引用到本地变量环境。
+实例：
+pyth...
+    
+
+        <a href="/2019/06/01/import-在python中的区别/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-java/java多线程自问" class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2019-04-15 10:31:35" datetime="2019-04-15T02:31:35.000Z" itemprop="datePublished">2019-04-15</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2019/04/15/java/java多线程自问/">java多线程自问</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        
+java创建线程的方式
+java的线程的类型
+Timer与TimerTask的区别
+怎么启动、停止、加入、礼让线程
+线程的生命周期以及其切换
+CountDownLatch、CyclicBarrier和Semaphore
+什么是线程安全？Vector是一个线程安全类吗？ 
+
 
 
     
 
-        <a href="/2019/01/04/Tiemline设计方案/" class="post-more waves-effect waves-button">
+        <a href="/2019/04/15/java/java多线程自问/" class="post-more waves-effect waves-button">
             阅读全文…
         </a>
     </div>
@@ -194,10 +515,10 @@
         </li>
     
         <li class="post-list-item fade">
-            <article id="post-查找附近的人" class="article-card article-type-post" itemprop="blogPost">
+            <article id="post-java多线程自问" class="article-card article-type-post" itemprop="blogPost">
 
     <div class="post-meta">
-        <time class="post-time" title="2019-01-04 19:46:12" datetime="2019-01-04T11:46:12.000Z" itemprop="datePublished">2019-01-04</time>
+        <time class="post-time" title="2019-04-15 10:31:35" datetime="2019-04-15T02:31:35.000Z" itemprop="datePublished">2019-04-15</time>
 
         
 
@@ -209,109 +530,7 @@
 
   
     <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2019/01/04/查找附近的人/">查找附近的人</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        GeoHash比较原始的方法，简单方便
-Mysql计算公式
-12C = sin(MLatA)*sin(MLatB)*cos(MLonA-MLonB) + cos(MLatA)*cos(MLatB)Distance = R*Arccos(C)*Pi/180
-在经纬度小节中我们了解了两个公式用来计算两个位置之间的距离, 该小节我们以测试数据说明如何实现.测试需要的表结构和数据:
-12345678...
-    
-
-        <a href="/2019/01/04/查找附近的人/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mongodb/">mongodb</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql/">mysql</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-springboot-mongodb使用" class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2019-01-04 09:43:06" datetime="2019-01-04T01:43:06.000Z" itemprop="datePublished">2019-01-04</time>
-
-        
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2019/01/04/springboot-mongodb使用/">springboot-mongodb使用</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        基本注解
-@id
-@Document
-@DBRef
-$Indexed
-@CompoundIndex
-@GenSpatialIndexed
-@Transient
-@PersistenceConstructor
-
-
-    
-
-        <a href="/2019/01/04/springboot-mongodb使用/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mongodb/">mongodb</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/springboot/">springboot</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-cordova打包vue" class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2019-01-02 17:12:09" datetime="2019-01-02T09:12:09.000Z" itemprop="datePublished">2019-01-02</time>
-
-        
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2019/01/02/cordova打包vue/">cordova打包vue</a>
+      <a class="post-title-link" href="/2019/04/15/java多线程自问/">java多线程自问</a>
     </h3>
   
 
@@ -322,190 +541,19 @@ $Indexed
 
     
         
-https://segmentfault.com/a/1190000013159076
+java创建线程的方式
+java的线程的类型
+Timer与TimerTask的区别
+怎么启动、停止、加入、礼让线程
+线程的生命周期以及其切换
+CountDownLatch、CyclicBarrier和Semaphore
+什么是线程安全？Vector是一个线程安全类吗？ 
+
 
 
     
 
-        <a href="/2019/01/02/cordova打包vue/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/">vue</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-oracle/Oracle表管理" class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2018-12-29 21:45:47" datetime="2018-12-29T13:45:47.000Z" itemprop="datePublished">2018-12-29</time>
-
-        
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2018/12/29/oracle/Oracle表管理/">Oracle表管理</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        数据类型123456789101112131415## 字符型char 定长，后面空格补全varchar2() 变长clob 字符型大对象## 数字类型numbernumber(5，2) 标识5位有效数，2位小数-999.99-999.99number(5) 5位整数## 日期类型datetimestramp## 图片blob 二进制4g,为了安全可以放入数据库
-表操作12345678910...
-    
-
-        <a href="/2018/12/29/oracle/Oracle表管理/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/oracle/">oracle</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-oracle/Oracle基本管理" class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2018-12-29 20:37:37" datetime="2018-12-29T12:37:37.000Z" itemprop="datePublished">2018-12-29</time>
-
-        
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2018/12/29/oracle/Oracle基本管理/">Oracle基本管理</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        用户管理12345678910111213141516171819202122232425## 创建用户create user test identified by test;show user;## 删除用户delete test (cascade);## 修改用户alter user test identified by wumu;alter user test expire;## 用户...
-    
-
-        <a href="/2018/12/29/oracle/Oracle基本管理/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/oracle/">oracle</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-Vue插件开发" class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2018-12-17 20:52:34" datetime="2018-12-17T12:52:34.000Z" itemprop="datePublished">2018-12-17</time>
-
-        
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2018/12/17/Vue插件开发/">Vue插件开发</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        基本结构插件的功能包括全局方法和属性、指令、mixin、实例方法。插件都有一个install方法，第一个参数是Vue，第二个参数是options。
-1234567891011121314151617181920MyPlugin.install = function (Vue, options) &#123;  Vue.myGlobalMethod = function () &#123;  ...
-    
-
-        <a href="/2018/12/17/Vue插件开发/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/">vue</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-JSqlParser教程" class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2018-12-05 21:58:31" datetime="2018-12-05T13:58:31.000Z" itemprop="datePublished">2018-12-05</time>
-
-        
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2018/12/05/JSqlParser教程/">JSqlParser教程</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        解析获取表名12345//获取所有使用过的表Statement statement = CCJSqlParserUtil.parse("SELECT * FROM MY_TABLE1");        Select selectStatement = (Select) statement;        TablesNamesFinder tablesNamesFinder = new T...
-    
-
-        <a href="/2018/12/05/JSqlParser教程/" class="post-more waves-effect waves-button">
+        <a href="/2019/04/15/java多线程自问/" class="post-more waves-effect waves-button">
             阅读全文…
         </a>
     </div>
@@ -521,10 +569,10 @@ https://segmentfault.com/a/1190000013159076
         </li>
     
         <li class="post-list-item fade">
-            <article id="post-react入门教程" class="article-card article-type-post" itemprop="blogPost">
+            <article id="post-redis分布式锁" class="article-card article-type-post" itemprop="blogPost">
 
     <div class="post-meta">
-        <time class="post-time" title="2018-12-05 21:56:22" datetime="2018-12-05T13:56:22.000Z" itemprop="datePublished">2018-12-05</time>
+        <time class="post-time" title="2019-04-11 17:55:56" datetime="2019-04-11T09:55:56.000Z" itemprop="datePublished">2019-04-11</time>
 
         
 
@@ -536,7 +584,7 @@ https://segmentfault.com/a/1190000013159076
 
   
     <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2018/12/05/react入门教程/">react入门教程</a>
+      <a class="post-title-link" href="/2019/04/11/redis分布式锁/">redis分布式锁</a>
     </h3>
   
 
@@ -546,24 +594,19 @@ https://segmentfault.com/a/1190000013159076
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        webpack4初始化12cnpm i -D webpackcnpm i -D webpack-cli  //相关的命令
-相应包的安装
-react 专门用于创建组件和虚拟DOM，同事组件的生命周期在这个包中。
-react-dom 专门进行dom操作的，最主要的应用场景，就是ReactDom.render()
-
-babel
-babel-node 一个命令行工具
-babel-register 可...
+        单机Redis实现分布式锁获取锁获取锁的过程很简单，客户端向Redis发送命令：
+12SET resource_name my_random_value NX PX 30000复制代码
+my_random_value是由客户端生成的一个随机字符串，它要保证在足够长的一段时间内在所有客户端的所有获取锁的请求中都是唯一的。 NX表示只有当resource_name对应的key值不存在的时候才能S...
     
 
-        <a href="/2018/12/05/react入门教程/" class="post-more waves-effect waves-button">
+        <a href="/2019/04/11/redis分布式锁/" class="post-more waves-effect waves-button">
             阅读全文…
         </a>
     </div>
     
     <div class="post-footer">
         
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react/">react</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/redis/">redis</a></li></ul>
 
     </div>
     
@@ -572,10 +615,10 @@ babel-register 可...
         </li>
     
         <li class="post-list-item fade">
-            <article id="post-nginx配置" class="article-card article-type-post" itemprop="blogPost">
+            <article id="post-protobuf使用" class="article-card article-type-post" itemprop="blogPost">
 
     <div class="post-meta">
-        <time class="post-time" title="2018-12-05 21:47:32" datetime="2018-12-05T13:47:32.000Z" itemprop="datePublished">2018-12-05</time>
+        <time class="post-time" title="2019-04-10 10:31:04" datetime="2019-04-10T02:31:04.000Z" itemprop="datePublished">2019-04-10</time>
 
         
 
@@ -587,7 +630,7 @@ babel-register 可...
 
   
     <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2018/12/05/nginx配置/">nginx配置</a>
+      <a class="post-title-link" href="/2019/04/10/protobuf使用/">protobuf使用</a>
     </h3>
   
 
@@ -597,17 +640,17 @@ babel-register 可...
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        配置web服务器1234567891011server &#123;    listen      80;    server_name api.lufficc.com  *.lufficc.com;    location /images/ &#123;        root /data;    &#125;    location / &#123;        proxy_pass ...
+        安装1234wget https://github.com/protocolbuffers/protobuf/releases/download/v3.6.1/protobuf-all-3.6.1.zipunzop protobuf-all-3.6.1.zipcd protobuf-all-3.6.1./configure &amp;&amp; make &amp;&amp; make in...
     
 
-        <a href="/2018/12/05/nginx配置/" class="post-more waves-effect waves-button">
+        <a href="/2019/04/10/protobuf使用/" class="post-more waves-effect waves-button">
             阅读全文…
         </a>
     </div>
     
     <div class="post-footer">
         
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/web/">web</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/go/">go</a></li></ul>
 
     </div>
     
@@ -620,7 +663,7 @@ babel-register 可...
     
 <nav id="page-nav">
     <div class="inner">
-    <a class="extend prev" rel="prev" href="/page/2/">上一页</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/">下一页</a>
+    <a class="extend prev" rel="prev" href="/page/2/">上一页</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/4/">下一页</a>
     </div>
 </nav>
 
