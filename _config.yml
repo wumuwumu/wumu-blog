@@ -99,3 +99,16 @@ jsonContent:
     excerpt: false
     categories: false
     tags: true
+
+
+live2d:
+    enable: true
+    scriptFrom: local
+    model: 
+        use: live2d-widget-model-hibiki #模型选择
+    display: 
+        position: right  #模型位置
+        width: 200       #模型宽度
+        height: 500      #模型高度
+    mobile: 
+        show: false      #是否在手机端显示
