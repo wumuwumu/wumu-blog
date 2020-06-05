@@ -145,10 +145,10 @@
     <ul class="post-list">
     
         <li class="post-list-item fade">
-            <article id="post-java-线程池" class="article-card article-type-post" itemprop="blogPost">
+            <article id="post-odoo/odoo源码解析4-wsgi-server" class="article-card article-type-post" itemprop="blogPost">
 
     <div class="post-meta">
-        <time class="post-time" title="2019-10-28 16:41:15" datetime="2019-10-28T08:41:15.626Z" itemprop="datePublished">2019-10-28</time>
+        <time class="post-time" title="2019-11-16 15:35:05" datetime="2019-11-16T07:35:05.000Z" itemprop="datePublished">2019-11-16</time>
 
         
 
@@ -160,7 +160,7 @@
 
   
     <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2019/10/28/java-线程池/">No title</a>
+      <a class="post-title-link" href="/2019/11/16/odoo/odoo源码解析4-wsgi-server/">odoo源码解析4-wsgi_server</a>
     </h3>
   
 
@@ -170,17 +170,390 @@
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        title: java-线程池date: 2019-04-10 10:32:39tags:
-
-java
-
-1. 线程池的关系ExecutorService1234![1536473588949](assets/1536473588949.png)## 2. ```Executor
-public interface Executor {    void execute(Runnable com...
+        application12345678910def application(environ, start_response):    ## 是否启动代理    # FIXME: is checking for the presence of HTTP_X_FORWARDED_HOST really useful?    #        we're ignoring the user con...
     
 
-        <a href="/2019/10/28/java-线程池/" class="post-more waves-effect waves-button">
+        <a href="/2019/11/16/odoo/odoo源码解析4-wsgi-server/" class="post-more waves-effect waves-button">
             阅读全文…
         </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/odoo/">odoo</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-odoo/odoo源码解析3-启动web服务器" class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2019-11-16 14:41:42" datetime="2019-11-16T06:41:42.000Z" itemprop="datePublished">2019-11-16</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2019/11/16/odoo/odoo源码解析3-启动web服务器/">odoo源码解析-启动web服务器</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        启动12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758def start(preload=None, stop=False):    """ Start the odoo http server and cron processo...
+    
+
+        <a href="/2019/11/16/odoo/odoo源码解析3-启动web服务器/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/odoo/">odoo</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-java/hibernate使用hbm2ddl.auto=在生产环境更新" class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2019-11-16 14:22:56" datetime="2019-11-16T06:22:56.000Z" itemprop="datePublished">2019-11-16</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2019/11/16/java/hibernate使用hbm2ddl.auto=在生产环境更新/">hibernate使用hbm2ddl.auto=在生产环境更新.md</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        https://www.codenong.com/221379/
+
+    
+
+        <a href="/2019/11/16/java/hibernate使用hbm2ddl.auto=在生产环境更新/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-odoo/odoo源码解析2-server命令" class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2019-11-16 11:40:07" datetime="2019-11-16T03:40:07.000Z" itemprop="datePublished">2019-11-16</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2019/11/16/odoo/odoo源码解析2-server命令/">odoo源码解析2-server命令</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        默认情况下的启动命令的server，这个是将odoo运行起来的命令。核心代码如下
+1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556## 判断是否为root用户，如果为root用户就发送警告check_root_user() ## 解析命...
+    
+
+        <a href="/2019/11/16/odoo/odoo源码解析2-server命令/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/odoo/">odoo</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-odoo/odoo模块加载机制" class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2019-11-08 20:36:34" datetime="2019-11-08T12:36:34.000Z" itemprop="datePublished">2019-11-08</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2019/11/08/odoo/odoo模块加载机制/">odoo模块加载机制</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        Odoo的启动通过openerp-server脚本完成，它是系统的入口。
+然后加载配置文件openerp-server.conf 或者 openerp_serverrc；
+openerp-server.conf的主要内容：
+这个文件缺省是没有的，Odoo系统会有一个默认值，但是一般情况我们都需配置这个文件。
+启动http服务器，监听端口。
+模块加载：
+模块加载外层就是封装一个Registry...
+    
+
+        <a href="/2019/11/08/odoo/odoo模块加载机制/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/odoo/">odoo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-odoo/odoo源码解析1-启动命令" class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2019-11-06 20:01:48" datetime="2019-11-06T12:01:48.000Z" itemprop="datePublished">2019-11-06</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2019/11/06/odoo/odoo源码解析1-启动命令/">odoo源码解析1-启动命令</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        启动命令12345678#!/usr/bin/env python3# set server timezone in UTC before time module imported__import__('os').environ['TZ'] = 'UTC'import odooif __name__ == "__main__":    odoo.cli.main()
+main函数主要是进行一...
+    
+
+        <a href="/2019/11/06/odoo/odoo源码解析1-启动命令/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/odoo/">odoo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-pm2学习" class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2019-11-02 10:10:05" datetime="2019-11-02T02:10:05.000Z" itemprop="datePublished">2019-11-02</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2019/11/02/pm2学习/">pm2学习</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        pm2基本命令123456789101112131415161718192021222324252627# 启动程序pm2 start app.jspm2 start npm --name pro -- run dev# 查看程序pm2 start listpm2 monitpm2 logs# 重启pm2 restart allpm2 reload allpm2 restartt 0# 停止...
+    
+
+        <a href="/2019/11/02/pm2学习/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node/">node</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-docker网络模式" class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2019-10-29 14:26:03" datetime="2019-10-29T06:26:03.000Z" itemprop="datePublished">2019-10-29</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2019/10/29/docker网络模式/">docker网络模式</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        Docker的网络模式详解1、Docker的四种网络模式
+                
+                    
+                    
+                
+                img
+            
+（1）docker四种网络模式如下：
+
+Bridge contauner 桥接式网络模式
+Host(open) con...
+    
+
+        <a href="/2019/10/29/docker网络模式/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/docker/">docker</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-npm版本管理" class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2019-10-29 14:08:30" datetime="2019-10-29T06:08:30.000Z" itemprop="datePublished">2019-10-29</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2019/10/29/npm版本管理/">npm版本管理</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        在打包项目的时候，我们都要更新package.json的版本号，接着给给代码添加tag，最后push代码，这样的流程泰国麻烦有什么方法简化。
+12345671. package.json`中修改递增`version2. git add -A3. git commit -m &quot;update version&quot;4. git push5. git tag &lt;tag vers...
+    
+
+        <a href="/2019/10/29/npm版本管理/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node/">node</a></li></ul>
+
     </div>
     
 </article>
@@ -227,361 +600,6 @@ and实例：123456&gt;&gt;&gt; 'a' and '...
     <div class="post-footer">
         
 	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-java/使用jenv对java多版本管理" class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2019-10-25 10:42:43" datetime="2019-10-25T02:42:43.000Z" itemprop="datePublished">2019-10-25</time>
-
-        
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2019/10/25/java/使用jenv对java多版本管理/">使用jenv对java多版本管理</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        
-配置JDK环境变量
-
-打开 vim ~/.bash_profile 文件 进行添加
-1234export JAVA_8_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_112.jdk/Contents/Homeexport JAVA_7_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_80.jd...
-    
-
-        <a href="/2019/10/25/java/使用jenv对java多版本管理/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-react-tree-walker学习" class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2019-10-19 17:02:13" datetime="2019-10-19T09:02:13.000Z" itemprop="datePublished">2019-10-19</time>
-
-        
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2019/10/19/react-tree-walker学习/">react-tree-walker学习</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        react-tree-walker这个主要用于遍历react的dom树，用于在react服务端渲染数据请求的时候。
-123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354import reactTreeWalker from 'react-tree-...
-    
-
-        <a href="/2019/10/19/react-tree-walker学习/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react/">react</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-weboack性能优化笔记" class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2019-10-18 11:52:51" datetime="2019-10-18T03:52:51.000Z" itemprop="datePublished">2019-10-18</time>
-
-        
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2019/10/18/weboack性能优化笔记/">weboack性能优化笔记</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        https://juejin.im/post/5b652b036fb9a04fa01d616b
-
-    
-
-        <a href="/2019/10/18/weboack性能优化笔记/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-lodash按需加载" class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2019-10-18 11:48:59" datetime="2019-10-18T03:48:59.000Z" itemprop="datePublished">2019-10-18</time>
-
-        
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2019/10/18/lodash按需加载/">lodash按需加载</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        lodash提供了很多可用的方法供我们使用，绝对是一个很好用且用起来得心应手的工具库。但是同时，lodash的体积也不小，我们项目中使用的大概522K，可能只是使用了几个方法，但是却把整个lodash库引入了。为了吃几条鱼，就承包了整个鱼塘，代价有点大呀！
-对于这个问题，有几种方案可供选择。
-一.引入单个函数
-　lodash整个安装完之后，引用方式： lodash/function 格式，单...
-    
-
-        <a href="/2019/10/18/lodash按需加载/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-babel配置" class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2019-10-18 11:21:01" datetime="2019-10-18T03:21:01.000Z" itemprop="datePublished">2019-10-18</time>
-
-        
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2019/10/18/babel配置/">babel配置</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        Babel6Babel6 现在使用的越来越少了，但是还是做一个笔记，现在基本都使用babel-preset-env，不需要写babel-preset-esxxxx了，但是babel-preset-stage-x还是要自己去加的。
-安装1npm install -D babel-cli babel-preset-env
-配置文件Babel6的配置文件是.babelrc
-123&#123;   ...
-    
-
-        <a href="/2019/10/18/babel配置/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/babel/">babel</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-hello-world" class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2019-10-14 17:01:07" datetime="2019-10-14T09:01:07.430Z" itemprop="datePublished">2019-10-14</time>
-
-        
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2019/10/14/hello-world/">Hello World</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Qu...
-    
-
-        <a href="/2019/10/14/hello-world/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-php5环境搭建" class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2019-09-02 23:14:11" datetime="2019-09-02T15:14:11.000Z" itemprop="datePublished">2019-09-02</time>
-
-        
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2019/09/02/php5环境搭建/">php5环境搭建</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        安装nginx12yum install epel-releaseyum install nginx
-安装phpremi源可以获取更高的版本，php-fpm是要启动的
-123rpm -ivh http://rpms.famillecollet.com/enterprise/remi-release-7.rpmyum install --enablerepo=remi --enablerepo...
-    
-
-        <a href="/2019/09/02/php5环境搭建/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-linux压缩" class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2019-09-02 22:46:45" datetime="2019-09-02T14:46:45.000Z" itemprop="datePublished">2019-09-02</time>
-
-        
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2019/09/02/linux压缩/">linux压缩</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        tar12345678910111213141516171819202122232425262728# 打包tar -cvf xx.tar dirName# 解包tar -xvf  xx.tar# .gz# 解压gunzip fileName.gzgzip -d fileName.gz# 压缩gzip fileName# .tar.gz 和.tgz# 解压tar zxvf fileName....
-    
-
-        <a href="/2019/09/02/linux压缩/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
 
     </div>
     

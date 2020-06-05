@@ -145,6 +145,385 @@
     <ul class="post-list">
     
         <li class="post-list-item fade">
+            <article id="post-mysql/数据库事务" class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2019-09-01 20:18:43" datetime="2019-09-01T12:18:43.000Z" itemprop="datePublished">2019-09-01</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2019/09/01/mysql/数据库事务/">数据库事务</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        　本篇讲诉数据库中事务的四大特性（ACID），并且将会详细地说明事务的隔离级别。
+　　如果一个数据库声称支持事务的操作，那么该数据库必须要具备以下四个特性：
+⑴ 原子性（Atomicity）　　原子性是指事务包含的所有操作要么全部成功，要么全部失败回滚，这和前面两篇博客介绍事务的功能是一样的概念，因此事务的操作如果成功就必须要完全应用到数据库，如果操作失败则不能对数据库有任何影响。
+⑵ 一致...
+    
+
+        <a href="/2019/09/01/mysql/数据库事务/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql/">mysql</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-mysql/mysql性能检测" class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2019-08-31 23:26:45" datetime="2019-08-31T15:26:45.000Z" itemprop="datePublished">2019-08-31</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2019/08/31/mysql/mysql性能检测/">mysql性能检测</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        性能检测蝉蛹命令
+show status
+show processlist
+show variables
+
+瓶颈分析常用命令获取mysql用户下的进程总数1ps -ef | awk '&#123;print $1&#125;' | grep "mysql" | grep -v "grep" | wc -l
+主机性能状态1uptime
+CPU使用率12topvmstat
+磁盘IO量12vmst...
+    
+
+        <a href="/2019/08/31/mysql/mysql性能检测/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql/">mysql</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-java/hibernate-@Embedded和-Embeddable" class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2019-08-10 10:57:59" datetime="2019-08-10T02:57:59.000Z" itemprop="datePublished">2019-08-10</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2019/08/10/java/hibernate-@Embedded和-Embeddable/">hibernate_Embedded和@Embeddable</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        在使用实体类生成对应的数据库表时，很多的时候都会遇到这种情况：在一个实体类中引用另外的实体类，一般遇上这种情况，我们使用@OneToOne、@OneToMany、@ManyToOne、@ManyToMany这4个注解比较多，但是好奇害死猫，除了这四个有没有别的使用情况，尤其是一个实体类要在多个不同的实体类中进行使用，而本身又不需要独立生成一个数据库表，这就是需要@Embedded、@Embe...
+    
+
+        <a href="/2019/08/10/java/hibernate-@Embedded和-Embeddable/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-react/create-react-app脚手架" class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2019-08-07 09:38:30" datetime="2019-08-07T01:38:30.000Z" itemprop="datePublished">2019-08-07</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2019/08/07/react/create-react-app脚手架/">create-react-app脚手架</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        安装12345npm install -g create-react-app# 切记项目名称不能大写create-react-app firstappcd firstappnpm run start
+eject这是一次性的操作
+1npm run eject
+启动less或者sasssasscreate-react-app默认有sass的配置，只需要安装依赖就行
+1npm install no...
+    
+
+        <a href="/2019/08/07/react/create-react-app脚手架/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react/">react</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-python/python-类" class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2019-08-04 18:12:22" datetime="2019-08-04T10:12:22.000Z" itemprop="datePublished">2019-08-04</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2019/08/04/python/python-类/">python-类</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        类中默认函数new和init区别new:创建对象时调用，会返回当前对象的一个实例
+init:创建完对象后调用，对当前对象的一些实例初始化，无返回值
+1、在类中，如果new和init同时存在，会优先调用new
+12345678class Data(object):     def __new__(self):             print "new"     def __init__(s...
+    
+
+        <a href="/2019/08/04/python/python-类/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-java/spring的jms事务" class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2019-08-03 15:05:17" datetime="2019-08-03T07:05:17.000Z" itemprop="datePublished">2019-08-03</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2019/08/03/java/spring的jms事务/">spring的jms事务</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        
+    
+
+        <a href="/2019/08/03/java/spring的jms事务/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/spring/">spring</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-java/spring事务实现" class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2019-08-03 14:40:33" datetime="2019-08-03T06:40:33.000Z" itemprop="datePublished">2019-08-03</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2019/08/03/java/spring事务实现/">spring事务实现</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        事务概念回顾
+什么是事务？
+事务是逻辑上的一组操作，要么都执行，要么都不执行.
+
+事物的特性（ACID）：
+
+原子性： 事务是最小的执行单位，不允许分割。事务的原子性确保动作要么全部完成，要么完全不起作用；
+一致性： 执行事务前后，数据保持一致；
+隔离性： 并发访问数据库时，一个用户的事物不被其他事物所干扰，各并发事务之间数据库是独立的；
+持久性:  一个事务被提交之后。它对数据库中数据的改...
+    
+
+        <a href="/2019/08/03/java/spring事务实现/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/spring/">spring</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-python/python-装饰器" class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2019-07-31 19:44:57" datetime="2019-07-31T11:44:57.000Z" itemprop="datePublished">2019-07-31</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2019/07/31/python/python-装饰器/">python-装饰器</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        简单的装饰器12345678910111213141516171819import loggingdef use_logging(func):    def wrapper():        logging.warning("%s is running" % func.__name__)        return func()   # 把 foo 当做参数传递进来时，执行func()就相...
+    
+
+        <a href="/2019/07/31/python/python-装饰器/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
             <article id="post-python/python-字符串格式" class="article-card article-type-post" itemprop="blogPost">
 
     <div class="post-meta">
@@ -253,411 +632,6 @@ COLUMNS表：提供了表中的列信...
     <div class="post-footer">
         
 	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql/">mysql</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-mysql/mysql修改字符集" class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2019-07-27 16:55:17" datetime="2019-07-27T08:55:17.000Z" itemprop="datePublished">2019-07-27</time>
-
-        
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2019/07/27/mysql/mysql修改字符集/">mysql修改字符集</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        概念
-字符集（character set）：定义了字符以及字符的编码。
-字符序（collation）：定义了字符的比较规则。
-
-Mysql字符集
-一个字符集对应至少一种字符序（一般是1对多）。
-两个不同的字符集不能有相同的字符序。
-每个字符集都有默认的字符序。
-
-12345678910-- 第一种方式SHOW CHARACTER SET;-- 第二种方式use information_sch...
-    
-
-        <a href="/2019/07/27/mysql/mysql修改字符集/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql/">mysql</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="odoo-Odoo 12开发者指南第二章 管理Odoo服务器实例" class="article-card article-type-odoo" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2019-06-18 14:02:38" datetime="2019-06-18T06:02:38.000Z" itemprop="datePublished">2019-06-18</time>
-
-        
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2019/06/18/Odoo 12开发者指南第二章 管理Odoo服务器实例/">管理Odoo服务器实例</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        全书完整目录请见：Odoo 12开发者指南（Cookbook）第三版
-本章中，我们将讲解如下内容：
-
-配置插件路径
-更新插件模块列表
-标准化你的实例目录布局
-安装并升级本地插件模块
-对插件应用修改
-应用及尝试建议的拉取请求
-
-引言在第一章 安装Odoo开发环境中，我们看了如何使用与编辑器一同发布的标准核心插件来设置 Odoo 实例。本章集中讲解为 Odoo 实例添加非核心插件。Odoo中，你...
-    
-
-        <a href="/2019/06/18/Odoo 12开发者指南第二章 管理Odoo服务器实例/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/odoo/">odoo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="python-import、reload-import-在python中的区别" class="article-card article-type-python-import、reload" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2019-06-01 15:49:16" datetime="2019-06-01T07:49:16.000Z" itemprop="datePublished">2019-06-01</time>
-
-        
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2019/06/01/import-在python中的区别/">__import__在python中的区别</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        import作用：导入/引入一个python标准模块，其中包括.py文件、带有init.py文件的目录(自定义模块)。
-import module_name[,module1,…]  
-from module import *|child[,child1,…]  
-注意：多次重复使用import语句时，不会重新加载被指定的模块，只是把对该模块的内存地址给引用到本地变量环境。
-实例：
-pyth...
-    
-
-        <a href="/2019/06/01/import-在python中的区别/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-java/java多线程自问" class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2019-04-15 10:31:35" datetime="2019-04-15T02:31:35.000Z" itemprop="datePublished">2019-04-15</time>
-
-        
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2019/04/15/java/java多线程自问/">java多线程自问</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        
-java创建线程的方式
-java的线程的类型
-Timer与TimerTask的区别
-怎么启动、停止、加入、礼让线程
-线程的生命周期以及其切换
-CountDownLatch、CyclicBarrier和Semaphore
-什么是线程安全？Vector是一个线程安全类吗？ 
-
-
-
-    
-
-        <a href="/2019/04/15/java/java多线程自问/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-java多线程自问" class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2019-04-15 10:31:35" datetime="2019-04-15T02:31:35.000Z" itemprop="datePublished">2019-04-15</time>
-
-        
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2019/04/15/java多线程自问/">java多线程自问</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        
-java创建线程的方式
-java的线程的类型
-Timer与TimerTask的区别
-怎么启动、停止、加入、礼让线程
-线程的生命周期以及其切换
-CountDownLatch、CyclicBarrier和Semaphore
-什么是线程安全？Vector是一个线程安全类吗？ 
-
-
-
-    
-
-        <a href="/2019/04/15/java多线程自问/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-redis分布式锁" class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2019-04-11 17:55:56" datetime="2019-04-11T09:55:56.000Z" itemprop="datePublished">2019-04-11</time>
-
-        
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2019/04/11/redis分布式锁/">redis分布式锁</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        单机Redis实现分布式锁获取锁获取锁的过程很简单，客户端向Redis发送命令：
-12SET resource_name my_random_value NX PX 30000复制代码
-my_random_value是由客户端生成的一个随机字符串，它要保证在足够长的一段时间内在所有客户端的所有获取锁的请求中都是唯一的。 NX表示只有当resource_name对应的key值不存在的时候才能S...
-    
-
-        <a href="/2019/04/11/redis分布式锁/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/redis/">redis</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-protobuf使用" class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2019-04-10 10:31:04" datetime="2019-04-10T02:31:04.000Z" itemprop="datePublished">2019-04-10</time>
-
-        
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2019/04/10/protobuf使用/">protobuf使用</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        安装1234wget https://github.com/protocolbuffers/protobuf/releases/download/v3.6.1/protobuf-all-3.6.1.zipunzop protobuf-all-3.6.1.zipcd protobuf-all-3.6.1./configure &amp;&amp; make &amp;&amp; make in...
-    
-
-        <a href="/2019/04/10/protobuf使用/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/go/">go</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-go基本语法" class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2019-04-10 10:29:55" datetime="2019-04-10T02:29:55.000Z" itemprop="datePublished">2019-04-10</time>
-
-        
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2019/04/10/go基本语法/">go基本语法</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        接口
-duck typing了解
-
-在程序设计中，鸭子类型（英语：duck typing）是动态类型的一种风格。在这种风格中，一个对象有效的语义，不是由继承自特定的类或实现特定的接口，而是由“当前方法)和属性的集合”决定。
-flagSync1. WaitGroup123Add()Done()Wait()
-2. Context12
-Regexp
-https://www.cnblogs.com/...
-    
-
-        <a href="/2019/04/10/go基本语法/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/go/">go</a></li></ul>
 
     </div>
     

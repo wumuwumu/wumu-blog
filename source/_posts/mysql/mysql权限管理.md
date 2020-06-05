@@ -37,7 +37,7 @@ $ mysqladmin -uROOT -p flush-privileges
 
 ```sql
 mysql> GRANT ALL ON *.* TO 'user'@'%' [IDENTIFIED BY 'password'];
-mysql> GRANT ALL PRIVILIGES ON [TABLE | DATABASE] student,course TO user1,user2;
+mysql> GRANT ALL  ON [TABLE | DATABASE] student,course TO user1,user2;
 mysql> GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, CREATE TEMPORARY, ALTER,
        DROP, REFERENCES, INDEX, CREATE VIEW, SHOW VIEW, CREATE ROUTINE,
        ALTER ROUTINE, EXECUTE
