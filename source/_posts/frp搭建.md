@@ -61,3 +61,35 @@ remote_port = 6000
 ./frpc -c ./frpc.ini
 ```
 
+## openwrt开机启动
+
+1. 配置服务
+
+   ```
+   ## /etc/init.d/frpc
+   
+   
+   #!/bin/sh /etc/rc.common
+   # "new" style init script
+   # Look at /lib/functions/service.sh on a running system for explanations of what other SERVICE_
+   # options you can use, and when you might want them.
+   
+   START=80
+   APP=frpc
+   
+   start() {
+          service_start /usr/sbin/$APP -c /etc/frpc.ini
+   }
+   
+   stop() {
+           service_stop /usr/sbin/$APP
+   }
+   ```
+
+2. 开机启动
+
+   ```
+   chmod +x /etc/init.d/frpc
+   /etc/init.d/frpc enable
+   /etc/init.d/frpc start
+   ```
