@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>protobuf使用 | wumu&#39;s blog | wumu的博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="go">
+    <meta name="description" content="安装1234wget https://github.com/protocolbuffers/protobuf/releases/download/v3.6.1/protobuf-all-3.6.1.zipunzop protobuf-all-3.6.1.zipcd protobuf-all-3.6.1./configure &amp;amp;&amp;amp; make &amp;amp;&amp;amp; make insta">
+<meta name="keywords" content="go">
+<meta property="og:type" content="article">
+<meta property="og:title" content="protobuf使用">
+<meta property="og:url" content="http://wumuwumu.github.io/2019/04/10/protobuf使用/index.html">
+<meta property="og:site_name" content="wumu&#39;s blog">
+<meta property="og:description" content="安装1234wget https://github.com/protocolbuffers/protobuf/releases/download/v3.6.1/protobuf-all-3.6.1.zipunzop protobuf-all-3.6.1.zipcd protobuf-all-3.6.1./configure &amp;amp;&amp;amp; make &amp;amp;&amp;amp; make insta">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-10-14T09:01:08.058Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="protobuf使用">
+<meta name="twitter:description" content="安装1234wget https://github.com/protocolbuffers/protobuf/releases/download/v3.6.1/protobuf-all-3.6.1.zipunzop protobuf-all-3.6.1.zipcd protobuf-all-3.6.1./configure &amp;amp;&amp;amp; make &amp;amp;&amp;amp; make insta">
+    
+        <link rel="alternate" type="application/atom+xml" title="wumu&#39;s blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/avatar.png">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">wumu</h5>
+          <a href="mailto:2232728687@qq.com" title="2232728687@qq.com" class="mail">2232728687@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags">
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/wumuwumu" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">protobuf使用</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">protobuf使用</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-04-10T02:31:04.000Z" itemprop="datePublished" class="page-time">
+  2019-04-10
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#安装"><span class="post-toc-number">1.</span> <span class="post-toc-text">安装</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#语法规则"><span class="post-toc-number">2.</span> <span class="post-toc-text">语法规则</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#编码"><span class="post-toc-number">3.</span> <span class="post-toc-text">编码</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#方法"><span class="post-toc-number">4.</span> <span class="post-toc-text">方法</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#编译"><span class="post-toc-number">5.</span> <span class="post-toc-text">编译</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#注意"><span class="post-toc-number">6.</span> <span class="post-toc-text">注意</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-protobuf使用" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">protobuf使用</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-04-10 10:31:04" datetime="2019-04-10T02:31:04.000Z" itemprop="datePublished">2019-04-10</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">wget https://github.com/protocolbuffers/protobuf/releases/download/v3.6.1/protobuf-all-3.6.1.zip</span><br><span class="line">unzop protobuf-all-3.6.1.zip</span><br><span class="line">cd protobuf-all-3.6.1</span><br><span class="line">./configure &amp;&amp; make &amp;&amp; make install</span><br></pre></td></tr></table></figure>
+<h1 id="语法规则"><a href="#语法规则" class="headerlink" title="语法规则"></a>语法规则</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">// 声明版本，默认是proto2</span><br><span class="line">syntax = &quot;proto3&quot;;</span><br><span class="line"></span><br><span class="line">// 声明包名</span><br><span class="line">package tutorial</span><br><span class="line">option java_package = &quot;com.example.tutorial&quot;;</span><br><span class="line">// java类名</span><br><span class="line">option java_outer_classname = &quot;AddressBookProtos&quot;;</span><br><span class="line"></span><br><span class="line">message Person &#123;</span><br><span class="line">    required string name =1;</span><br><span class="line">    required int32 id = 2;</span><br><span class="line">    optional string email = 3;</span><br><span class="line">    </span><br><span class="line">    enum PhoneType &#123;</span><br><span class="line">        MOBILE = 0;</span><br><span class="line">        HOME = 1;</span><br><span class="line">        WORK = 2;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    message PhoneNumber &#123;</span><br><span class="line">        required string number = 1;</span><br><span class="line">        optional PhoneType type = 2[default = HOME]; </span><br><span class="line">    &#125;</span><br><span class="line">    repeated PhoneNumber phones = 4;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">message AddressBook &#123;</span><br><span class="line">    repreated Person people = 1;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 保留字段，编程过程中某些功能没有想好，可以先把该tag 进行保留，以备以后使用。</span><br><span class="line">message Foo &#123;</span><br><span class="line">  reserved 2, 15, 9 to 11;</span><br><span class="line">  reserved &quot;foo&quot;, &quot;bar&quot;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="编码"><a href="#编码" class="headerlink" title="编码"></a>编码</h1><blockquote>
+<p><a href="https://blog.csdn.net/zxhoo/article/details/53228303" target="_blank" rel="noopener">https://blog.csdn.net/zxhoo/article/details/53228303</a></p>
+</blockquote>
+<h1 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h1><ol>
+<li>Standard Message Methods</li>
+</ol>
+<ul>
+<li><code>isInitialized()</code>: checks if all the required fields have been set.</li>
+<li><code>toString()</code>: returns a human-readable representation of the message, particularly useful for debugging.</li>
+<li><code>mergeFrom(Message other)</code>: (builder only) merges the contents of <code>other</code> into this message, overwriting singular scalar fields, merging composite fields, and concatenating repeated fields.</li>
+<li><code>clear()</code>: (builder only) clears all the fields back to the empty state.</li>
+</ul>
+<ol>
+<li>Parsing and Serialization</li>
+</ol>
+<ul>
+<li><code>byte[] toByteArray();</code>: serializes the message and returns a byte array containing its raw bytes.</li>
+<li><code>static Person parseFrom(byte[] data);</code>: parses a message from the given byte array.</li>
+<li><code>void writeTo(OutputStream output);</code>: serializes the message and writes it to an <code>OutputStream</code>.</li>
+<li><code>static Person parseFrom(InputStream input);</code>: reads and parses a message from an <code>InputStream</code>.</li>
+</ul>
+<h1 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h1><h1 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h1><ol>
+<li>升级协议</li>
+</ol>
+<ul>
+<li>you <em>must not</em> change the tag numbers of any existing fields.</li>
+<li>you <em>must not</em> add or delete any required fields.</li>
+<li>you <em>may</em> delete optional or repeated fields.</li>
+<li>you <em>may</em> add new optional or repeated fields but you must use fresh tag numbers (i.e. tag numbers that were never used in this protocol buffer, not even by deleted fields).</li>
+</ul>
+<ol>
+<li>protobuf对repeated压缩不够好，所以尽量在后面加上[packed = true]。</li>
+<li>不要让protobuf对象成为全局变量或者类成员，因为其clear方法只会把占用的内存空间清零，而不会释放，使得进程空间越来越大，可参考<a href="http://www.kuqin.com/shuoit/20141117/343247.html" target="_blank" rel="noopener">《Protobuf使用不当导致的程序内存上涨问题》</a>。</li>
+</ol>
+<blockquote>
+<p><a href="https://www.jianshu.com/p/27fdf44dd63b" target="_blank" rel="noopener">https://www.jianshu.com/p/27fdf44dd63b</a></p>
+</blockquote>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-10-14T09:01:08.058Z" itemprop="dateUpdated">2019-10-14 17:01:08</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2019/04/10/protobuf使用/" target="_blank" rel="external">http://wumuwumu.github.io/2019/04/10/protobuf使用/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://wumuwumu.github.io">
+            <img src="/img/avatar.png" alt="wumu">
+            wumu
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/go/">go</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://wumuwumu.github.io/2019/04/10/protobuf使用/&title=《protobuf使用》 — wumu's blog&pic=http://wumuwumu.github.io/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://wumuwumu.github.io/2019/04/10/protobuf使用/&title=《protobuf使用》 — wumu's blog&source=起风了，唯有努力生存" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://wumuwumu.github.io/2019/04/10/protobuf使用/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《protobuf使用》 — wumu's blog&url=http://wumuwumu.github.io/2019/04/10/protobuf使用/&via=http://wumuwumu.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://wumuwumu.github.io/2019/04/10/protobuf使用/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/04/11/redis分布式锁/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">redis分布式锁</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/04/10/go基本语法/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">go基本语法</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "V8NlRMg78hP7LSAg49QpIIMV-gzGzoHsz",
+            appKey: "I8XKrcOwUTeg1Sv7mVwEcnMF",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="bottom">
+        <p>
+            <span>wumu &copy; 2018 - 2019</span>
+            <span>
+                 Power by
+                <a href="http://hexo.io/" target="_blank">Hexo</a> Theme
+                <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://wumuwumu.github.io/2019/04/10/protobuf使用/&title=《protobuf使用》 — wumu's blog&pic=http://wumuwumu.github.io/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://wumuwumu.github.io/2019/04/10/protobuf使用/&title=《protobuf使用》 — wumu's blog&source=起风了，唯有努力生存" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://wumuwumu.github.io/2019/04/10/protobuf使用/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《protobuf使用》 — wumu's blog&url=http://wumuwumu.github.io/2019/04/10/protobuf使用/&via=http://wumuwumu.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://wumuwumu.github.io/2019/04/10/protobuf使用/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACLElEQVR42u3aO27DQAwFQN//0gqQKo3kR1IKsKvZKghke8cFzd/nE5/j91z///hzzl51nJyzd7j5YGBgLMs4Ls/ZM8n7XIOT1yZ3w8DAeA9jEkwnV0w+N/oBwMDAwAgC6PUzvdQQAwMDo8fIk7+kKMXAwMDIGUkozJtxyfMJ+5FaHAMDY0FGdTDwn38/ON/AwMBYhHEUT16O9oagzVthYGBszeg17ufF5/XV8+gaTVAxMDAWZ0wCa3X9Il/IKDfdMDAwtmbkLbNqayypNOdjTgwMDIw8BewldnnrrTzlwMDA2JRRXbC4K8nrte2+fGUYGBgbMfKL5uE1b6hVk9HTO2BgYGzN6C1YzBcyeisXyX8wMDB2ZUwGA5Nn7i2DMTAwdmXMh4j3pozN9BEDA2NrxnOjx94z+QDgy+8GBgbGdoxCXRt/8HzVtdnyw8DA2I7xxOpDr3zNk04MDIx3MiZro1VGHlKTcF/+BcDAwFiQkSeCdzX6e2273rthYGDswUhCYW9HdL7alYdyDAyMtzHyyxWa9UHArQ5TT2txDAyM7RjVtYl8PFl9ba8ara/AYWBgrMfoNfqr48nqCDMfV5zONzAwMDZiVMNc78Oq2x+TsI6BgbErYz6GrCaIvXHpl7QSAwPjBYzqYKC6onHXTPVLwMXAwHg9ozfyTJK8ydeHgYGB0QuUyRggKWIfDLgYGBgLMu4tLKtFbzUxxcDAeBtjPhh4YqniZgAGBsaqjB/Zq3rA8R7dwQAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = 'wumu的博客';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/hibiki.model.json"},"display":{"position":"right","width":200,"height":500},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

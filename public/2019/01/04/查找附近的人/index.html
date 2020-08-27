@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>查找附近的人 | wumu&#39;s blog | wumu的博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="java,mongodb,mysql">
+    <meta name="description" content="GeoHash比较原始的方法，简单方便 Mysql计算公式 12C = sin(MLatA)*sin(MLatB)*cos(MLonA-MLonB) + cos(MLatA)*cos(MLatB)Distance = R*Arccos(C)*Pi/180 在经纬度小节中我们了解了两个公式用来计算两个位置之间的距离, 该小节我们以测试数据说明如何实现.测试需要的表结构和数据: 12345678910">
+<meta name="keywords" content="java,mongodb,mysql">
+<meta property="og:type" content="article">
+<meta property="og:title" content="查找附近的人">
+<meta property="og:url" content="http://wumuwumu.github.io/2019/01/04/查找附近的人/index.html">
+<meta property="og:site_name" content="wumu&#39;s blog">
+<meta property="og:description" content="GeoHash比较原始的方法，简单方便 Mysql计算公式 12C = sin(MLatA)*sin(MLatB)*cos(MLonA-MLonB) + cos(MLatA)*cos(MLatB)Distance = R*Arccos(C)*Pi/180 在经纬度小节中我们了解了两个公式用来计算两个位置之间的距离, 该小节我们以测试数据说明如何实现.测试需要的表结构和数据: 12345678910">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-10-14T09:01:08.401Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="查找附近的人">
+<meta name="twitter:description" content="GeoHash比较原始的方法，简单方便 Mysql计算公式 12C = sin(MLatA)*sin(MLatB)*cos(MLonA-MLonB) + cos(MLatA)*cos(MLatB)Distance = R*Arccos(C)*Pi/180 在经纬度小节中我们了解了两个公式用来计算两个位置之间的距离, 该小节我们以测试数据说明如何实现.测试需要的表结构和数据: 12345678910">
+    
+        <link rel="alternate" type="application/atom+xml" title="wumu&#39;s blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/avatar.png">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">wumu</h5>
+          <a href="mailto:2232728687@qq.com" title="2232728687@qq.com" class="mail">2232728687@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags">
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/wumuwumu" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">查找附近的人</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">查找附近的人</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-01-04T11:46:12.000Z" itemprop="datePublished" class="page-time">
+  2019-01-04
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#GeoHash"><span class="post-toc-number">1.</span> <span class="post-toc-text">GeoHash</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Mysql"><span class="post-toc-number">2.</span> <span class="post-toc-text">Mysql</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#mongodb"><span class="post-toc-number">3.</span> <span class="post-toc-text">mongodb</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#参考"><span class="post-toc-number">4.</span> <span class="post-toc-text">参考</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-查找附近的人" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">查找附近的人</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-01-04 19:46:12" datetime="2019-01-04T11:46:12.000Z" itemprop="datePublished">2019-01-04</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="GeoHash"><a href="#GeoHash" class="headerlink" title="GeoHash"></a>GeoHash</h1><p>比较原始的方法，简单方便</p>
+<h1 id="Mysql"><a href="#Mysql" class="headerlink" title="Mysql"></a>Mysql</h1><p>计算公式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">C = sin(MLatA)*sin(MLatB)*cos(MLonA-MLonB) + cos(MLatA)*cos(MLatB)</span><br><span class="line">Distance = R*Arccos(C)*Pi/180</span><br></pre></td></tr></table></figure>
+<p>在经纬度小节中我们了解了两个公式用来计算两个位置之间的距离, 该小节我们以测试数据说明如何实现.<br>测试需要的表结构和数据:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">表结构:</span><br><span class="line">CREATE TABLE `geotest` (</span><br><span class="line">  `userid` int(10) NOT NULL,</span><br><span class="line">  `longitude` decimal(9,6) NOT NULL,</span><br><span class="line">  `latitude` decimal(9,6) NOT NULL,</span><br><span class="line">  `create_time` datetime DEFAULT NULL,</span><br><span class="line">  UNIQUE KEY `unq_uid` (`userid`),</span><br><span class="line">  KEY `idx_lat_lng` (`longitude`,`latitude`)</span><br><span class="line">) ENGINE=InnoDB DEFAULT CHARSET=utf8</span><br><span class="line"></span><br><span class="line">测试数据:</span><br><span class="line">insert geotest values(10000, 116.417480, 40.003033, now());</span><br><span class="line">insert geotest values(10001, 116.437480, 40.004033, now());</span><br><span class="line">insert geotest values(10002, 116.457480, 40.005033, now());</span><br><span class="line">insert geotest values(10003, 116.477480, 40.006033, now());</span><br><span class="line">......</span><br><span class="line">......</span><br></pre></td></tr></table></figure>
+<p>第一种公式中, google 为我们介绍了如何使用 <a href="https://developers.google.com/maps/articles/phpsqlsearch_v3#findnearsql" target="_blank" rel="noopener">sql</a> 来获取附近的点, 如下所示, 我们选用 6371km 作为地球的半径,根据上述小节的计算公式推断:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">C = sin(MLatA)*sin(MLatB)*cos(MLonA-MLonB) + cos(MLatA)*cos(MLatB)</span><br><span class="line">Distance = R*Arccos(C)*Pi/180</span><br></pre></td></tr></table></figure>
+<p>google 地图的计算公式可以参考 <a href="http://www.arubin.org/files/geo_search.pdf" target="_blank" rel="noopener">geo_search</a></p>
+<p>两个位置之间的距离则可以换算成以下公式:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">R*arccos( cos( radians(latA)*cos( radians(latB) ) * cos( radians(lonA - lonB) )) + sin( radians(latA)*cos(latB) ))</span><br></pre></td></tr></table></figure>
+<p>radians 函数计算出相应的弧度信息, 得到下面的 sql:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">SELECT</span><br><span class="line">  user_id, (</span><br><span class="line">    6371 * acos (</span><br><span class="line">      cos ( radians(40.003033) )</span><br><span class="line">      * cos( radians( latitude ) )</span><br><span class="line">      * cos( radians( longitude ) - radians(116.417481) )</span><br><span class="line">      + sin ( radians(40.003033) )</span><br><span class="line">      * sin( radians( latitude ) )</span><br><span class="line">    )</span><br><span class="line">  ) AS distance</span><br><span class="line">FROM geotest</span><br><span class="line">HAVING distance &lt; 1</span><br><span class="line">ORDER BY distance</span><br><span class="line">LIMIT 0 , 20;</span><br></pre></td></tr></table></figure>
+<p>上面的 sql 从 geotest 中从 geotest 表中获取到经度(116.417481) 和纬度(40.003033) 位置附近 1km 所有的user_id 信息.<br>观察这个 sql, 可以预见到在表数据较大的时候仅建立复合索引 <code>idx_lat_lng</code> 肯定会遇到性能瓶颈, 因为每行记录都需要做相关的运算, 才能跑出最后的结果.</p>
+<p>所以要提高该 sql 的性能就需要尽量过滤不需要的 longitude 和 latitude 两列的值. 参考 <a href="http://www.arubin.org/files/geo_search.pdf" target="_blank" rel="noopener">geo_search</a> 和 <a href="http://stackoverflow.com/questions/1006654/fastest-way-to-find-distance-between-two-lat-long-points" target="_blank" rel="noopener">fastest-way-to-find-distance</a>, 在近距离的情况下我们可以认为当前区域内的所有位置都在一个平面内, 虽然有点误差, 但是比起地球这么大的椭球, 我们完全可以忽略其中的误差. 以经纬度来讲, 1 纬度约等于 69 英里, 大约 111044.736 米, 其中的换算公式为:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1°latitude  ~= 69 miles</span><br><span class="line">1°longitude ~= cos(latitude)*69 miles</span><br></pre></td></tr></table></figure>
+<p>所以对于位置信息(lng, lat), 我们可以计算出以其为中心周边指定距离的四个点, 如下图所示:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">+-------------+</span><br><span class="line">|             |</span><br><span class="line">|             |</span><br><span class="line">|      +      |</span><br><span class="line">|             |</span><br><span class="line">|             |</span><br><span class="line">+-------------+</span><br></pre></td></tr></table></figure>
+<p>计算公式如下:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">lng1 = lon - dist/abs(cos(radians(lat))*69)</span><br><span class="line">lng2 = lon + dist/abs(cos(radians(lat))*69)</span><br><span class="line">lat1 = lat - (dist/69);</span><br><span class="line">lat2 = lat + (dist/69);</span><br></pre></td></tr></table></figure>
+<p>四个点的坐标就分别为 (lng1, lat1), (lng1, lat2), (lng2, lat1), (lng2, lat2), 所以存在于该四个点组成的平面之间的点即可以被认为在(lng, lat) 的 dist 距离内.</p>
+<p>基于上述的规则, 修改 sql 为以下:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">SELECT</span><br><span class="line">  user_id, (</span><br><span class="line">    6371 * acos (</span><br><span class="line">      cos ( radians(40.003033) )</span><br><span class="line">      * cos( radians( latitude ) )</span><br><span class="line">      * cos( radians( longitude ) - radians(116.417481) )</span><br><span class="line">      + sin ( radians(40.003033) )</span><br><span class="line">      * sin( radians( latitude ) )</span><br><span class="line">    )</span><br><span class="line">  ) AS distance</span><br><span class="line">FROM geotest</span><br><span class="line">WHERE longitude BETWEEN lng1 AND lng2</span><br><span class="line">AND latitude BETWEEN lat1 AND lat2</span><br><span class="line">HAVING distance &lt; 1</span><br><span class="line">ORDER BY distance</span><br><span class="line">LIMIT 0 , 20;</span><br></pre></td></tr></table></figure>
+<p>这样就能很好的使用索引, 如果还想增加超时设置, 可以在 sql 里加上 create_time 条件进行过滤, 比如只查找最近一天的附近的用户. 另外开发者也可以结合使用 sphinx 或 elasticsearch 得到更好的性能.</p>
+<p>下面为根据上面介绍的规则整理成存储过程, 方便开发者调用访问. 这里我们将地球半径的公里数转换为米即为 6371392.89m, 69英里则转为 111044.736m, 如下存储过程返回 user_id 和 距离(米):</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">DELIMITER $$</span><br><span class="line">drop procedure if exists geo_dist$$</span><br><span class="line">create procedure geo_dist(IN lng decimal(9, 6), IN lat decimal(9, 6), IN dist int)</span><br><span class="line">begin</span><br><span class="line">   declare lng1 decimal(9, 6); declare lng2 decimal(16, 13);</span><br><span class="line">   declare lat1 decimal(9, 6); declare lat1 decimal(16, 13);</span><br><span class="line"></span><br><span class="line">   -- calculate lng and lat for the rectangle, in meters unit</span><br><span class="line">   set lng1 = lng - dist/abs(cos(radians(lat))*111044.736);</span><br><span class="line">   set lng2 = lng + dist/abs(cos(radians(lat))*111044.736);</span><br><span class="line">   set lat1 = lat - (dist/111044.736);</span><br><span class="line">   set lat2 = lat + (dist/111044.736);</span><br><span class="line"></span><br><span class="line">   -- run the query</span><br><span class="line">     select user_id, round((</span><br><span class="line">        6371392.89 * acos (</span><br><span class="line">         cos ( radians(lat) )</span><br><span class="line">         * cos( radians( latitude ) )</span><br><span class="line">         * cos( radians( longitude ) - radians(lng) )</span><br><span class="line">         + sin ( radians(lat) )</span><br><span class="line">         * sin( radians( latitude ) )</span><br><span class="line">       )</span><br><span class="line">     ), 0) AS distance</span><br><span class="line">     from user_position</span><br><span class="line">     where lng between lng1 and lng2</span><br><span class="line">     and lat between lat1 and lat2</span><br><span class="line">     having distance &lt; dist</span><br><span class="line">     ORDER BY distance</span><br><span class="line">     LIMIT 0 , 20;</span><br><span class="line">END$$</span><br><span class="line">DELIMITER ;</span><br></pre></td></tr></table></figure>
+<p>运行存储过程, 取出该经纬度下附近 5km 的用户和距离(m):</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">mysql &gt; call geo_dist(116.4174800000000, 40.0030330000000, 5000);</span><br><span class="line">+---------+----------+</span><br><span class="line">| user_id | distance |</span><br><span class="line">+---------+----------+</span><br><span class="line">|   10000 |        0 |</span><br><span class="line">|   10001 |     1707 |</span><br><span class="line">|   10002 |     3414 |</span><br><span class="line">+---------+----------+</span><br><span class="line">3 rows in set (0.00 sec)</span><br><span class="line"></span><br><span class="line">Query OK, 0 rows affected (0.01 sec)</span><br></pre></td></tr></table></figure>
+<p>10001 用户和指定的经纬度距离为1707米, 我们在 redis 3.2 版本中进行简单测试, 可以看到结果都很相近:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6380&gt; geoadd tttt 116.417480 40.003033 t1</span><br><span class="line">(integer) 0</span><br><span class="line">127.0.0.1:6380&gt; geoadd tttt 116.437481 40.004034 t2</span><br><span class="line">(integer) 0</span><br><span class="line">127.0.0.1:6380&gt; GEODIST tttt t1 t2</span><br><span class="line">&quot;1707.5093&quot;</span><br></pre></td></tr></table></figure>
+<h1 id="mongodb"><a href="#mongodb" class="headerlink" title="mongodb"></a>mongodb</h1><p>创建位置索引</p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><blockquote>
+<p><a href="https://arstercz.com/%E4%BD%BF%E7%94%A8-mysql-%E5%AE%9E%E7%8E%B0%E6%90%9C%E7%B4%A2%E9%99%84%E8%BF%91%E7%9A%84%E4%BA%BA/" target="_blank" rel="noopener">使用 MySQL 实现搜索附近的人</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/35940647" target="_blank" rel="noopener">GeoHash算法学习讲解、解析及原理分析</a></p>
+</blockquote>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-10-14T09:01:08.401Z" itemprop="dateUpdated">2019-10-14 17:01:08</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2019/01/04/查找附近的人/" target="_blank" rel="external">http://wumuwumu.github.io/2019/01/04/查找附近的人/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://wumuwumu.github.io">
+            <img src="/img/avatar.png" alt="wumu">
+            wumu
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mongodb/">mongodb</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql/">mysql</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://wumuwumu.github.io/2019/01/04/查找附近的人/&title=《查找附近的人》 — wumu's blog&pic=http://wumuwumu.github.io/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://wumuwumu.github.io/2019/01/04/查找附近的人/&title=《查找附近的人》 — wumu's blog&source=起风了，唯有努力生存" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://wumuwumu.github.io/2019/01/04/查找附近的人/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《查找附近的人》 — wumu's blog&url=http://wumuwumu.github.io/2019/01/04/查找附近的人/&via=http://wumuwumu.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://wumuwumu.github.io/2019/01/04/查找附近的人/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/01/04/Tiemline设计方案/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Tiemline设计方案</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/01/04/springboot-mongodb使用/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">springboot-mongodb使用</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "V8NlRMg78hP7LSAg49QpIIMV-gzGzoHsz",
+            appKey: "I8XKrcOwUTeg1Sv7mVwEcnMF",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="bottom">
+        <p>
+            <span>wumu &copy; 2018 - 2019</span>
+            <span>
+                 Power by
+                <a href="http://hexo.io/" target="_blank">Hexo</a> Theme
+                <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://wumuwumu.github.io/2019/01/04/查找附近的人/&title=《查找附近的人》 — wumu's blog&pic=http://wumuwumu.github.io/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://wumuwumu.github.io/2019/01/04/查找附近的人/&title=《查找附近的人》 — wumu's blog&source=起风了，唯有努力生存" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://wumuwumu.github.io/2019/01/04/查找附近的人/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《查找附近的人》 — wumu's blog&url=http://wumuwumu.github.io/2019/01/04/查找附近的人/&via=http://wumuwumu.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://wumuwumu.github.io/2019/01/04/查找附近的人/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACJUlEQVR42u3awY7qMAwF0Pn/n+ZJsx213BuXJ5GcrlCBhpOFsR3//MTX6/e6uv/3+vvu/Z2rdx++MDAwvpbxur2SBSaY/LtXn8HAwDiHcR9kk8WuntZuzf3TLu9jYGBg3C6WA5LkDwMDA+NZRlKOriWOGBgYGGtF7D3jc1vzcC2OgYHxhYz2YOB/vv7g+QYGBsaXMF7lNVk+b67VvwoDA2NrRtK4nwfitcSx3Q4MDIy9GXnG1T4oP85c29AIg4GBsQUjT/vy4a2kxlxLKN+khhgYGJsykiIzedB9WFzD1N/CwMDYmtGGznz5tfJ1dGyAgYGxEWNtYGuSIOabUhS6GBgYWzM+N8+QjH/liWYbvjEwMPZmzPdgbUSjTRnfBFwMDIyNGG8GrR4dg2jHworiFgMD4wBGW2ROhiTyFLBo/GFgYGzNmMyOtcG6bZPVTT0MDIytGW2i1iZw7fFn2+DDwMA4gTEJmvU+lelgfRiAgYFxACNZctJcaw9NizsYGBibMtohiflRZR7oi+djYGAcxsiXzwPlWpAt2m0YGBhbM9q0LC8v23cnVAwMjL0Zk/ZZW/TmxwP53wAGBsYJjHm0zgvdNvlbK30xMDB2ZSRBtg1/eROtLVOLk1gMDIztGPMgO8Hn/wBvAi4GBsbxjLzRlo+XrfUFMTAwMCbJ39pPmQ95YGBgnMCYFLFRQIyTxeQ1BgbGaYz2YGDS1m+PEB4DYGBgfCvjH/aqzFKFC01LAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = 'wumu的博客';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/hibiki.model.json"},"display":{"position":"right","width":200,"height":500},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

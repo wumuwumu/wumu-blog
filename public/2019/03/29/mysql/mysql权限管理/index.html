@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>mysql权限管理 | wumu&#39;s blog | wumu的博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="linux">
+    <meta name="description" content="用户管理基本操作12345678create user zhangsan identified by &apos;zhangsan&apos;;SELECT current_user();                                        ← 查看当前用户SELECT user,host FROM mysql.user;                    ← 查看用户信息SHOW GR">
+<meta name="keywords" content="linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mysql权限管理">
+<meta property="og:url" content="http://wumuwumu.github.io/2019/03/29/mysql/mysql权限管理/index.html">
+<meta property="og:site_name" content="wumu&#39;s blog">
+<meta property="og:description" content="用户管理基本操作12345678create user zhangsan identified by &apos;zhangsan&apos;;SELECT current_user();                                        ← 查看当前用户SELECT user,host FROM mysql.user;                    ← 查看用户信息SHOW GR">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-10-14T09:01:07.907Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="mysql权限管理">
+<meta name="twitter:description" content="用户管理基本操作12345678create user zhangsan identified by &apos;zhangsan&apos;;SELECT current_user();                                        ← 查看当前用户SELECT user,host FROM mysql.user;                    ← 查看用户信息SHOW GR">
+    
+        <link rel="alternate" type="application/atom+xml" title="wumu&#39;s blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/avatar.png">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">wumu</h5>
+          <a href="mailto:2232728687@qq.com" title="2232728687@qq.com" class="mail">2232728687@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags">
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/wumuwumu" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">mysql权限管理</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">mysql权限管理</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-03-29T08:55:22.000Z" itemprop="datePublished" class="page-time">
+  2019-03-29
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#用户管理"><span class="post-toc-number">1.</span> <span class="post-toc-text">用户管理</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#基本操作"><span class="post-toc-number">2.</span> <span class="post-toc-text">基本操作</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#修改密码"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">修改密码</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#权限管理"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">权限管理</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#权限"><span class="post-toc-number">3.</span> <span class="post-toc-text">权限</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#admin"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">admin</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#root"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">root</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#其他"><span class="post-toc-number">4.</span> <span class="post-toc-text">其他</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#重置root密码"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">重置root密码</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#MySQL-中-localhost-127-0-0-1-区别"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">MySQL 中 localhost 127.0.0.1 区别</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#参考"><span class="post-toc-number">5.</span> <span class="post-toc-text">参考</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-mysql/mysql权限管理" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">mysql权限管理</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-03-29 16:55:22" datetime="2019-03-29T08:55:22.000Z" itemprop="datePublished">2019-03-29</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="用户管理"><a href="#用户管理" class="headerlink" title="用户管理"></a>用户管理</h1><h1 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">user</span> zhangsan <span class="keyword">identified</span> <span class="keyword">by</span> <span class="string">'zhangsan'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">current_user</span>();                                        ← 查看当前用户</span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">user</span>,host <span class="keyword">FROM</span> mysql.user;                    ← 查看用户信息</span><br><span class="line"><span class="keyword">SHOW</span> <span class="keyword">GRANTS</span>;                                                  ← 当前用户权限，会生成SQL语句</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">USER</span> <span class="string">'user'</span>@<span class="string">'host'</span> <span class="keyword">IDENTIFIED</span> <span class="keyword">BY</span> <span class="string">'password'</span>;           ← 创建用户</span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">USER</span> <span class="string">'user'</span>@<span class="string">'host'</span>;                                      ← 删除用户</span><br><span class="line"><span class="keyword">RENAME</span> <span class="keyword">USER</span> <span class="string">'user'</span>@<span class="string">'host'</span> <span class="keyword">TO</span> <span class="string">'fool'</span>@<span class="string">'host'</span>;</span><br></pre></td></tr></table></figure>
+<h2 id="修改密码"><a href="#修改密码" class="headerlink" title="修改密码"></a>修改密码</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; ALTER USER 'root'@'localhost' IDENTIFIED BY 'new-password';   ← 修改密码(recommand)</span><br><span class="line">mysql&gt; SET PASSWORD FOR 'root'@'localhost'=PASSWORD('new-password'); ← 修改密码</span><br><span class="line">mysql&gt; UPDATE mysql.user SET password=PASSWORD('new-password')</span><br><span class="line">       WHERE USER='root' AND Host='127.0.0.1';</span><br><span class="line">mysql&gt; UPDATE mysql.user SET password='' WHERE user='root';          ← 清除密码</span><br><span class="line">mysql&gt; FLUSH PRIVILEGES;</span><br><span class="line">$ mysqladmin -uROOT -pOLD_PASSWD password NEW_PASSWD                 ← 通过mysqladmin修改</span><br><span class="line">$ mysqladmin -uROOT -p <span class="keyword">flush</span>-<span class="keyword">privileges</span></span><br></pre></td></tr></table></figure>
+<h2 id="权限管理"><a href="#权限管理" class="headerlink" title="权限管理"></a>权限管理</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; GRANT ALL ON *.* TO 'user'@'%' [IDENTIFIED BY 'password'];</span><br><span class="line">mysql&gt; GRANT ALL PRIVILIGES ON [TABLE | DATABASE] student,course TO user1,user2;</span><br><span class="line">mysql&gt; GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, CREATE TEMPORARY, ALTER,</span><br><span class="line">       <span class="keyword">DROP</span>, <span class="keyword">REFERENCES</span>, <span class="keyword">INDEX</span>, <span class="keyword">CREATE</span> <span class="keyword">VIEW</span>, <span class="keyword">SHOW</span> <span class="keyword">VIEW</span>, <span class="keyword">CREATE</span> ROUTINE,</span><br><span class="line">       <span class="keyword">ALTER</span> ROUTINE, <span class="keyword">EXECUTE</span></span><br><span class="line">       <span class="keyword">ON</span> db.tbl <span class="keyword">TO</span> <span class="string">'user'</span>@<span class="string">'host'</span> [<span class="keyword">IDENTIFIED</span> <span class="keyword">BY</span> <span class="string">'password'</span>];</span><br><span class="line">mysql&gt; GRANT ALL ON sampdb.* TO PUBLIC WITH GRANT OPTION;            ← 所有人，可以授权给其他人</span><br><span class="line">mysql&gt; GRANT UPDATE(col),SELECT ON TABLE tbl TO user;                ← 针对列赋值</span><br><span class="line">mysql&gt; SHOW GRANTS [FOR 'user'@'host'];                              ← 查看权限信息</span><br><span class="line">mysql&gt; REVOKE ALL ON *.* FROM 'user'@'host';                         ← 撤销权限</span><br><span class="line">mysql&gt; REVOKE SELECT(user, host), UPDATE(host) ON db.tbl FROM 'user'@'%';</span><br></pre></td></tr></table></figure>
+<h1 id="权限"><a href="#权限" class="headerlink" title="权限"></a>权限</h1><h2 id="admin"><a href="#admin" class="headerlink" title="admin"></a>admin</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; CREATE USER &apos;admin&apos;@&apos;IP&apos; IDENTIFIED BY &apos;password&apos;;</span><br><span class="line">mysql&gt; GRANT ALL PRIVILEGES ON *.* TO &apos;admin&apos;@&apos;IP&apos;;</span><br><span class="line"></span><br><span class="line">mysql&gt; REVOKE ALL PRIVILEGES ON *.* FROM &apos;admin&apos;@&apos;IP&apos;;</span><br><span class="line">mysql&gt; DROP USER &apos;admin&apos;@&apos;IP&apos;;</span><br></pre></td></tr></table></figure>
+<h2 id="root"><a href="#root" class="headerlink" title="root"></a>root</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; GRANT ALL PRIVILEGES ON *.* TO 'root'@'localhost' WITH GRANT OPTION;</span><br></pre></td></tr></table></figure>
+<h1 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h1><h2 id="重置root密码"><a href="#重置root密码" class="headerlink" title="重置root密码"></a>重置root密码</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">----- 1. 停止mysql服务器</span></span><br><span class="line"><span class="comment"># systemctl stop mysqld</span></span><br><span class="line"><span class="comment"># /opt/mysql-5.7/bin/mysqladmin -uroot -p'init-password' shutdown</span></span><br><span class="line">Shutting down MySQL..     done</span><br><span class="line"></span><br><span class="line"><span class="comment">----- 2. 获取跳过认证的启动参数</span></span><br><span class="line"><span class="comment"># mysqld --help --verbose | grep 'skip-grant-tables' -A1</span></span><br><span class="line">    <span class="comment">--skip-grant-tables Start without grant tables. This gives all users FULL</span></span><br><span class="line">                          ACCESS to all tables.</span><br><span class="line"></span><br><span class="line"><span class="comment">----- 3. 启动服务器，跳过认证</span></span><br><span class="line"><span class="comment"># mysqld --skip-grant-tables --user=mysql &amp;</span></span><br><span class="line">[1] 10209</span><br><span class="line"></span><br><span class="line"><span class="comment">----- 4. 取消密码</span></span><br><span class="line">mysql&gt; UPDATE mysql.user SET password='' WHERE user='root';</span><br><span class="line">Query OK, 2 rows affected (0.00 sec)</span><br><span class="line">Rows matched: 2  Changed: 2  Warnings: 0</span><br></pre></td></tr></table></figure>
+<h2 id="MySQL-中-localhost-127-0-0-1-区别"><a href="#MySQL-中-localhost-127-0-0-1-区别" class="headerlink" title="MySQL 中 localhost 127.0.0.1 区别"></a>MySQL 中 localhost 127.0.0.1 区别</h2><p><code>%</code> 是一个通配符，用以匹配所有的 IP 地址，但是不能匹配到 <code>locahost</code> 这个特殊的域名。</p>
+<p>也就是说，如果要允许本地登录，单纯只配置一个 <code>%</code> 是不够的 (应该是说对这种方式是不够的)，需要同时配置一个 <code>locahost</code> 的账号。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; GRANT ALL ON *.* TO 'foobar'@'%' IDENTIFIED BY '123456';</span><br><span class="line">Query OK, 0 rows affected (0.01 sec)</span><br><span class="line">mysql&gt; SELECT user, host, password FROM mysql.user WHERE user like 'foobar%';</span><br><span class="line">+<span class="comment">--------+------+-------------------------------------------+</span></span><br><span class="line">| user   | host | password                                  |</span><br><span class="line">+<span class="comment">--------+------+-------------------------------------------+</span></span><br><span class="line">| foobar | %    | *6BB4837EB74329105EE4568DDA7DC67ED2CA2AD9 |</span><br><span class="line">+<span class="comment">--------+------+-------------------------------------------+</span></span><br><span class="line">1 row in <span class="keyword">set</span> (<span class="number">0.00</span> sec)</span><br><span class="line"></span><br><span class="line">$ mysql -ufoobar -h127<span class="number">.0</span><span class="number">.0</span><span class="number">.1</span> -P3307 -p<span class="string">'123456'</span></span><br><span class="line"><span class="keyword">ERROR</span> <span class="number">1045</span> (<span class="number">28000</span>): <span class="keyword">Access</span> denied <span class="keyword">for</span> <span class="keyword">user</span> <span class="string">'foobar'</span>@<span class="string">'localhost'</span> (<span class="keyword">using</span> <span class="keyword">password</span>: YES)</span><br></pre></td></tr></table></figure>
+<p><a href="https://jin-yang.github.io/post/mysql-localhost-vs-127.0.0.1-introduce.html" target="_blank" rel="noopener">https://jin-yang.github.io/post/mysql-localhost-vs-127.0.0.1-introduce.html</a></p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://jin-yang.github.io/post/mysql-users.html" target="_blank" rel="noopener">https://jin-yang.github.io/post/mysql-users.html</a></p>
+<p><a href="https://www.cnblogs.com/Richardzhu/p/3318595.html" target="_blank" rel="noopener">https://www.cnblogs.com/Richardzhu/p/3318595.html</a></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-10-14T09:01:07.907Z" itemprop="dateUpdated">2019-10-14 17:01:07</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2019/03/29/mysql/mysql权限管理/" target="_blank" rel="external">http://wumuwumu.github.io/2019/03/29/mysql/mysql权限管理/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://wumuwumu.github.io">
+            <img src="/img/avatar.png" alt="wumu">
+            wumu
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://wumuwumu.github.io/2019/03/29/mysql/mysql权限管理/&title=《mysql权限管理》 — wumu's blog&pic=http://wumuwumu.github.io/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://wumuwumu.github.io/2019/03/29/mysql/mysql权限管理/&title=《mysql权限管理》 — wumu's blog&source=起风了，唯有努力生存" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://wumuwumu.github.io/2019/03/29/mysql/mysql权限管理/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《mysql权限管理》 — wumu's blog&url=http://wumuwumu.github.io/2019/03/29/mysql/mysql权限管理/&via=http://wumuwumu.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://wumuwumu.github.io/2019/03/29/mysql/mysql权限管理/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/04/09/go/go工程搭建/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">go工程搭建</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/03/29/mysql/mysql安装/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">centos安装mysql</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "V8NlRMg78hP7LSAg49QpIIMV-gzGzoHsz",
+            appKey: "I8XKrcOwUTeg1Sv7mVwEcnMF",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="bottom">
+        <p>
+            <span>wumu &copy; 2018 - 2019</span>
+            <span>
+                 Power by
+                <a href="http://hexo.io/" target="_blank">Hexo</a> Theme
+                <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://wumuwumu.github.io/2019/03/29/mysql/mysql权限管理/&title=《mysql权限管理》 — wumu's blog&pic=http://wumuwumu.github.io/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://wumuwumu.github.io/2019/03/29/mysql/mysql权限管理/&title=《mysql权限管理》 — wumu's blog&source=起风了，唯有努力生存" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://wumuwumu.github.io/2019/03/29/mysql/mysql权限管理/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《mysql权限管理》 — wumu's blog&url=http://wumuwumu.github.io/2019/03/29/mysql/mysql权限管理/&via=http://wumuwumu.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://wumuwumu.github.io/2019/03/29/mysql/mysql权限管理/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACKklEQVR42u3aSw7CMAxF0e5/0zBl0nCfHZDq3I5QKWlPkSx/cl34eH0cn2f49XzN9a9ahwwZMh7LeC2P9Q34497h+X3vrpEhQ8Y5jM7t19cQ8JqxfjYZMmTISK8hZ9a/lSFDhow+Iw2dPL2TIUOGjDWDFJNkad6S46nh5lpchgwZD2Tw2/z/80/mGzJkyHgUo5PG8eIzHTDETyVDhozRDB7gSPFZSwfTgejtlTJkyBjK4Nu2eADtFJwcFvwPMmTIeDgDfRGWsqQBxxO+eDghQ4aMcQye6tVCYZr88UHpVXsUGTJkPJDBU0Deja9t10hf020tLkOGjMMY69vvbb1xzJfyVYYMGeMYaSOen+mE73g4KkOGjAMYJNjxRlinrV9MLmXIkDGaUWtspQ04MhLovxoZMmRMZfAtqmlByzdb8EePRwIyZMgYwegMI9NUj4Nr29FkyJAxm0EaXmmhS1brl7syZMg4jZEWqJ1EkL+gWjorQ4aMcxi1g2+e2MuWIUPGbAZv8Xdab2mjLU5VZciQcQAjLVA7DTUeUoP0UYYMGQcw+MaLNL1Ly9R0HRkyZMxm9AtUniDWWnuo/pYhQ8ZoRhrmamNIHspJqZyuJkOGjBmMfrHKQ20ayrfNNGTIkDGCsSvwpalhmvahWlyGDBnHM3giSBJEvsKXVyNDhgwZpbFlOn6obS+TIUPGOQxSxJLiM23S1daXIUPGaYxa6dg5k5a4aVopQ4aMQYw33v8i4Crri/IAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = 'wumu的博客';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/hibiki.model.json"},"display":{"position":"right","width":200,"height":500},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

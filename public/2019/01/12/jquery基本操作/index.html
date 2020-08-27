@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>jquery基本操作 | wumu&#39;s blog | wumu的博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="js,jquery">
+    <meta name="description" content="选择器123456789101112// 基本选择器$(&apos;#id&apos;)$(&apos;.class&apos;)$(&apos;element&apos;)$(&apos;*&apos;)$(&apos;select1 ,select2&apos;)//可以使用css选择器// 层次选择器$(&apos;ancestor descendant&apos;)$(&apos;parent &amp;gt;child&apos;)$(&apos;prev+next&apos;)$(&apos;prev~siblings&apos;)//获取所有同辈元素 DOM操作基本操">
+<meta name="keywords" content="js,jquery">
+<meta property="og:type" content="article">
+<meta property="og:title" content="jquery基本操作">
+<meta property="og:url" content="http://wumuwumu.github.io/2019/01/12/jquery基本操作/index.html">
+<meta property="og:site_name" content="wumu&#39;s blog">
+<meta property="og:description" content="选择器123456789101112// 基本选择器$(&apos;#id&apos;)$(&apos;.class&apos;)$(&apos;element&apos;)$(&apos;*&apos;)$(&apos;select1 ,select2&apos;)//可以使用css选择器// 层次选择器$(&apos;ancestor descendant&apos;)$(&apos;parent &amp;gt;child&apos;)$(&apos;prev+next&apos;)$(&apos;prev~siblings&apos;)//获取所有同辈元素 DOM操作基本操">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-10-14T09:01:07.643Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="jquery基本操作">
+<meta name="twitter:description" content="选择器123456789101112// 基本选择器$(&apos;#id&apos;)$(&apos;.class&apos;)$(&apos;element&apos;)$(&apos;*&apos;)$(&apos;select1 ,select2&apos;)//可以使用css选择器// 层次选择器$(&apos;ancestor descendant&apos;)$(&apos;parent &amp;gt;child&apos;)$(&apos;prev+next&apos;)$(&apos;prev~siblings&apos;)//获取所有同辈元素 DOM操作基本操">
+    
+        <link rel="alternate" type="application/atom+xml" title="wumu&#39;s blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/avatar.png">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">wumu</h5>
+          <a href="mailto:2232728687@qq.com" title="2232728687@qq.com" class="mail">2232728687@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags">
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/wumuwumu" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">jquery基本操作</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">jquery基本操作</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-01-12T08:20:45.000Z" itemprop="datePublished" class="page-time">
+  2019-01-12
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#选择器"><span class="post-toc-number">1.</span> <span class="post-toc-text">选择器</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#DOM操作"><span class="post-toc-number">2.</span> <span class="post-toc-text">DOM操作</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#基本操作"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">基本操作</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#参考"><span class="post-toc-number">3.</span> <span class="post-toc-text">参考</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-jquery基本操作" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">jquery基本操作</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-01-12 16:20:45" datetime="2019-01-12T08:20:45.000Z" itemprop="datePublished">2019-01-12</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="选择器"><a href="#选择器" class="headerlink" title="选择器"></a>选择器</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 基本选择器</span></span><br><span class="line">$(<span class="string">'#id'</span>)</span><br><span class="line">$(<span class="string">'.class'</span>)</span><br><span class="line">$(<span class="string">'element'</span>)</span><br><span class="line">$(<span class="string">'*'</span>)</span><br><span class="line">$(<span class="string">'select1 ,select2'</span>)<span class="comment">//可以使用css选择器</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 层次选择器</span></span><br><span class="line">$(<span class="string">'ancestor descendant'</span>)</span><br><span class="line">$(<span class="string">'parent &gt;child'</span>)</span><br><span class="line">$(<span class="string">'prev+next'</span>)</span><br><span class="line">$(<span class="string">'prev~siblings'</span>)<span class="comment">//获取所有同辈元素</span></span><br></pre></td></tr></table></figure>
+<h1 id="DOM操作"><a href="#DOM操作" class="headerlink" title="DOM操作"></a>DOM操作</h1><h2 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// attr</span></span><br><span class="line">$(<span class="string">'div'</span>).attr(<span class="string">"background"</span>)<span class="comment">//获取属性</span></span><br><span class="line">$(<span class="string">'div'</span>).attr(<span class="string">"background"</span>,<span class="string">"white"</span>)</span><br><span class="line">$(<span class="string">'div'</span>).attr(&#123;<span class="string">"background"</span>:<span class="string">"white"</span>,<span class="string">"height"</span>:<span class="string">"200px"</span>&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// css</span></span><br><span class="line">$(<span class="string">"div"</span>).css(<span class="string">'background'</span>)</span><br><span class="line">$(<span class="string">'div'</span>).css(<span class="string">"background"</span>,<span class="string">"white"</span>)</span><br><span class="line">$(<span class="string">'div'</span>).css(&#123;<span class="string">'background'</span>:<span class="string">'blue'</span>,<span class="string">"height"</span>:<span class="string">'200px'</span>&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// width height</span></span><br><span class="line">width()</span><br><span class="line">height()</span><br><span class="line"></span><br><span class="line"><span class="comment">// addClass</span></span><br><span class="line">$(<span class="string">'div'</span>).addClass(<span class="string">'className'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// removeAttr</span></span><br><span class="line">$(<span class="string">'div'</span>).removeAttr(<span class="string">'background'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// removeClass 没参数删除所有</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// hasClass</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建节点</span></span><br><span class="line"><span class="keyword">var</span> p $(<span class="string">'&lt;p&gt;hello&lt;/p&gt;'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// append() 添加内容</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// appendTo()</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// prepend() 向元素内部前面添加内容</span></span><br><span class="line"><span class="comment">// prependTo()</span></span><br><span class="line">​<span class="string">``</span><span class="string">` html</span></span><br><span class="line"><span class="string">&lt;p&gt;hello&lt;/p&gt;</span></span><br><span class="line"><span class="string">​</span></span><br></pre></td></tr></table></figure>
+<p>$(‘<i>hi!</i>‘).prependTo(“p”)<br>​<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;<span class="name">i</span>&gt;</span>hi!<span class="tag">&lt;/<span class="name">i</span>&gt;</span>hello<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">​</span><br></pre></td></tr></table></figure></p>
+<p>// 在相应位置添加元素，是在元素的外面<br>// after<br>// insertAfter<br>// before<br>//insertBefore</p>
+<p>// remove()<br>// detach()：和remove()几乎一样，不同的是detach方法不会删除节点所绑定的事件和附加的数据<br>// empty() 清空内容</p>
+<p>// clone()复制节点，可以有参数true，当有true参数时，将同时复制节点所绑定的事件<br>// replaceWith 将匹配的节点替换成指定的节点<br>// replaceAll() 只是用一个</p>
+<p>// wrap 包裹节点<br>// wrapAll<br>// wrapInner 将匹配的节点内部的节点或者文本内容用指定的节点包裹起来<br>​<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;p&gt;我是内容&lt;/p&gt;</span><br><span class="line">​</span><br></pre></td></tr></table></figure></p>
+<p>$(“p”).wrapInner(“<span></span>“);<br>​<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;p&gt;&lt;span&gt;我是内容&lt;/span&gt;&lt;/p&gt;</span><br><span class="line">​</span><br></pre></td></tr></table></figure></p>
+<p>// html()<br>// text()<br>// val()</p>
+<p>// children()<br>// next()<br>// prev()<br>// siblings()<br>// closest() 获取最近的符合匹配的一个父元素<br>​<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;div&gt;</span><br><span class="line">&lt;div class=&quot;div2&quot;&gt;</span><br><span class="line">&lt;p&gt;我是内容&lt;/p&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">​</span><br></pre></td></tr></table></figure></p>
+<p>var $div=$(“p”).closest();//返回class为div2的div元素</p>
+<p>// parent()<br>// parents()</p>
+<p>// offset()<br>// position()</p>
+<p>// scrollTop()<br>// scrollLeft()</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"># 事件与动画</span><br><span class="line"></span><br><span class="line">```js</span><br><span class="line">$().ready()</span><br><span class="line">$(&apos;&apos;).bind(type,func)</span><br><span class="line">$(&apos;&apos;).click()</span><br><span class="line">$(&apos;&apos;).mouseover</span><br><span class="line"></span><br><span class="line">// 合成事件</span><br><span class="line">hover(enter,leave)</span><br><span class="line">toggle(fn1,fn2)</span><br><span class="line">       </span><br><span class="line">// 阻止事件</span><br><span class="line">event.stopPropagation();</span><br><span class="line">event.preventDefault();</span><br><span class="line"></span><br><span class="line">// unbind 移除事件</span><br><span class="line">// trigger 触发事件</span><br><span class="line"></span><br><span class="line">// 动画</span><br><span class="line">hide();</span><br><span class="line">show(time);</span><br><span class="line">fadeLn();</span><br><span class="line">fadeOut();</span><br><span class="line">slideUp();</span><br><span class="line">slideDown();</span><br><span class="line">slideToggle();</span><br><span class="line">fadeTo();</span><br><span class="line">fadeToggle();</span><br><span class="line">animate();</span><br><span class="line">delay();</span><br></pre></td></tr></table></figure>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><blockquote>
+<p><a href="https://www.jianshu.com/p/3e2768c8dad4" target="_blank" rel="noopener">jQuery简明参考手册——30分钟快速入门jQuery</a></p>
+</blockquote>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-10-14T09:01:07.643Z" itemprop="dateUpdated">2019-10-14 17:01:07</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2019/01/12/jquery基本操作/" target="_blank" rel="external">http://wumuwumu.github.io/2019/01/12/jquery基本操作/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://wumuwumu.github.io">
+            <img src="/img/avatar.png" alt="wumu">
+            wumu
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jquery/">jquery</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://wumuwumu.github.io/2019/01/12/jquery基本操作/&title=《jquery基本操作》 — wumu's blog&pic=http://wumuwumu.github.io/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://wumuwumu.github.io/2019/01/12/jquery基本操作/&title=《jquery基本操作》 — wumu's blog&source=起风了，唯有努力生存" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://wumuwumu.github.io/2019/01/12/jquery基本操作/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《jquery基本操作》 — wumu's blog&url=http://wumuwumu.github.io/2019/01/12/jquery基本操作/&via=http://wumuwumu.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://wumuwumu.github.io/2019/01/12/jquery基本操作/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/02/13/go/sqlx基本使用/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">sqlx基本使用</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/01/06/springcloud-eureka/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">springcloud-eureka</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "V8NlRMg78hP7LSAg49QpIIMV-gzGzoHsz",
+            appKey: "I8XKrcOwUTeg1Sv7mVwEcnMF",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="bottom">
+        <p>
+            <span>wumu &copy; 2018 - 2019</span>
+            <span>
+                 Power by
+                <a href="http://hexo.io/" target="_blank">Hexo</a> Theme
+                <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://wumuwumu.github.io/2019/01/12/jquery基本操作/&title=《jquery基本操作》 — wumu's blog&pic=http://wumuwumu.github.io/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://wumuwumu.github.io/2019/01/12/jquery基本操作/&title=《jquery基本操作》 — wumu's blog&source=起风了，唯有努力生存" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://wumuwumu.github.io/2019/01/12/jquery基本操作/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《jquery基本操作》 — wumu's blog&url=http://wumuwumu.github.io/2019/01/12/jquery基本操作/&via=http://wumuwumu.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://wumuwumu.github.io/2019/01/12/jquery基本操作/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACHklEQVR42u3aQXLDIAwF0N7/0u42nbZEH+HMGB6rTGIbnhcKSPr6Ko/rZaTf//71v3vH1y8YGBgYj2Vcw1GZYDzx+JmVa8Zrw8DAOIcxXlxlyvFdc88MXhwGBgZG45p6cMfAwMC4I+DeEZoxMDAwOofYSpqsk/P70FkcAwPjgYz6BJ//fEt9AwMD41GMKxyVsmUlgPZX8uPJGBgYWzM6abJKaE6DeH3bh4GBcSajElgr5ckOOG07C3o6MDAwHs5Y1QyRJss65cw3rwkDA2MjxtyRde5Yu/h9v16PgYFxMKOPGfPqG803G1kMDIwjGZ2mrjRhl2KCbhEMDIyNGGkBIC1DptTKLH9sDTEwMA5g1BNtc0m3tCRQL3liYGCcw1jVbJEWOOvbxFa3CAYGxmMZ/fCaJtr628HJLjMMDIyHM4Kg1g7T/cJD8JowMDA2YqQ339FGloZsDAyMkxlpwJ1s5ApLm6XjNAYGxmGM8bJWNXulh+G45QIDA2NrRhqC+0+bm7H0v4GBgbEpox7+KsfafpNZnG7DwMDYmlFZ3Fy5ca61YkGzBQYGxsMZVzjqsPrGrp+Aw8DA2JtRH/1w2W8Um2s7w8DA2IOxqmk1PfouDrgYGBgHMOYCXyXFVlloeojFwMDA6C893XTOlUIxMDAw6tuytJ2i03A22cCKgYGxBaNyiE0nTsPxXIjHwMA4gZFu4CrISivY2iCOgYGxKeMbCRhqmMDbymoAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = 'wumu的博客';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/hibiki.model.json"},"display":{"position":"right","width":200,"height":500},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

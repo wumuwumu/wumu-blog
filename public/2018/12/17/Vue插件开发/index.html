@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>Vue插件开发 | wumu&#39;s blog | wumu的博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="js,vue">
+    <meta name="description" content="基本结构插件的功能包括全局方法和属性、指令、mixin、实例方法。插件都有一个install方法，第一个参数是Vue，第二个参数是options。 1234567891011121314151617181920MyPlugin.install = function (Vue, options) &amp;#123;  Vue.myGlobalMethod = function () &amp;#123;  //">
+<meta name="keywords" content="js,vue">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vue插件开发">
+<meta property="og:url" content="http://wumuwumu.github.io/2018/12/17/Vue插件开发/index.html">
+<meta property="og:site_name" content="wumu&#39;s blog">
+<meta property="og:description" content="基本结构插件的功能包括全局方法和属性、指令、mixin、实例方法。插件都有一个install方法，第一个参数是Vue，第二个参数是options。 1234567891011121314151617181920MyPlugin.install = function (Vue, options) &amp;#123;  Vue.myGlobalMethod = function () &amp;#123;  //">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-10-14T09:01:08.378Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Vue插件开发">
+<meta name="twitter:description" content="基本结构插件的功能包括全局方法和属性、指令、mixin、实例方法。插件都有一个install方法，第一个参数是Vue，第二个参数是options。 1234567891011121314151617181920MyPlugin.install = function (Vue, options) &amp;#123;  Vue.myGlobalMethod = function () &amp;#123;  //">
+    
+        <link rel="alternate" type="application/atom+xml" title="wumu&#39;s blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/avatar.png">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">wumu</h5>
+          <a href="mailto:2232728687@qq.com" title="2232728687@qq.com" class="mail">2232728687@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags">
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/wumuwumu" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Vue插件开发</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Vue插件开发</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-12-17T12:52:34.000Z" itemprop="datePublished" class="page-time">
+  2018-12-17
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#基本结构"><span class="post-toc-number">1.</span> <span class="post-toc-text">基本结构</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#vue-toast"><span class="post-toc-number">2.</span> <span class="post-toc-text">vue-toast</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-Vue插件开发" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Vue插件开发</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-12-17 20:52:34" datetime="2018-12-17T12:52:34.000Z" itemprop="datePublished">2018-12-17</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="基本结构"><a href="#基本结构" class="headerlink" title="基本结构"></a>基本结构</h1><p>插件的功能包括全局方法和属性、指令、mixin、实例方法。插件都有一个<code>install</code>方法，第一个参数是<code>Vue</code>，第二个参数是<code>options</code>。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">MyPlugin.install = <span class="function"><span class="keyword">function</span> (<span class="params">Vue, options</span>) </span>&#123;</span><br><span class="line">  Vue.myGlobalMethod = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;  <span class="comment">// 1. 添加全局方法或属性，如: vue-custom-element</span></span><br><span class="line">    <span class="comment">// 逻辑...</span></span><br><span class="line">  &#125;</span><br><span class="line">  Vue.directive(<span class="string">'my-directive'</span>, &#123;  <span class="comment">// 2. 添加全局资源：指令/过滤器/过渡等，如 vue-touch</span></span><br><span class="line">    bind (el, binding, vnode, oldVnode) &#123;</span><br><span class="line">      <span class="comment">// 逻辑...</span></span><br><span class="line">    &#125;</span><br><span class="line">    ...</span><br><span class="line">  &#125;)</span><br><span class="line">  Vue.mixin(&#123;</span><br><span class="line">    created: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;  <span class="comment">// 3. 通过全局 mixin方法添加一些组件选项，如: vuex</span></span><br><span class="line">      <span class="comment">// 逻辑...</span></span><br><span class="line">    &#125;</span><br><span class="line">    ...</span><br><span class="line">  &#125;)</span><br><span class="line">  Vue.prototype.$myMethod = <span class="function"><span class="keyword">function</span> (<span class="params">options</span>) </span>&#123;  <span class="comment">// 4. 添加实例方法，通过把它们添加到 Vue.prototype 上实现</span></span><br><span class="line">    <span class="comment">// 逻辑...</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="vue-toast"><a href="#vue-toast" class="headerlink" title="vue-toast"></a><code>vue-toast</code></h1>
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-10-14T09:01:08.378Z" itemprop="dateUpdated">2019-10-14 17:01:08</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2018/12/17/Vue插件开发/" target="_blank" rel="external">http://wumuwumu.github.io/2018/12/17/Vue插件开发/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://wumuwumu.github.io">
+            <img src="/img/avatar.png" alt="wumu">
+            wumu
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/">vue</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://wumuwumu.github.io/2018/12/17/Vue插件开发/&title=《Vue插件开发》 — wumu's blog&pic=http://wumuwumu.github.io/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://wumuwumu.github.io/2018/12/17/Vue插件开发/&title=《Vue插件开发》 — wumu's blog&source=起风了，唯有努力生存" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://wumuwumu.github.io/2018/12/17/Vue插件开发/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Vue插件开发》 — wumu's blog&url=http://wumuwumu.github.io/2018/12/17/Vue插件开发/&via=http://wumuwumu.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://wumuwumu.github.io/2018/12/17/Vue插件开发/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2018/12/29/oracle/Oracle基本管理/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Oracle基本管理</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/12/05/JSqlParser教程/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">JSqlParser教程</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "V8NlRMg78hP7LSAg49QpIIMV-gzGzoHsz",
+            appKey: "I8XKrcOwUTeg1Sv7mVwEcnMF",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="bottom">
+        <p>
+            <span>wumu &copy; 2018 - 2019</span>
+            <span>
+                 Power by
+                <a href="http://hexo.io/" target="_blank">Hexo</a> Theme
+                <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://wumuwumu.github.io/2018/12/17/Vue插件开发/&title=《Vue插件开发》 — wumu's blog&pic=http://wumuwumu.github.io/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://wumuwumu.github.io/2018/12/17/Vue插件开发/&title=《Vue插件开发》 — wumu's blog&source=起风了，唯有努力生存" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://wumuwumu.github.io/2018/12/17/Vue插件开发/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Vue插件开发》 — wumu's blog&url=http://wumuwumu.github.io/2018/12/17/Vue插件开发/&via=http://wumuwumu.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://wumuwumu.github.io/2018/12/17/Vue插件开发/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACIUlEQVR42u3aQW7EIBAEwPz/046UUw5rbzfYURaK0yqxDcVhxMzw9RWP42f8/t3+5eyb7VtTAwMD42MZx+WYYeTvJlt2tjYMDIx9GHmQzYPp9ffbLXizZgwMDIzgANceGdtAj4GBgTEWcPNENA+7GBgYGDNJ7DWsnXg+QGNgYOzDGGsM/M3vx/sbGBgY/55xlOOuw18SmotVYWBgLM1ImojJBPMl/pmWJwYGxtqM67Tw3uS2PYAWwR0DA2NpRtIGyKfMg/J8Oo2BgYGRh8481D59UQwDA2NVRh4ck6NhnqYmi8sPrBgYGDsw2uZlcuBrE+A8MX6xNgwMjG0Y7YemJo5LdUnYxcDAWJuRFLDGWo952a698YWBgbEbo53miWZA/l8MDIydGW2zMG8AtKnvYBkOAwNjM0b7iTbVnHmyCLgYGBiLMtrC/VgCPJPWnr6LgYGxGWPsytdYS3Ls0ljRwsTAwFiCkRfLZq6FtSW5sesdGBgYqzLaElh+/StZXN4eiI6GGBgYSzPagn4Ce+Iax+mWYWBgLM0oHhqqa40F9zxxxcDA2IFxlOOuOvxYQwIDA2NPxliYGzvetYlxDsbAwNiB0QbZuxLUvIQX7T0GBsYGjCRdbK9NDBb643W+CLgYGBjbM9rUtC235aH/TSMTAwNje8b8YfGutuhUwMXAwPhARh7mxgLlzNZEm4WBgbE044YEsny+vTpWHBAxMDBWY3wDtWyJh1B/Y9MAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = 'wumu的博客';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/hibiki.model.json"},"display":{"position":"right","width":200,"height":500},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
