@@ -1,5 +1,5 @@
 ---
-title: frp搭建
+##title: frp搭建
 date: 2020-06-05 15:54:05
 tags:
 - frp
@@ -14,8 +14,11 @@ frp是有个内网穿透的工具，分为客户端和服务端。客户端的�
 ## 下载
 
 ```
+// lorawan gateway 下载mipsle版本
 https://github.com/fatedier/frp/releases
 ```
+
+
 
 ## 配置文件
 
@@ -42,6 +45,9 @@ bind_port = 7000   # 用于与客户端之间通信
 [common]
 server_addr = x.x.x.x
 server_port = 7000
+# frp multi user 插件
+user = user1
+meta_token = 123
 
 [web]
 type = http
@@ -78,7 +84,7 @@ remote_port = 6000
    APP=frpc
    
    start() {
-          service_start /usr/sbin/$APP -c /etc/frpc.ini
+         service_start /usr/sbin/$APP -c /etc/frpc.ini > /usr/frpc.log &
    }
    
    stop() {
