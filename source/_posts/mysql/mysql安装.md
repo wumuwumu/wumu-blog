@@ -7,7 +7,7 @@ tags:
 
 # 添加 MySQL YUM 源
 
-```
+```bash
 $wget 'https://dev.mysql.com/get/mysql57-community-release-el7-11.noarch.rpm'
 $sudo rpm -Uvh mysql57-community-release-el7-11.noarch.rpm
 $yum repolist all | grep mysql

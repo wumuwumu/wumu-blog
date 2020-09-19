@@ -14,7 +14,7 @@ tags:
 
 `SqlSessionFactory`主要是用来创建`SqlSession`，`SqlSession`是线程不安全的，因此每次操作都要重新创建。
 
-```
+```java
 // 通过数据源创建SqlSession，是我们比较常用的一种方式
 private SqlSession openSessionFromDataSource(ExecutorType execType, TransactionIsolationLevel level, boolean autoCommit) {
     Transaction tx = null;

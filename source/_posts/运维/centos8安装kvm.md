@@ -1,5 +1,8 @@
 ---
-
+title: centos8安装kvm
+date: 2020-9-05 21:40:23
+tags:
+- linux
 ---
 
 # 如何在CentOS/RHEL 8上安装KVM虚拟化
