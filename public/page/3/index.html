@@ -145,6 +145,338 @@
     <ul class="post-list">
     
         <li class="post-list-item fade">
+            <article id="post-vue/Vue3工程搭建" class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2020-05-09 14:23:23" datetime="2020-05-09T06:23:23.000Z" itemprop="datePublished">2020-05-09</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2020/05/09/vue/Vue3工程搭建/">Vue3工程搭建</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        创建工程12npm i -g @vue/clivue create test
+
+    
+
+        <a href="/2020/05/09/vue/Vue3工程搭建/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/">vue</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-java/编写自己的Springboot-starter" class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2020-04-18 15:53:46" datetime="2020-04-18T07:53:46.000Z" itemprop="datePublished">2020-04-18</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2020/04/18/java/编写自己的Springboot-starter/">编写自己的Springboot-starter</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        前言我们都知道可以使用SpringBoot快速的开发基于Spring框架的项目。由于围绕SpringBoot存在很多开箱即用的Starter依赖，使得我们在开发业务代码时能够非常方便的、不需要过多关注框架的配置，而只需要关注业务即可。
+例如我想要在SpringBoot项目中集成Redis，那么我只需要加入spring-data-redis-starter的依赖，并简单配置一下连接信息以及Je...
+    
+
+        <a href="/2020/04/18/java/编写自己的Springboot-starter/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sprintboot/">sprintboot</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-redis开启远程连接" class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2019-12-16 17:44:28" datetime="2019-12-16T09:44:28.000Z" itemprop="datePublished">2019-12-16</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2019/12/16/redis开启远程连接/">redis开启远程连接</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        1、修改redis服务器的配置文件vi redis.conf
+注释以下绑定的主机地址
+# bind 127.0.0.1
+或vim  redis.conf
+bind  0.0.0.0
+protected-mode   no
+2、修改redis服务器的参数配置修改redis的守护进程为no，不启用
+127.0.0.1:6379&gt; config  set   daemonize  “no”
+...
+    
+
+        <a href="/2019/12/16/redis开启远程连接/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/redis/">redis</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-nginx/nginx的servername配置" class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2019-12-16 17:42:19" datetime="2019-12-16T09:42:19.000Z" itemprop="datePublished">2019-12-16</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2019/12/16/nginx/nginx的servername配置/">nginx的servername配置</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        编译自： server_names
+目录：
+
+通配符主机名
+正则表达式主机名
+混杂主机名
+对主机名的优化
+兼容性
+
+nginx 的 server names 由 server_name 指令定义，server name 是 nginx 用于选择以哪个 server 区块处理访问请求的依据参数。可参考 《nginx 是如何处理请求的》 的描述。
+server name 可以用三种方式定义：
+
+...
+    
+
+        <a href="/2019/12/16/nginx/nginx的servername配置/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nginx/">nginx</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-odoo/odoo的dbfilter配置" class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2019-12-16 17:37:50" datetime="2019-12-16T09:37:50.000Z" itemprop="datePublished">2019-12-16</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2019/12/16/odoo/odoo的dbfilter配置/">odoo的dbfilter配置</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        关于 Odoo 的 dbfilter 配置项概述默认情况下首次访问odoo页面时，会要求选择要访问的数据库，db中的所有库都会被列出来供选择，这种在生产环境下通常是不希望的看到，如果在启动时指定连接的数据库名可以解决这个问题
+
+.conf文件中指定 db_name = xxx
+或者启动命令加参数-d xxx
+
+dbfilter当我们需要根据域名来匹配数据库时（比如saas环境）这样就不适用了...
+    
+
+        <a href="/2019/12/16/odoo/odoo的dbfilter配置/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/odoo/">odoo</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-postgresql/postgresql配置文件" class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2019-12-09 16:29:39" datetime="2019-12-09T08:29:39.000Z" itemprop="datePublished">2019-12-09</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2019/12/09/postgresql/postgresql配置文件/">postgresql配置文件</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        1、配置文件配置文件控制着一个PostgreSQL服务器实例的基本行为，主要包含postgresql.conf、pg_hba.conf、pg_ident.conf
+（1）postgresql.conf
+   该文件包含一些通用设置，比如内存分配，新建database的默认存储位置，PostgreSQL服务器的IP地址，日志的位置以及许多其他设置。9.4版引入了
+   一个新的postgres...
+    
+
+        <a href="/2019/12/09/postgresql/postgresql配置文件/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/postgresql/">postgresql</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-postgresql/postgresql安装" class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2019-12-09 15:53:51" datetime="2019-12-09T07:53:51.000Z" itemprop="datePublished">2019-12-09</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2019/12/09/postgresql/postgresql安装/">postgresql安装</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        12345678910111213# Install the repository RPM:dnf install -y https://download.postgresql.org/pub/repos/yum/reporpms/EL-8-x86_64/pgdg-redhat-repo-latest.noarch.rpm# Disable the built-in PostgreSQL m...
+    
+
+        <a href="/2019/12/09/postgresql/postgresql安装/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
             <article id="post-mysql/mysql连接外网安装" class="article-card article-type-post" itemprop="blogPost">
 
     <div class="post-meta">
@@ -278,331 +610,12 @@ Here the 3 sagas will be run in parallel. ...
 
         </li>
     
-        <li class="post-list-item fade">
-            <article id="post-odoo/odoo源码解析3-启动web服务器" class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2019-11-16 14:41:42" datetime="2019-11-16T06:41:42.000Z" itemprop="datePublished">2019-11-16</time>
-
-        
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2019/11/16/odoo/odoo源码解析3-启动web服务器/">odoo源码解析-启动web服务器</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        启动12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758def start(preload=None, stop=False):    """ Start the odoo http server and cron processo...
-    
-
-        <a href="/2019/11/16/odoo/odoo源码解析3-启动web服务器/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/odoo/">odoo</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-java/hibernate使用hbm2ddl.auto=在生产环境更新" class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2019-11-16 14:22:56" datetime="2019-11-16T06:22:56.000Z" itemprop="datePublished">2019-11-16</time>
-
-        
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2019/11/16/java/hibernate使用hbm2ddl.auto=在生产环境更新/">hibernate使用hbm2ddl.auto=在生产环境更新.md</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        https://www.codenong.com/221379/
-
-    
-
-        <a href="/2019/11/16/java/hibernate使用hbm2ddl.auto=在生产环境更新/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-odoo/odoo源码解析2-server命令" class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2019-11-16 11:40:07" datetime="2019-11-16T03:40:07.000Z" itemprop="datePublished">2019-11-16</time>
-
-        
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2019/11/16/odoo/odoo源码解析2-server命令/">odoo源码解析2-server命令</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        默认情况下的启动命令的server，这个是将odoo运行起来的命令。核心代码如下
-1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556## 判断是否为root用户，如果为root用户就发送警告check_root_user() ## 解析命...
-    
-
-        <a href="/2019/11/16/odoo/odoo源码解析2-server命令/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/odoo/">odoo</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-odoo/odoo模块加载机制" class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2019-11-08 20:36:34" datetime="2019-11-08T12:36:34.000Z" itemprop="datePublished">2019-11-08</time>
-
-        
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2019/11/08/odoo/odoo模块加载机制/">odoo模块加载机制</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        Odoo的启动通过openerp-server脚本完成，它是系统的入口。
-然后加载配置文件openerp-server.conf 或者 openerp_serverrc；
-openerp-server.conf的主要内容：
-这个文件缺省是没有的，Odoo系统会有一个默认值，但是一般情况我们都需配置这个文件。
-启动http服务器，监听端口。
-模块加载：
-模块加载外层就是封装一个Registry...
-    
-
-        <a href="/2019/11/08/odoo/odoo模块加载机制/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/odoo/">odoo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-odoo/odoo源码解析1-启动命令" class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2019-11-06 20:01:48" datetime="2019-11-06T12:01:48.000Z" itemprop="datePublished">2019-11-06</time>
-
-        
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2019/11/06/odoo/odoo源码解析1-启动命令/">odoo源码解析1-启动命令</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        启动命令12345678#!/usr/bin/env python3# set server timezone in UTC before time module imported__import__('os').environ['TZ'] = 'UTC'import odooif __name__ == "__main__":    odoo.cli.main()
-main函数主要是进行一...
-    
-
-        <a href="/2019/11/06/odoo/odoo源码解析1-启动命令/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/odoo/">odoo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-python/python原类实践" class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2019-11-03 10:24:27" datetime="2019-11-03T02:24:27.000Z" itemprop="datePublished">2019-11-03</time>
-
-        
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2019/11/03/python/python原类实践/">python原类实践</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        使用原来创建ORM的实例我们通过创建一个类似Django中的ORM来熟悉一下元类的使用，通常元类用来创建API是非常好的选择，使用元类的编写很复杂但使用者可以非常简洁的调用API。
-1234567#我们想创建一个类似Django的ORM，只要定义字段就可以实现对数据库表和字段的操作。class User(Model):    # 定义类的属性到列的映射：    id = IntegerFie...
-    
-
-        <a href="/2019/11/03/python/python原类实践/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-python/python原类" class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2019-11-03 10:05:32" datetime="2019-11-03T02:05:32.000Z" itemprop="datePublished">2019-11-03</time>
-
-        
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2019/11/03/python/python原类/">python原类</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        Python中一切皆对象，类也是对象​    之前我们说Python中一切都是对象。对象从哪里来，对象是类的实例。如下，使用type()函数查看对象所属的类型。我们可以看到Python中所以实例都是类的对象。那么类呢，既然一切都是对象，那么类也应该是对象。如下代码中发现我们创建的Person类原来也是对象，是type的对象。
-123456789101112131415161718192021...
-    
-
-        <a href="/2019/11/03/python/python原类/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
     </ul>
 
     
 <nav id="page-nav">
     <div class="inner">
-    <a class="extend prev" rel="prev" href="/page/2/">上一页</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/4/">下一页</a>
+    <a class="extend prev" rel="prev" href="/page/2/">上一页</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/4/">下一页</a>
     </div>
 </nav>
 

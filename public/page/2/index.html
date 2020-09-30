@@ -145,6 +145,317 @@
     <ul class="post-list">
     
         <li class="post-list-item fade">
+            <article id="post-运维/centos8扩容root分区" class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2020-09-05 21:40:23" datetime="2020-09-05T13:40:23.000Z" itemprop="datePublished">2020-09-05</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2020/09/05/运维/centos8扩容root分区/">centos8扩容root分区</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        扩展磁盘最近使用虚拟机的方式弄了个centos8的虚拟机，体验最新centos系统，分配了127g的空间，由于实际需要，发现home空间有好几十g的空间，而我都是使用root用户，无需home空间，因此找到在centos8中把home空间调整到root的方法，这里跟网上找到的centos7是有差别的。
+步骤：
+
+使用usb系统进入修复
+使用df-h查看空间使用情况，备份home
+卸载home...
+    
+
+        <a href="/2020/09/05/运维/centos8扩容root分区/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-运维/centos配置网络" class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2020-09-05 21:40:23" datetime="2020-09-05T13:40:23.000Z" itemprop="datePublished">2020-09-05</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2020/09/05/运维/centos配置网络/">centos配置网络</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        centos8已经发布了，下载了一个体验一下，新安装好的centos8默认网卡是没有启动的，安装好后需要先配置网络。在/etc/sysconfig/network-scripts目录下存放着网卡的配置文件，文件名称是ifcfg- 网卡名称。
+一 修改配置文件设置网络时首先打开配置文件，配置文件默认如下所示，如果使用dhcp自动获取ip，只需将ONBOOT=no修改为ONBOOT=no即可。
+...
+    
+
+        <a href="/2020/09/05/运维/centos配置网络/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-运维/centos创建用户" class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2020-09-05 21:40:23" datetime="2020-09-05T13:40:23.000Z" itemprop="datePublished">2020-09-05</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2020/09/05/运维/centos创建用户/">centos创建用户</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        创建用户123456789101112131415161718192021222324252627282930useradd wumu## 给用户添加组，一定要加a(FC4: usermod -G groupA,groupB,groupC user)-a 代表 append， 也就是 将自己添加到 用户组groupA 中，而不必离开 其他用户组。#命令的所有的选项，及其含义：Options:...
+    
+
+        <a href="/2020/09/05/运维/centos创建用户/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-运维/centos使用cockpit" class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2020-09-05 21:40:23" datetime="2020-09-05T13:40:23.000Z" itemprop="datePublished">2020-09-05</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2020/09/05/运维/centos使用cockpit/">centos使用cockpit</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        123456789101112131415161718192021222324252627282930sudo systemctl enable --now cockpit.socket[leiakun@centos8 ~]$ sudo systemctl enable --now cockpit.socket[sudo] leiakun 的密码：Created symlink /etc/s...
+    
+
+        <a href="/2020/09/05/运维/centos使用cockpit/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-运维/centos8安装kvm" class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2020-09-05 21:40:23" datetime="2020-09-05T13:40:23.000Z" itemprop="datePublished">2020-09-05</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2020/09/05/运维/centos8安装kvm/">centos8安装kvm</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        如何在CentOS/RHEL 8上安装KVM虚拟化基于内核的虚拟机（简称KVM）是一种开源的标准虚拟化解决方案，已紧密集成到Linux中。它是一个可加载的内核模块，将Linux转换为Type-1（裸机）虚拟机管理程序，该虚拟机管理程序创建了用于运行虚拟机（VM）的虚拟操作平台。
+精选回答在KVM下，每个VM是一个Linux进程，由内核调度和管理，并具有专用的虚拟化硬件（即CPU，网卡，磁盘等...
+    
+
+        <a href="/2020/09/05/运维/centos8安装kvm/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-docker/网络配置三种模式对比（桥接模式，主机模式，网络地址转换）" class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2020-08-27 18:29:58" datetime="2020-08-27T10:29:58.000Z" itemprop="datePublished">2020-08-27</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2020/08/27/docker/网络配置三种模式对比（桥接模式，主机模式，网络地址转换）/">网络配置三种模式对比（桥接模式，主机模式，网络地址转换）</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        VMware三种网络模式简介​    VMWare提供了三种工作模式，它们是bridged(桥接模式)、NAT(网络地址转换模式)和host-only(主机模式)。安装好虚拟机以后，在网络连接里面可以看到多了两块网卡。如下图。
+1 bridged(桥接模式)1.1 模式简介　　在这种模式下，VMWare虚拟出来的操作系统就像是局域网中的一台独立的主机，它可以访问网内任何一台机器。  　　在桥...
+    
+
+        <a href="/2020/08/27/docker/网络配置三种模式对比（桥接模式，主机模式，网络地址转换）/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-docker/docker-compose文件编写" class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2020-08-27 18:10:37" datetime="2020-08-27T10:10:37.000Z" itemprop="datePublished">2020-08-27</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2020/08/27/docker/docker-compose文件编写/">docker-compose文件编写</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        
+    
+
+        <a href="/2020/08/27/docker/docker-compose文件编写/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
             <article id="post-SpringBoot-Quartz框架的实现" class="article-card article-type-post" itemprop="blogPost">
 
     <div class="post-meta">
@@ -275,344 +586,12 @@
 
         </li>
     
-        <li class="post-list-item fade">
-            <article id="post-vue/Vue3工程搭建" class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2020-05-09 14:23:23" datetime="2020-05-09T06:23:23.000Z" itemprop="datePublished">2020-05-09</time>
-
-        
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2020/05/09/vue/Vue3工程搭建/">Vue3工程搭建</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        创建工程12npm i -g @vue/clivue create test
-
-    
-
-        <a href="/2020/05/09/vue/Vue3工程搭建/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/">vue</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-java/编写自己的Springboot-starter" class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2020-04-18 15:53:46" datetime="2020-04-18T07:53:46.000Z" itemprop="datePublished">2020-04-18</time>
-
-        
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2020/04/18/java/编写自己的Springboot-starter/">编写自己的Springboot-starter</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        前言我们都知道可以使用SpringBoot快速的开发基于Spring框架的项目。由于围绕SpringBoot存在很多开箱即用的Starter依赖，使得我们在开发业务代码时能够非常方便的、不需要过多关注框架的配置，而只需要关注业务即可。
-例如我想要在SpringBoot项目中集成Redis，那么我只需要加入spring-data-redis-starter的依赖，并简单配置一下连接信息以及Je...
-    
-
-        <a href="/2020/04/18/java/编写自己的Springboot-starter/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sprintboot/">sprintboot</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-redis开启远程连接" class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2019-12-16 17:44:28" datetime="2019-12-16T09:44:28.000Z" itemprop="datePublished">2019-12-16</time>
-
-        
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2019/12/16/redis开启远程连接/">redis开启远程连接</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        1、修改redis服务器的配置文件vi redis.conf
-注释以下绑定的主机地址
-# bind 127.0.0.1
-或vim  redis.conf
-bind  0.0.0.0
-protected-mode   no
-2、修改redis服务器的参数配置修改redis的守护进程为no，不启用
-127.0.0.1:6379&gt; config  set   daemonize  “no”
-...
-    
-
-        <a href="/2019/12/16/redis开启远程连接/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/redis/">redis</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-nginx/nginx的servername配置" class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2019-12-16 17:42:19" datetime="2019-12-16T09:42:19.000Z" itemprop="datePublished">2019-12-16</time>
-
-        
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2019/12/16/nginx/nginx的servername配置/">nginx的servername配置</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        编译自： server_names
-目录：
-
-通配符主机名
-正则表达式主机名
-混杂主机名
-对主机名的优化
-兼容性
-
-nginx 的 server names 由 server_name 指令定义，server name 是 nginx 用于选择以哪个 server 区块处理访问请求的依据参数。可参考 《nginx 是如何处理请求的》 的描述。
-server name 可以用三种方式定义：
-
-...
-    
-
-        <a href="/2019/12/16/nginx/nginx的servername配置/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nginx/">nginx</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-odoo/odoo的dbfilter配置" class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2019-12-16 17:37:50" datetime="2019-12-16T09:37:50.000Z" itemprop="datePublished">2019-12-16</time>
-
-        
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2019/12/16/odoo/odoo的dbfilter配置/">odoo的dbfilter配置</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        关于 Odoo 的 dbfilter 配置项概述默认情况下首次访问odoo页面时，会要求选择要访问的数据库，db中的所有库都会被列出来供选择，这种在生产环境下通常是不希望的看到，如果在启动时指定连接的数据库名可以解决这个问题
-
-.conf文件中指定 db_name = xxx
-或者启动命令加参数-d xxx
-
-dbfilter当我们需要根据域名来匹配数据库时（比如saas环境）这样就不适用了...
-    
-
-        <a href="/2019/12/16/odoo/odoo的dbfilter配置/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/odoo/">odoo</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-postgresql/postgresql配置文件" class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2019-12-09 16:29:39" datetime="2019-12-09T08:29:39.000Z" itemprop="datePublished">2019-12-09</time>
-
-        
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2019/12/09/postgresql/postgresql配置文件/">postgresql配置文件</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        1、配置文件配置文件控制着一个PostgreSQL服务器实例的基本行为，主要包含postgresql.conf、pg_hba.conf、pg_ident.conf
-（1）postgresql.conf
-   该文件包含一些通用设置，比如内存分配，新建database的默认存储位置，PostgreSQL服务器的IP地址，日志的位置以及许多其他设置。9.4版引入了
-   一个新的postgres...
-    
-
-        <a href="/2019/12/09/postgresql/postgresql配置文件/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/postgresql/">postgresql</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-postgresql/postgresql安装" class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2019-12-09 15:53:51" datetime="2019-12-09T07:53:51.000Z" itemprop="datePublished">2019-12-09</time>
-
-        
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2019/12/09/postgresql/postgresql安装/">postgresql安装</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        12345678910111213# Install the repository RPM:dnf install -y https://download.postgresql.org/pub/repos/yum/reporpms/EL-8-x86_64/pgdg-redhat-repo-latest.noarch.rpm# Disable the built-in PostgreSQL m...
-    
-
-        <a href="/2019/12/09/postgresql/postgresql安装/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-</article>
-
-        </li>
-    
     </ul>
 
     
 <nav id="page-nav">
     <div class="inner">
-    <a class="extend prev" rel="prev" href="/">上一页</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/3/">下一页</a>
+    <a class="extend prev" rel="prev" href="/">上一页</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/3/">下一页</a>
     </div>
 </nav>
 
