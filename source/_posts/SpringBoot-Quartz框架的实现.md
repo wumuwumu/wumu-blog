@@ -110,6 +110,8 @@ QuartzAutoConfiguration 类注释
 
 姑且一提,方法中调用了 customize(SchedulerFactoryBean  schedulerFactoryBean) 方法,这个方法会寻找实现了 SchedulerFactoryBeanCustomizer 接口的配置类,在其实现方法 customize(SchedulerFactoryBean  schedulerFactoryBean)中 可对 SchedulerFactoryBean  使用代码自定义配置
 
+# 坑
+
 那么到这里结束了吗?不! 这里还有本文中最大的一个坑,作者深受其扰,扒了两天的源码才找到这个问题!!!
 
 如果我们的项目中有其它的默认数据源,那么quartz会忽略配置文件中自定义数据源,使用默认数据源,原因看以下源码
