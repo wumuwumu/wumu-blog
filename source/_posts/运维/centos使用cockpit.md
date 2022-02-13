@@ -7,7 +7,9 @@ tags:
 
 ```bash
 sudo systemctl enable --now cockpit.socket
+```
 
+```bash
 [leiakun@centos8 ~]$ sudo systemctl enable --now cockpit.socket
 [sudo] leiakun 的密码：
 Created symlink /etc/systemd/system/sockets.target.wants/cockpit.socket → /usr/lib/systemd/system/cockpit.socket.
@@ -42,5 +44,25 @@ sudo firewall-cmd --reload
 
 ```bash
 yum install -y cockpit-dashboard
+```
+
+# centos7安装cockpit
+
+```bash
+yum install -y cockpit*
+```
+
+## 开机启动
+
+```bash
+systemctl enable --now cockpit.socket
+```
+
+## 开放端口
+
+```bash
+firewall-cmd --permanent --zone=public --add-port=9090/tcp  &&  firewall-cmd --reload
+## 或者
+firewall-cmd --permanent --zone=public --add-service=cockpit  && firewall-cmd --reload
 ```
 
