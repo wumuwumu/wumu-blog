@@ -1,10 +1,10 @@
 ---
 title: jquery基本操作
-date: 2019-01-12 16:20:45
 tags:
-- js
-- jquery
-
+  - js
+  - jquery
+abbrlink: '6e156541'
+date: 2019-01-12 16:20:45
 ---
 
 # 选择器

@@ -1,9 +1,10 @@
 ---
 title: mybatis-sessions
-date: 2019-04-10 10:25:51
 tags:
-- mybatis
-- java
+  - mybatis
+  - java
+abbrlink: 8f1f0a34
+date: 2019-04-10 10:25:51
 ---
 
 

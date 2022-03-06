@@ -1,8 +1,9 @@
 ---
 title: python中and和or用法
-date: 2019-10-25 15:41:30
 tags:
- - python
+  - python
+abbrlink: db7d259c
+date: 2019-10-25 15:41:30
 ---
 
 在[Python](http://lib.csdn.net/base/python) 中，and 和 or 执行布尔逻辑演算，如你所期待的一样。但是它们并不返回布尔值，而是返回它们实际进行比较的值之一。

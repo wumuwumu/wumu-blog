@@ -1,8 +1,9 @@
 ---
 title: centos安装mysql
-date: 2019-03-29 15:45:32
 tags:
-- linux
+  - linux
+abbrlink: 9c5d8ef9
+date: 2019-03-29 15:45:32
 ---
 
 # 添加 MySQL YUM 源

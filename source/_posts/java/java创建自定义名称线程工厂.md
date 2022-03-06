@@ -1,8 +1,9 @@
 ---
 title: java创建自定义名称线程工厂
-date: 2021-01-21 10:31:35
 tags:
-- java
+  - java
+abbrlink: '95390e08'
+date: 2021-01-21 10:31:35
 ---
 
 ### `ThreadFactoryBuilder`

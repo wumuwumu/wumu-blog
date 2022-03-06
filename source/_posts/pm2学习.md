@@ -1,8 +1,9 @@
 ---
 title: pm2学习
-date: 2019-11-02 10:10:05
 tags:
-- node
+  - node
+abbrlink: 89bc8fc0
+date: 2019-11-02 10:10:05
 ---
 
 # pm2基本命令

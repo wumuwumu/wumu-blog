@@ -1,5 +1,6 @@
 ---
 title: jvm回收算法
+abbrlink: fb921ef1
 date: 2020-12-14 12:00:00
 ---
 

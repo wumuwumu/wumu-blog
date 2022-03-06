@@ -1,7 +1,8 @@
 ---
 title: python-类
-date: 2019-08-04 18:12:22
 tags: python
+abbrlink: 59b83510
+date: 2019-08-04 18:12:22
 ---
 
 # 类中默认函数

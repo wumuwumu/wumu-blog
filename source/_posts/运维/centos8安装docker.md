@@ -1,8 +1,9 @@
 ---
 title: centos8安装docker
-date: 2020-9-05 21:40:23
 tags:
-- linux 
+  - linux
+abbrlink: a00f9d53
+date: 2020-09-05 21:40:23
 ---
 
 1. 下载docker-ce的repo

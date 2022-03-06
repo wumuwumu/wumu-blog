@@ -1,8 +1,9 @@
 ---
 title: Druid初始化
-date: 2019-03-25 18:17:33
 tags:
-- java
+  - java
+abbrlink: fdbf7476
+date: 2019-03-25 18:17:33
 ---
 
 ```java

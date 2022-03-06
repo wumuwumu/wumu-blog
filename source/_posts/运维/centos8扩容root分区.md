@@ -1,8 +1,9 @@
 ---
 title: centos8扩容root分区
-date: 2020-9-05 21:40:23
 tags:
-- linux
+  - linux
+abbrlink: 7bc68cab
+date: 2020-09-05 21:40:23
 ---
 
 # 扩展磁盘

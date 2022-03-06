@@ -1,8 +1,9 @@
 ---
 title: nvc-server安装
-date: 2018-12-05 21:39:00
 tags:
-- web
+  - web
+abbrlink: 93581ded
+date: 2018-12-05 21:39:00
 ---
 
 ## centos 安装 vnc server

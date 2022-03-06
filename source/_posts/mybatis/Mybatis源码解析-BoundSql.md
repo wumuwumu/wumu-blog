@@ -1,5 +1,6 @@
 ---
 title: Mybatis源码解析-BoundSql
+abbrlink: 4620db30
 date: 2020-11-15 18:00:00
 ---
 

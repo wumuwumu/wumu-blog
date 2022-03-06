@@ -1,8 +1,9 @@
 ---
 title: lorawan协议
-date: 2018-12-05 21:32:24
 tags:
-- lorawan
+  - lorawan
+abbrlink: 1644ad4c
+date: 2018-12-05 21:32:24
 ---
 
 ## Introduction

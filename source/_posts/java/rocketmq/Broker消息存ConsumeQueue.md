@@ -1,9 +1,10 @@
 ---
 title: Broker消息存ConsumeQueue
-date: 2022-02-27 23:00:00
 tags:
-- rocketmq
-- java
+  - rocketmq
+  - java
+abbrlink: c95ac497
+date: 2022-02-27 23:00:00
 ---
 
 ### 1 ConsumeQueue格式

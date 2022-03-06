@@ -1,8 +1,9 @@
 ---
 title: redux-saga分成多个文件
-date: 2019-11-26 15:26:49
 tags:
-- react
+  - react
+abbrlink: d98c3b78
+date: 2019-11-26 15:26:49
 ---
 
 ### 1)

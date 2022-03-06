@@ -1,8 +1,9 @@
 ---
 title: cordova打包vue
-date: 2019-01-02 17:12:09
 tags:
-- vue
+  - vue
+abbrlink: 5137a0e5
+date: 2019-01-02 17:12:09
 ---
 
 

@@ -1,5 +1,6 @@
 ---
 title: Seata TCC模式
+abbrlink: 78eb1ae6
 date: 2020-10-17 14:00:00
 ---
 

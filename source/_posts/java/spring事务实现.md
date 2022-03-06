@@ -1,9 +1,10 @@
 ---
 title: spring事务实现
-date: 2019-08-03 14:40:33
 tags:
-- java
-- spring
+  - java
+  - spring
+abbrlink: d5141e7a
+date: 2019-08-03 14:40:33
 ---
 
 # 事务概念回顾

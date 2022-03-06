@@ -1,9 +1,10 @@
 ---
 title: springboot-mongodb使用
-date: 2019-01-04 09:43:06
 tags:
-- springboot
-- mongodb
+  - springboot
+  - mongodb
+abbrlink: ef7b5464
+date: 2019-01-04 09:43:06
 ---
 
 # 基本注解

@@ -1,8 +1,9 @@
 ---
 title: odoo源码解析2-server命令
-date: 2019-11-16 11:40:07
 tags:
-- odoo
+  - odoo
+abbrlink: 89b09bcc
+date: 2019-11-16 11:40:07
 ---
 
 默认情况下的启动命令的server，这个是将odoo运行起来的命令。核心代码如下

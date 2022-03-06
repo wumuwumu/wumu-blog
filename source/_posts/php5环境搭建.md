@@ -1,5 +1,6 @@
 ---
 title: php5环境搭建
+abbrlink: 31bcc34
 date: 2019-09-02 23:14:11
 tags:
 ---

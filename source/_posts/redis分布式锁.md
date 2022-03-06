@@ -1,9 +1,9 @@
 ---
-
 title: redis分布式锁
-date: 2019-04-11 17:55:56
 tags:
-- redis
+  - redis
+abbrlink: e2ee4148
+date: 2019-04-11 17:55:56
 ---
 
 # 单机Redis实现分布式锁

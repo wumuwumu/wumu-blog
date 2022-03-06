@@ -1,6 +1,7 @@
 ---
 title: 手动创建FeignCliet
-date: 2020-09-30
+abbrlink: 689ad7fa
+date: 2020-09-30 00:00:00
 ---
 
 ## 前言

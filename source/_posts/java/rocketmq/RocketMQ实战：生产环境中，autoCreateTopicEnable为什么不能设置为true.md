@@ -1,9 +1,10 @@
 ---
 title: RocketMQ实战：生产环境中，autoCreateTopicEnable为什么不能设置为true
-date: 2022-02-27 20:00:00
 tags:
-- rocketmq
-- java
+  - rocketmq
+  - java
+abbrlink: e6afac5e
+date: 2022-02-27 20:00:00
 ---
 
 # 现象

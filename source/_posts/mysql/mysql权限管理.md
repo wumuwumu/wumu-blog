@@ -1,8 +1,9 @@
 ---
 title: mysql权限管理
-date: 2019-03-29 16:55:22
 tags:
-- linux
+  - linux
+abbrlink: 479c61ad
+date: 2019-03-29 16:55:22
 ---
 
 # 用户管理

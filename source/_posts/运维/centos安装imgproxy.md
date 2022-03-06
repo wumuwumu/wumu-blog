@@ -1,5 +1,6 @@
 ---
 title: centos安装imgproxy
+abbrlink: 7a004090
 date: 2021-04-06 12:00:00
 ---
 # 通过docker安装

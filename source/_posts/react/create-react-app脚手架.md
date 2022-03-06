@@ -1,8 +1,9 @@
 ---
 title: create-react-app脚手架
-date: 2019-08-07 09:38:30
 tags:
-- react
+  - react
+abbrlink: 473cf9bc
+date: 2019-08-07 09:38:30
 ---
 
 # 安装

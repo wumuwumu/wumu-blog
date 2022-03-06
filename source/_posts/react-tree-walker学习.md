@@ -1,8 +1,9 @@
 ---
 title: react-tree-walker学习
-date: 2019-10-19 17:02:13
 tags:
-- react
+  - react
+abbrlink: cd540df0
+date: 2019-10-19 17:02:13
 ---
 
 # `react-tree-walker`

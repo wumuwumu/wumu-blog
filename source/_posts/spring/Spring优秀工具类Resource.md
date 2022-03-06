@@ -1,6 +1,7 @@
 ---
 title: Spring优秀工具类Resource
-date: 2020-10-12
+abbrlink: d2dccdd3
+date: 2020-10-12 00:00:00
 ---
 
 <http://www.blogjava.net/coolingverse/articles/149364.html>

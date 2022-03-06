@@ -1,8 +1,9 @@
 ---
 title: docker网络模式
-date: 2019-10-29 14:26:03
 tags:
-- docker
+  - docker
+abbrlink: f491796a
+date: 2019-10-29 14:26:03
 ---
 
 # Docker的网络模式详解

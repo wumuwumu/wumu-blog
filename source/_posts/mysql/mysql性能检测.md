@@ -1,7 +1,8 @@
 ---
 title: mysql性能检测
-date: 2019-08-31 23:26:45
 tags: mysql
+abbrlink: 8ce03315
+date: 2019-08-31 23:26:45
 ---
 
 # 性能检测蝉蛹命令

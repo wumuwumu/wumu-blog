@@ -1,8 +1,9 @@
 ---
 title: JSqlParser教程
-date: 2018-12-05 21:58:31
 tags:
-- java
+  - java
+abbrlink: 965e3a7f
+date: 2018-12-05 21:58:31
 ---
 
 # 解析

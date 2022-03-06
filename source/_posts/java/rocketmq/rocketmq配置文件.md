@@ -1,9 +1,10 @@
 ---
 title: rocketmq配置文件
-date: 2022-02-14 20:00:00
 tags:
-- rocketmq
-- mq
+  - rocketmq
+  - mq
+abbrlink: dbd941a9
+date: 2022-02-14 20:00:00
 ---
 
 ```properties

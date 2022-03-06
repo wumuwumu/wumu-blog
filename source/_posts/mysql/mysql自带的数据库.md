@@ -1,8 +1,9 @@
 ---
 title: mysql自带的数据库
-date: 2019-07-27 18:06:05
 tags:
-- mysql
+  - mysql
+abbrlink: 2f7215c9
+date: 2019-07-27 18:06:05
 ---
 
 #  information_schema

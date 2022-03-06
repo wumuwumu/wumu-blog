@@ -1,6 +1,7 @@
 ---
 title: springboot启动执行sql文件
-date: 2020-10-11
+abbrlink: edcf04fc
+date: 2020-10-11 00:00:00
 ---
 
 ```java

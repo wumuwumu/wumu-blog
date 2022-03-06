@@ -1,8 +1,9 @@
 ---
 title: nginx的servername配置
-date: 2019-12-16 17:42:19
 tags:
-- nginx
+  - nginx
+abbrlink: 8b7a41a3
+date: 2019-12-16 17:42:19
 ---
 
 编译自：

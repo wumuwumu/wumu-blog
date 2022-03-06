@@ -1,9 +1,10 @@
 ---
 title: centos7安装K8S
-date: 2021-04-19 12:00:00
 tags:
-- centos
-- k8s
+  - centos
+  - k8s
+abbrlink: 5b646136
+date: 2021-04-19 12:00:00
 ---
 
 # 安装准备（每台服务器）

@@ -1,8 +1,9 @@
 ---
 title: 使用jenv对java多版本管理
-date: 2019-10-25 10:42:43
 tags:
-- java
+  - java
+abbrlink: 940fe8dd
+date: 2019-10-25 10:42:43
 ---
 
 - 配置JDK环境变量

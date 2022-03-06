@@ -1,8 +1,9 @@
 ---
 title: makefile编写
-date: 2019-04-10 10:27:53
 tags:
-- go
+  - go
+abbrlink: 3e37945d
+date: 2019-04-10 10:27:53
 ---
 
 # 例子

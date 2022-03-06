@@ -1,8 +1,9 @@
 ---
 title: centos使用cockpit
-date: 2020-9-05 21:40:23
 tags:
-- linux
+  - linux
+abbrlink: 1ddf19cb
+date: 2020-09-05 21:40:23
 ---
 
 ```bash

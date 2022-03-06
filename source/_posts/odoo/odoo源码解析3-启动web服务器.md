@@ -1,8 +1,9 @@
 ---
 title: odoo源码解析-启动web服务器
-date: 2019-11-16 14:41:42
 tags:
-- odoo
+  - odoo
+abbrlink: 25ec7414
+date: 2019-11-16 14:41:42
 ---
 
 

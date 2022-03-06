@@ -1,9 +1,10 @@
 ---
 title: odoo源码解析1-启动命令
-date: 2019-11-06 20:01:48
 tags:
-- odoo
-- python
+  - odoo
+  - python
+abbrlink: '82134301'
+date: 2019-11-06 20:01:48
 ---
 
 # 启动命令

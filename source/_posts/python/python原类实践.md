@@ -1,8 +1,9 @@
 ---
 title: python原类实践
-date: 2019-11-03 10:24:27
 tags:
-- python
+  - python
+abbrlink: c3cad111
+date: 2019-11-03 10:24:27
 ---
 
 # 使用原来创建ORM的实例 

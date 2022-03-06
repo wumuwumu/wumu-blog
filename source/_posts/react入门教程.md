@@ -1,8 +1,9 @@
 ---
 title: react入门教程
-date: 2018-12-05 21:56:22
 tags:
-- react
+  - react
+abbrlink: bc84b22f
+date: 2018-12-05 21:56:22
 ---
 
 # webpack4初始化

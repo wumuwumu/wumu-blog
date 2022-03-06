@@ -1,9 +1,10 @@
 ---
 title: babel配置
-date: 2019-10-18 11:21:01
 tags:
-- babel
-- js
+  - babel
+  - js
+abbrlink: '60445346'
+date: 2019-10-18 11:21:01
 ---
 
 # Babel6

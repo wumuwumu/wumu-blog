@@ -1,8 +1,9 @@
 ---
 title: odoo的dbfilter配置
-date: 2019-12-16 17:37:50
 tags:
- - odoo
+  - odoo
+abbrlink: 5c89d1c8
+date: 2019-12-16 17:37:50
 ---
 
 # 关于 Odoo 的 dbfilter 配置项

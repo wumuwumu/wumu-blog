@@ -1,8 +1,9 @@
 ---
 title: redis开启远程连接
-date: 2019-12-16 17:44:28
 tags:
-- redis
+  - redis
+abbrlink: 8bc65a35
+date: 2019-12-16 17:44:28
 ---
 
 #### 1、修改redis服务器的配置文件

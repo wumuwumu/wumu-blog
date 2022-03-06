@@ -1,8 +1,9 @@
 ---
 title: npm版本管理
-date: 2019-10-29 14:08:30
 tags:
-- node
+  - node
+abbrlink: 47e301de
+date: 2019-10-29 14:08:30
 ---
 
 在打包项目的时候，我们都要更新package.json的版本号，接着给给代码添加tag，最后push代码，这样的流程泰国麻烦有什么方法简化。

@@ -1,8 +1,9 @@
 ---
 title: nginx伪静态
-date: 2019-09-02 22:26:40
 tags:
-- nginx
+  - nginx
+abbrlink: 66244ea6
+date: 2019-09-02 22:26:40
 ---
 # 伪静态
 

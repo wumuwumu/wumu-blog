@@ -1,7 +1,8 @@
 ---
 title: lorawan协议（中文版）
-date: 2018-12-05 21:34:09
 tags: lorawan
+abbrlink: 61d6a201
+date: 2018-12-05 21:34:09
 ---
 
 # 介绍

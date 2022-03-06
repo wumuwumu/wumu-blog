@@ -1,9 +1,10 @@
 ---
 title: 编写自己的Springboot-starter
-date: 2020-04-18 15:53:46
 tags:
-- java
-- sprintboot
+  - java
+  - sprintboot
+abbrlink: f5df541c
+date: 2020-04-18 15:53:46
 ---
 
 ## 前言

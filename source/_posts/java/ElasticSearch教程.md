@@ -1,5 +1,6 @@
 ---
 title: ElasticSearch教程
+abbrlink: 88463ccb
 date: 2020-12-08 15:00:00
 ---
 

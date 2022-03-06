@@ -1,5 +1,6 @@
 ---
 title: spring cloud zipkin链路追踪
+abbrlink: 9525d4a7
 date: 2020-10-17 18:00:00
 ---
 

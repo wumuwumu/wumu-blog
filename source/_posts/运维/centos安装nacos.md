@@ -1,6 +1,7 @@
 ---
 title: centos安装nacos
-date: 2020-9-19 18:00:00
+abbrlink: b3f1a03
+date: 2020-09-19 18:00:00
 ---
 
 # 下载

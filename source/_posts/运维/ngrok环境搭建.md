@@ -1,8 +1,9 @@
 ---
 title: ngrok环境搭建
-date: 2019-03-29 09:28:43
 tags:
-- linux
+  - linux
+abbrlink: ef774ead
+date: 2019-03-29 09:28:43
 ---
 
 # 下载安装

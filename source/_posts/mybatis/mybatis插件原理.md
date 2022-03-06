@@ -1,5 +1,6 @@
 ---
 title: mybatis插件原理
+abbrlink: 73e60be9
 date: 2020-11-15 18:00:00
 ---
 

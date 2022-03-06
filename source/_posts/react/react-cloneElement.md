@@ -1,8 +1,9 @@
 ---
 title: react-cloneElement
+tags:
+  - react
+abbrlink: d5c20695
 date: 2019-10-13 19:40:12
-tags: 
-- react
 ---
 
 react提供了一个克隆 API：

@@ -1,8 +1,9 @@
 ---
 title: python原类
-date: 2019-11-03 10:05:32
 tags:
-- python
+  - python
+abbrlink: b017eef4
+date: 2019-11-03 10:05:32
 ---
 
 # Python中一切皆对象，类也是对象 

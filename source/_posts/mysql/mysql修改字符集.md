@@ -1,8 +1,9 @@
 ---
 title: mysql修改字符集
-date: 2019-07-27 16:55:17
 tags:
-- mysql
+  - mysql
+abbrlink: 4e5c95b3
+date: 2019-07-27 16:55:17
 ---
 
 # 概念

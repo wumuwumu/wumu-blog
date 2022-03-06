@@ -1,5 +1,6 @@
 ---
 title: JVM垃圾回收模型
+abbrlink: ddb964d6
 date: 2020-12-20 20:00:00
 ---
 

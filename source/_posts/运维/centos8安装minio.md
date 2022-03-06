@@ -1,5 +1,6 @@
 ---
 title: centos8安装minio
+abbrlink: f8557ed6
 date: 2020-10-24 16:00:00
 ---
 

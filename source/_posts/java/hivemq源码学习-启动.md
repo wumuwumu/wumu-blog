@@ -1,6 +1,7 @@
 ---
 title: hivemq源码学习-启动
-date: 2020-1-14 14:00:00
+abbrlink: 2e9ab0f6
+date: 2020-01-14 14:00:00
 ---
 
 # hivemq技术选型

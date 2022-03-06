@@ -1,8 +1,9 @@
 ---
 title: java多线程
-date: 2019-02-15 16:37:30
 tags:
-- java
+  - java
+abbrlink: 11bde6ec
+date: 2019-02-15 16:37:30
 ---
 
 # 相关的类

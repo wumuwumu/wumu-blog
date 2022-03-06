@@ -1,5 +1,6 @@
 ---
 title: nexus仓库分类
+abbrlink: eeeeee70
 date: 2020-10-09 15:00:00
 ---
 

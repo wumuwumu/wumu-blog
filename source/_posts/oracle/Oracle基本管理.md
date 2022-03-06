@@ -1,8 +1,9 @@
 ---
 title: Oracle基本管理
-date: 2018-12-29 20:37:37
 tags:
-- oracle
+  - oracle
+abbrlink: b04c95ec
+date: 2018-12-29 20:37:37
 ---
 
 # 用户管理

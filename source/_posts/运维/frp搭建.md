@@ -1,8 +1,8 @@
 ---
-##title: frp搭建
-date: 2020-06-05 15:54:05
 tags:
-- frp
+  - frp
+abbrlink: '0'
+date: 2020-06-05 15:54:05
 ---
 
 # 简述

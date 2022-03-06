@@ -1,8 +1,9 @@
 ---
 title: docker教程
+tags:
+  - docker
+abbrlink: 3d1d688c
 date: 2019-08-03 11:04:39
-tags: 
- - docker
 ---
 
 # docker基本命令

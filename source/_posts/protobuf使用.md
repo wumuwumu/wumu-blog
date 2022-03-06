@@ -1,8 +1,9 @@
 ---
 title: protobuf使用
-date: 2019-04-10 10:31:04
 tags:
-- go
+  - go
+abbrlink: eaf0a8ad
+date: 2019-04-10 10:31:04
 ---
 
 # 安装

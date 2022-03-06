@@ -1,6 +1,7 @@
 ---
 title: rabbitmq延迟队列
-date: 2021-1-5 12:00:00
+abbrlink: 78e4e848
+date: 2021-01-05 12:00:00
 ---
 
 

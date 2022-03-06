@@ -1,7 +1,8 @@
 ---
 title: python-字符串格式
-date: 2019-07-31 10:59:16
 tags: python
+abbrlink: 6bea1e94
+date: 2019-07-31 10:59:16
 ---
 
 # 格式化操作符（%）

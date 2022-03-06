@@ -1,8 +1,9 @@
 ---
 title: VirtualBox磁盘扩容
+tags:
+  - web
+abbrlink: 27ec5408
 date: 2018-12-05 21:36:46
-tags: 
-- web
 ---
 
 ## 扩展磁盘文件

@@ -1,8 +1,9 @@
 ---
 title: 清除inline-block之间的间隙
-date: 2018-12-03 19:54:08
 tags:
-- js
+  - js
+abbrlink: b18dd4ff
+date: 2018-12-03 19:54:08
 ---
 
 # 原因

@@ -1,5 +1,6 @@
 ---
 title: 关于Object o = new Object()
+abbrlink: 8f728b7a
 date: 2020-12-23 12:00:00
 ---
 

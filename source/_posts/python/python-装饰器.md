@@ -1,7 +1,8 @@
 ---
 title: python-装饰器
-date: 2019-07-31 19:44:57
 tags: python
+abbrlink: 3a5cdcf8
+date: 2019-07-31 19:44:57
 ---
 
 # 简单的装饰器

@@ -1,9 +1,10 @@
 ---
 title: Vue插件开发
-date: 2018-12-17 20:52:34
 tags:
-- js
-- vue
+  - js
+  - vue
+abbrlink: c5713449
+date: 2018-12-17 20:52:34
 ---
 
 # 基本结构

@@ -1,5 +1,6 @@
 ---
 title: docker安装portainer
+abbrlink: c1fb5e41
 date: 2020-10-23 15:00:00
 ---
 

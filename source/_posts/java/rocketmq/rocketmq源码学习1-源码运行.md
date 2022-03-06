@@ -1,10 +1,11 @@
 ---
 title: rocketmq源码运行
-date: 2022-2-13 16:25:00
 tags:
-- rocketmq
-- java
-- mq
+  - rocketmq
+  - java
+  - mq
+abbrlink: 5aea9ffb
+date: 2022-02-13 16:25:00
 ---
 
 ### 1. 基本架构

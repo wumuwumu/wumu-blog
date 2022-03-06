@@ -1,9 +1,10 @@
 ---
 title: nginx配置
-date: 2018-12-05 21:47:32
 tags:
-- web
-- linux
+  - web
+  - linux
+abbrlink: 2bee8b90
+date: 2018-12-05 21:47:32
 ---
 
 ## 配置web服务器

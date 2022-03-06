@@ -1,8 +1,9 @@
 ---
 title: centos配置网络
-date: 2020-9-05 21:40:23
 tags:
-- linux
+  - linux
+abbrlink: d507249e
+date: 2020-09-05 21:40:23
 ---
 
 centos8已经发布了，下载了一个体验一下，新安装好的centos8默认网卡是没有启动的，安装好后需要先配置网络。在`/etc/sysconfig/network-scripts`目录下存放着网卡的配置文件，文件名称是`ifcfg- 网卡名称`。

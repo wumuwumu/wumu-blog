@@ -1,6 +1,7 @@
 ---
 title: centos安装rockermq
-date: 2020-9-19 18:00:00
+abbrlink: a0b1a962
+date: 2020-09-19 18:00:00
 ---
 
 ###### 一、安装jdk 1.8

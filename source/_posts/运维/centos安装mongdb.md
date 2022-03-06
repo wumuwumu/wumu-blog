@@ -1,5 +1,6 @@
 ---
 title: centos安装mongdb
-date: 2020-9-22 15:00:00
+abbrlink: '28e24065'
+date: 2020-09-22 15:00:00
 ---
 

@@ -1,8 +1,9 @@
 ---
 title: centos7修改网卡
-date: 2018-12-05 21:40:23
 tags:
-- linux
+  - linux
+abbrlink: d3821118
+date: 2018-12-05 21:40:23
 ---
 
 # 修改mac

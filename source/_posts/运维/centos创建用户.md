@@ -1,8 +1,9 @@
 ---
 title: centos创建用户
-date: 2020-9-05 21:40:23
 tags:
-- linux
+  - linux
+abbrlink: 52c64072
+date: 2020-09-05 21:40:23
 ---
 
 # 创建用户

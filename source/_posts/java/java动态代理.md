@@ -1,6 +1,7 @@
 ---
 title: java动态代理
-date: 2020-9-20 12:00:00
+abbrlink: bcee6ab6
+date: 2020-09-20 12:00:00
 ---
 
 # Java 动态代理详解](https://www.cnblogs.com/whirly/p/10154887.html)

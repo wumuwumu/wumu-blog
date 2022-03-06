@@ -1,9 +1,10 @@
 ---
 title: spring数据库事务
+tags:
+  - mysql
+  - spring
+abbrlink: b779d083
 date: 2019-09-01 20:22:24
-tags: 
-- mysql
-- spring
 ---
 
 # 接口

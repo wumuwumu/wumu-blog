@@ -1,5 +1,6 @@
 ---
 title: postgresql安装
+abbrlink: 47665c5a
 date: 2019-12-09 15:53:51
 tags:
 ---

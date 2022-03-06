@@ -1,8 +1,9 @@
 ---
 title: odoo源码解析4-wsgi_server
-date: 2019-11-16 15:35:05
 tags:
-- odoo
+  - odoo
+abbrlink: fa23f810
+date: 2019-11-16 15:35:05
 ---
 
 # application

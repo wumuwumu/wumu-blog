@@ -1,7 +1,8 @@
 ---
 title: linux压缩
-date: 2019-09-02 22:46:45
 tags: linux
+abbrlink: 8afd4802
+date: 2019-09-02 22:46:45
 ---
 
 # tar

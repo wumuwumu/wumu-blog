@@ -1,8 +1,9 @@
 ---
 title: centos8安装mysql
-date: 2020-09-17 16:55:17
 tags:
-- mysql
+  - mysql
+abbrlink: a7a0d089
+date: 2020-09-17 16:55:17
 ---
 
 以root身份或[具有sudo特权的用户身份使用CentOS软件包管理器安装MySQL 8.0服务器](https://www.myfreax.com/create-a-sudo-user-on-centos/)：

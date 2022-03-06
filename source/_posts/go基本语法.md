@@ -1,8 +1,9 @@
 ---
 title: go基本语法
-date: 2019-04-10 10:29:55
 tags:
-- go
+  - go
+abbrlink: f6aebfc8
+date: 2019-04-10 10:29:55
 ---
 
 # 接口

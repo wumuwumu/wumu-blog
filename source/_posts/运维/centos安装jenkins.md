@@ -1,6 +1,7 @@
 ---
 title: centos安装jenkins
-date: 2020-9-28 16:00:00
+abbrlink: ac79c693
+date: 2020-09-28 16:00:00
 ---
 
 # 下载

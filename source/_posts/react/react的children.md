@@ -1,8 +1,9 @@
 ---
 title: react的children
-date: 2019-10-14 20:44:11
 tags:
-- react
+  - react
+abbrlink: 67e8d597
+date: 2019-10-14 20:44:11
 ---
 
 React的核心为组件。你可以像嵌套HTML标签一样嵌套使用这些组件，这使得编写JSX更加容易因为它类似于标记语言。

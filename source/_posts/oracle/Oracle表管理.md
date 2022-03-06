@@ -1,8 +1,9 @@
 ---
 title: Oracle表管理
-date: 2018-12-29 21:45:47
 tags:
-- oracle
+  - oracle
+abbrlink: d8f3fd68
+date: 2018-12-29 21:45:47
 ---
 
 ## 数据类型

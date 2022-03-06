@@ -1,8 +1,9 @@
 ---
 title: Redis面试题
-date: 2021-3-28 18:00:00
 tags:
-- redis
+  - redis
+abbrlink: adbd2430
+date: 2021-03-28 18:00:00
 ---
 
 

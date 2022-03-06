@@ -1,6 +1,7 @@
 ---
 title: Docker或Podman容器内无法解析DNS问题多种解决方案
-date : 2020-10-23 15:00:00
+abbrlink: e16a0684
+date: 2020-10-23 15:00:00
 ---
 
 ## Docker或Podman容器内无法解析DNS问题多种解决方案

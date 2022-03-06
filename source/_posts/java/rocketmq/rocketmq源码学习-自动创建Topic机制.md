@@ -1,9 +1,10 @@
 ---
 title: rocketmq源码学习-自动创建Topic机制
-date: 2022-3-4 23:00:00
 tags:
-- java
-- rocketmq
+  - java
+  - rocketmq
+abbrlink: 31eb0fc8
+date: 2022-03-04 23:00:00
 ---
 
 ## 背景

@@ -1,8 +1,9 @@
 ---
 title: postgresql配置文件
-date: 2019-12-09 16:29:39
 tags:
-- postgresql
+  - postgresql
+abbrlink: 3dcf42bf
+date: 2019-12-09 16:29:39
 ---
 
 # 1、配置文件

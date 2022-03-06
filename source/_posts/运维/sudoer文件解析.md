@@ -1,8 +1,9 @@
 ---
 title: sudoer文件解析
-date: 2020-9-05 21:40:23
 tags:
-- linux
+  - linux
+abbrlink: 15a3d0c6
+date: 2020-09-05 21:40:23
 ---
 
 - sudo的权限控制可以在`/etc/sudoers`文件中查看到。

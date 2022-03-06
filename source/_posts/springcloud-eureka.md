@@ -1,8 +1,9 @@
 ---
 title: springcloud-eureka
-date: 2019-01-06 18:27:25
 tags:
-- spring-cloud
+  - spring-cloud
+abbrlink: 47816c18
+date: 2019-01-06 18:27:25
 ---
 
 # 建立工程

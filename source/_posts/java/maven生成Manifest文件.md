@@ -1,6 +1,7 @@
 ---
 title: maven生成Manifest文件
-date: 2021-1-22 18:00:00
+abbrlink: 39b81cdf
+date: 2021-01-22 18:00:00
 ---
 
 # maven-jar-plugin常用

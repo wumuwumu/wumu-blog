@@ -1,8 +1,9 @@
 ---
 title: mysql连接外网安装
-date: 2019-12-09 15:24:23
 tags:
-- mysql
+  - mysql
+abbrlink: 91583e3e
+date: 2019-12-09 15:24:23
 ---
 
 ## 添加 MySQL YUM 源

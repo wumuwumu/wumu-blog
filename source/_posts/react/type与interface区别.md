@@ -1,9 +1,10 @@
 ---
 title: type与interface区别
-date: 2021-1-3 15:00:00
 tags:
-- react
-- ts
+  - react
+  - ts
+abbrlink: 1e42e0ac
+date: 2021-01-03 15:00:00
 ---
 
 - interface VS type

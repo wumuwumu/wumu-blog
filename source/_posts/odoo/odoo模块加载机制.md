@@ -1,9 +1,10 @@
 ---
 title: odoo模块加载机制
-date: 2019-11-08 20:36:34
 tags:
-- odoo
-- python
+  - odoo
+  - python
+abbrlink: 51a2a1bd
+date: 2019-11-08 20:36:34
 ---
 
 **Odoo的启动通过openerp-server脚本完成，它是系统的入口。**
